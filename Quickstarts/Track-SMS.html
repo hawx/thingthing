@@ -1,44 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
+dir="ltr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>API to Track SMS | Esendex Developers</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Track the status of the SMS messages you've sent using the Esendex REST API." />
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Windows version 5.1.25" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=utf-8" />
+<title>API to Track SMS | Esendex Developers</title>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=utf-8" />
+<meta name="description" content=
+"Track the status of the SMS messages you've sent using the Esendex REST API." />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="Track-SMS.html" />
-<link rel="shortcut icon" href="/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/codefilter/codefilter.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?n" />
-<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?n" />
-		<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/dev-style.css" />
-	<link href="/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
-	<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css"/>
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!--[if IE 7]>
-		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
-	<![endif]-->
-	<!--[if lte IE 6]>
-		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
-	<![endif]-->
-
-	<!--[if IE 9]>
-		<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
-	<![endif]-->
-
-	<!-- javascript moved to the footer -->
-	<!-- Google Analytics Starts -->
+<link rel="shortcut icon" href=
+"/sites/all/themes/EsendexDevelopers/favicon.ico" type=
+"image/x-icon" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/sites/all/modules/codefilter/codefilter.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/modules/aggregator/aggregator.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/modules/node/node.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/modules/system/defaults.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/modules/system/system.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/modules/system/system-menus.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/modules/user/user.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href=
+"/sites/all/modules/cck/theme/content-module.css?n" />
+<link rel="stylesheet" type="text/css" href=
+"/sites/all/themes/EsendexDevelopers/css/style.css" />
+<link rel="stylesheet" type="text/css" href=
+"/sites/all/themes/EsendexDevelopers/css/dev-style.css" />
+<link href="/sites/all/themes/EsendexDevelopers/css/tabify.css"
+rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href=
+"/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href=
+"/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
+<link rel="stylesheet" type="text/css" href=
+"/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css" />
+<meta name="viewport" content=
+"width=device-width, initial-scale=1" /><!--[if IE 7]>
+                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
+        <![endif]-->
+<!--[if lte IE 6]>
+                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
+        <![endif]-->
+<!--[if IE 9]>
+                <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
+        <![endif]-->
+<!-- javascript moved to the footer -->
+<!-- Google Analytics Starts -->
 
 <script type="text/javascript">
+//<![CDATA[
 
 
   var _gaq = _gaq || [];
@@ -60,24 +81,25 @@
   })();
 
 
+//]]>
 </script>
-
 <script type="text/javascript">
+//<![CDATA[
 function trackOutboundLinks()
 {
-	var a = document.getElementsByTagName('a');
+        var a = document.getElementsByTagName('a');
 
-	for(i = 0; i < a.length; i++){
+        for(i = 0; i < a.length; i++){
 
-		if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
-			
-			if(!a[i].onclick){ //check onclick event doesn't already exist
-				a[i].onclick = function(){
-					_gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
-				}
-			}
-		}
-	}
+                if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
+                        
+                        if(!a[i].onclick){ //check onclick event doesn't already exist
+                                a[i].onclick = function(){
+                                        _gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
+                                }
+                        }
+                }
+        }
 }
 
 function trackLink(link, category, action, label) {
@@ -96,85 +118,123 @@ function trackClick(category, action, label) {
     } catch(err) {}
 }
 
+//]]>
+</script><!-- Google Analytics Ends -->
+
+<script type="text/javascript" src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
 </script>
-
-<!-- Google Analytics Ends -->
-
-
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-	<script src="/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8"></script>
-
+<script src=
+"/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type=
+"text/javascript" charset="utf-8">
+</script>
 </head>
-
 <body onload="trackOutboundLinks()">
-	<div id='wrapper'>
-		<div id='bootstrapnav'class="container">
-			<div class="row">
-
-				<a href='../node/714.html' title='Home'><img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' /><div id='dev-title'>Developers</div></a>
-				<a href='https://www.esendex.com/home' id='nav-login'>Login</a>
-				<div id='mobile-menu-opener'></div>
-
-				  <div class="block block-menu" id="block-menu-primary-links">
-    
-    <div class="content"><ul class="menu"><li class="leaf first"><a href="../node/714.html">Home</a></li>
-<li class="expanded active-trail"><a href="Send-SMS.html">Quickstarts</a><ul class="menu"><li class="leaf first"><a href="Send-SMS.html" title="Send a SMS">Send SMS</a></li>
-<li class="leaf"><a href="Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
-<li class="active leaf active-trail"><a href="Track-SMS.html" title="Track SMS" >Track SMS</a></li>
-<li class="leaf last"><a href="Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
-</ul></li>
-<li class="expanded"><a href="../APIs/EsendexAPI/index.html">APIs</a><ul class="menu"><li class="leaf first"><a href="../APIs/EsendexAPI/index.html">REST API</a></li>
-<li class="leaf"><a href="../APIs/SOAP-SMS-API.html" title="SOAP XML SMS API">SOAP API</a></li>
-<li class="leaf"><a href="../APIs/FormPost-API.html" title="HTTP SMS API">FormPost API</a></li>
-<li class="leaf"><a href="../APIs/API-Comparison.html" title="API Comparison">Which API should I use?</a></li>
-<li class="leaf last"><a href="../Documentation/Push-Notifications.html">Push Notifications</a></li>
-</ul></li>
-<li class="expanded"><a href="../SDKs.html" title="SDKs">SDKs</a><ul class="menu"><li class="leaf first"><a href="../SDKs/DotNet-SDK.html" title=".Net Rest SDK">.NET SDK</a></li>
+<div id='wrapper'>
+<div id='bootstrapnav' class="container">
+<div class="row"><a href='../node/714.html' title='Home'><img id=
+'nav-logo' src=
+'/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg'
+width='122px' height='39px' name="nav-logo" /></a>
+<div id='dev-title'>Developers</div>
+<a href='https://www.esendex.com/home' id='nav-login' name=
+"nav-login">Login</a>
+<div id='mobile-menu-opener'></div>
+<div class="block block-menu" id="block-menu-primary-links">
+<div class="content">
+<ul class="menu">
+<li class="leaf first"><a href="../node/714.html">Home</a></li>
+<li class="expanded active-trail"><a href=
+"Send-SMS.html">Quickstarts</a>
+<ul class="menu">
+<li class="leaf first"><a href="Send-SMS.html" title=
+"Send a SMS">Send SMS</a></li>
+<li class="leaf"><a href="Receive-Messages.html" title=
+"Receive Messages">Receive SMS</a></li>
+<li class="active leaf active-trail"><a href="Track-SMS.html"
+title="Track SMS">Track SMS</a></li>
+<li class="leaf last"><a href="Send-Survey.html" title=
+"Send Survey with our API">Send Survey</a></li>
+</ul>
+</li>
+<li class="expanded"><a href=
+"../APIs/EsendexAPI/index.html">APIs</a>
+<ul class="menu">
+<li class="leaf first"><a href="../APIs/EsendexAPI/index.html">REST
+API</a></li>
+<li class="leaf"><a href="../APIs/SOAP-SMS-API.html" title=
+"SOAP XML SMS API">SOAP API</a></li>
+<li class="leaf"><a href="../APIs/FormPost-API.html" title=
+"HTTP SMS API">FormPost API</a></li>
+<li class="leaf"><a href="../APIs/API-Comparison.html" title=
+"API Comparison">Which API should I use?</a></li>
+<li class="leaf last"><a href=
+"../Documentation/Push-Notifications.html">Push
+Notifications</a></li>
+</ul>
+</li>
+<li class="expanded"><a href="../SDKs.html" title="SDKs">SDKs</a>
+<ul class="menu">
+<li class="leaf first"><a href="../SDKs/DotNet-SDK.html" title=
+".Net Rest SDK">.NET SDK</a></li>
 <li class="leaf"><a href="../SDKs/Java-SDK.html">Java SDK</a></li>
-<li class="leaf"><a href="../SDKs/PHP-SDK.html" title="PHP Rest SDK">PHP SDK</a></li>
+<li class="leaf"><a href="../SDKs/PHP-SDK.html" title=
+"PHP Rest SDK">PHP SDK</a></li>
 <li class="leaf"><a href="../SDKs/Ruby-SDK.html">Ruby SDK</a></li>
 <li class="leaf"><a href="../SDKs/Go-SDK.html">Go SDK</a></li>
-<li class="leaf"><a href="../SDKs/Node-SDK.html">Node.js SDK</a></li>
-<li class="divider leaf"><a href="../node/714.html" >divider</a></li>
+<li class="leaf"><a href="../SDKs/Node-SDK.html">Node.js
+SDK</a></li>
+<li class="divider leaf"><a href=
+"../node/714.html">divider</a></li>
 <li class="leaf"><a href="../SDKs/C-SMS-SDK.html">C++ SDK</a></li>
-<li class="leaf"><a href="../SDKs/ActiveX-SMS-SDK.1.html">Classic ASP SDK</a></li>
-<li class="leaf"><a href="../SDKs/Delphi-SMS-SDK.html">Delphi SDK</a></li>
-<li class="leaf"><a href="../SDKs/Perl-SMS-SDK.html">Perl SDK</a></li>
-<li class="leaf last"><a href="../SDKs/Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
-</ul></li>
-<li class="dynamic-active leaf last"><a href="../blog/index.html" >Blog</a></li>
-</ul></div>
- </div>
-
-			</div>
-		</div>
-
-<div id='headerspacer'></div> <!-- delete this and the sky will fall -->
-
+<li class="leaf"><a href="../SDKs/ActiveX-SMS-SDK.1.html">Classic
+ASP SDK</a></li>
+<li class="leaf"><a href="../SDKs/Delphi-SMS-SDK.html">Delphi
+SDK</a></li>
+<li class="leaf"><a href="../SDKs/Perl-SMS-SDK.html">Perl
+SDK</a></li>
+<li class="leaf last"><a href=
+"../SDKs/Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
+</ul>
+</li>
+<li class="dynamic-active leaf last"><a href=
+"../blog/index.html">Blog</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id='headerspacer'></div>
+<!-- delete this and the sky will fall -->
 <div id='three-cols-page'>
-	<div>
-		<div id='dev-content'>
-	<h1 class="title">Track SMS</h1>
-		          <div class="node">
-        
-    
-    
-    <div class="content"><p>This guide shows how to retrieve the current status of an individual Message using the <a href="../APIs/EsendexAPI/index.html" title="REST API">REST API</a>.</p>
+<div>
+<div id='dev-content'>
+<h1 class="title">Track SMS</h1>
+<div class="node">
+<div class="content">
+<p>This guide shows how to retrieve the current status of an
+individual Message using the <a href=
+"../APIs/EsendexAPI/index.html" title="REST API">REST API</a>.</p>
 <h3>Track SMS Code</h3>
 <div class="codeblock">
 <ul id="codeblock-tracksms" class="nav nav-tabs">
-<li><a data-toggle="tab" href="Track-SMS.html#code-csharp-tracksms" id="codetab-csharp-tracksms">C#</a></li>
-<li><a data-toggle="tab" href="Track-SMS.html#code-php-tracksms" id="codetab-php-tracksms">PHP</a></li>
+<li><a data-toggle="tab" href="Track-SMS.html#code-csharp-tracksms"
+id="codetab-csharp-tracksms" name=
+"codetab-csharp-tracksms">C#</a></li>
+<li><a data-toggle="tab" href="Track-SMS.html#code-php-tracksms"
+id="codetab-php-tracksms" name="codetab-php-tracksms">PHP</a></li>
 </ul>
 <div class="tab-content">
 <div id="code-csharp-tracksms" class="tab-pane active">
-<pre class="prettyprint lang-csh">//This example uses the Esendex C# SDK available to download from CodePlex
+<pre class="prettyprint lang-csh">
+//This example uses the Esendex C# SDK available to download from CodePlex
 var loginCredentials = new EsendexCredentials("esendexusername", "esendexpassword");
 var sentMessageService = new com.esendex.sdk.sent.SentService(credentials);
 var message = test.GetMessage(new Guid('esendexmessageid'));
 Console.WriteLine(message.Status);</pre></div>
 <div id="code-php-tracksms" class="tab-pane">
-<pre class="prettyprint lang-csh">//This example uses the Esendex PHP SDK available from Composer/PEAR/GitHub
+<pre class="prettyprint lang-csh">
+//This example uses the Esendex PHP SDK available from Composer/PEAR/GitHub
 $authentication = new \Esendex\Authentication\LoginAuthentication(
     "EX000000", // Your Esendex Account Reference
     "user@example.com", // Your login email address
@@ -187,16 +247,19 @@ print_r($message-&gt;status());</pre></div>
 </div>
 <h3>You will need:</h3>
 <ul>
-<li>Your Esendex Account Reference (EX0xxxxxx), username and password
+<li>Your Esendex Account Reference (EX0xxxxxx), username and
+password
 <ul>
-<li><strong>Don't have an Account yet?</strong> You'll need to <a href="../create-an-account.html">create an Account</a></li>
+<li><strong>Don't have an Account yet?</strong> You'll need to
+<a href="../create-an-account.html">create an Account</a></li>
 </ul>
 </li>
 <li>The ID of the Message you wish to track</li>
 </ul>
 <h3>What you might want to do with the response</h3>
 <ul>
-<li>Save the response against the action that triggered your system to send a Message</li>
+<li>Save the response against the action that triggered your system
+to send a Message</li>
 </ul>
 <h3>What else you might want to do</h3>
 <ul>
@@ -204,88 +267,114 @@ print_r($message-&gt;status());</pre></div>
 </ul>
 <h3>What you might want to do next</h3>
 <ul>
-<li>Repeat this call again later if the Message hasn’t been delivered.</li>
+<li>Repeat this call again later if the Message hasn’t been
+delivered.</li>
 <li>Check for a reply to your Message</li>
 </ul>
 </div>
-      </div>
-		</div>
-	<div id='right-col'>
-
-		   <div class="block block-block" id="block-block-37">
-    
-    <div class="content"><a href='../create-an-account.html' id='CreateAccountButton' title='Create an account'>Create an account</a></div>
- </div>
-  <div class="block block-block" id="block-block-66">
-    
-    <div class="content"><div>
-	<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
-</div></div>
- </div>
-  <div class="block block-block" id="block-block-76">
-    
-    <div class="content"><p><img src="../upload/testimonials/testimonials_06.jpg" alt="" /></p>
 </div>
- </div>
- 
-	</div>
-	<div class='clear'></div>
-	</div>
 </div>
-</div><!-- close wrapper -->
-
+<div id='right-col'>
+<div class="block block-block" id="block-block-37">
+<div class="content"><a href='../create-an-account.html' id=
+'CreateAccountButton' title='Create an account' name=
+"CreateAccountButton">Create an account</a></div>
+</div>
+<div class="block block-block" id="block-block-66">
+<div class="content">
+<div>
+<p><a class="needahand" href=
+"http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+</div>
+</div>
+</div>
+<div class="block block-block" id="block-block-76">
+<div class="content">
+<p><img src="../upload/testimonials/testimonials_06.jpg" alt=
+"" /></p>
+</div>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+</div>
+</div>
+<!-- close wrapper -->
 <div id='footerbg'>
-	<div id='footer'>
-            <div id='visit'><a href='http://www.esendex.com/'>Visit our commercial site</a></div>
-
-		<ul id='footerlinks'>
-			<li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
-			<li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
-			<li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
-			<li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
-			<li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
-			<li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
-		</ul>
-		<div id='copyright'>Esendex Limited 2016<br/>Registered company number: 04217280<br/>UK</div>
-            
-	</div>
+<div id='footer'>
+<div id='visit'><a href='http://www.esendex.com/'>Visit our
+commercial site</a></div>
+<ul id='footerlinks'>
+<li class='first'><a href=
+'http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and
+conditions</a></li>
+<li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms
+of use</a></li>
+<li><a href=
+'http://www.esendex.co.uk/reference/security'>Security</a></li>
+<li><a href=
+'http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
+<li><a href=
+'http://www.esendex.co.uk/reference/data-protection'>Data
+protection</a></li>
+<li class='last'><a href='http://www.esendex.co.uk/sla'>Service
+level agreement</a></li>
+</ul>
+<div id='copyright'>Esendex Limited 2016<br />
+Registered company number: 04217280<br />
+UK</div>
 </div>
-
-
-<script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
-<script src="/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
-<script src="/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8"></script>
-<script src="/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
-<script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8"></script>
-
-<script src="/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8"></script>
-<script src="/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8"></script>
-
+</div>
+<script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js"
+type="text/javascript" charset="utf-8">
+</script> 
+<script src=
+"/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js"
+type="text/javascript" charset="utf-8">
+</script> 
+<script src=
+"/sites/all/themes/EsendexDevelopers/js/placeholders.js" type=
+"text/javascript" charset="utf-8">
+</script> 
+<script src=
+"/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type=
+"text/javascript" charset="utf-8">
+</script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js"
+type="text/javascript" charset="utf-8">
+</script> 
+<script src=
+"/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type=
+"text/javascript" charset="utf-8">
+</script> 
+<script src=
+"/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type=
+"text/javascript" charset="utf-8">
+</script> 
 <script type="text/javascript">
 document.documentElement.className += " js"
 /* <![CDATA[ */
-	$(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
+        $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
 /* ]]> */
-</script>
-
-<!--mobile nav-->
+</script> <!--mobile nav-->
 <script type="text/javascript">
-	(function() {
-		var menu = document.getElementById("block-menu-primary-links");
-		var isOpen = menu.style.display=="block";
+//<![CDATA[
+        (function() {
+                var menu = document.getElementById("block-menu-primary-links");
+                var isOpen = menu.style.display=="block";
 
-		document.getElementById("mobile-menu-opener").addEventListener("click",function() {
-			if(isOpen) {
-				menu.style.display = "";
-				isOpen = false;
-			} else {
-				menu.style.display = "block";
-				isOpen = true;
-			}
-		});
-	})();
-</script>
-<!-- remarketing -->
+                document.getElementById("mobile-menu-opener").addEventListener("click",function() {
+                        if(isOpen) {
+                                menu.style.display = "";
+                                isOpen = false;
+                        } else {
+                                menu.style.display = "block";
+                                isOpen = true;
+                        }
+                });
+        })();
+//]]>
+</script> <!-- remarketing -->
 <!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -296,14 +385,13 @@ var google_conversion_color = "666666";
 var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
 var google_conversion_value = 0;
 /* ]]> */
-</script>
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;" id="remarketing">
-<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"/>
-</div>
+</script> 
+<script type="text/javascript" src=
+"http://www.googleadservices.com/pagead/conversion.js">
+</script> <noscript>
+<div style="display:inline;" id="remarketing"><img height="1"
+width="1" style="border-style:none;" alt="" src=
+"http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0" /></div>
 </noscript>
-
 </body>
 </html>
