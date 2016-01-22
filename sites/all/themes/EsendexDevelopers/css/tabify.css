@@ -1,0 +1,6 @@
+#dev-content .codeblock .menu, .codeblock .menu { padding: 0; clear: both; list-style: none outside none; }
+#dev-content .codeblock .menu li, .codeblock .menu li { display: inline; background-image: none; }
+.codeblock .menu li a { background: #ccf; padding: 10px; float:left; border-right: 1px solid #ccf; border-bottom: none; text-decoration: none; color: #000; font-weight: bold;}
+.codeblock .menu li.active a { background: #eef; }
+.codeblock .content { float: left; clear: both; border: 1px solid #ccf; border-top: none; border-left: none; background: #eef; padding: 10px 20px 20px; width: 400px; }
+		
