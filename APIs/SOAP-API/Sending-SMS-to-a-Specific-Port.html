@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Sending SMS to a Specific Port - Esendex Dev</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Esendex offer the capability to send SMS messages to a specific port on a handset. Find out more about this option here!" />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="Sending-SMS-to-a-Specific-Port.html" />
+<link rel="shortcut icon" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon" />
+	<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/sites/all/modules/codefilter/codefilter.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/aggregator/aggregator.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/node/node.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/defaults.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/system.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/system-menus.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/user/user.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/sites/all/modules/cck/theme/content-module.css?n" />
+		<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/style.css?v=1.8" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/dev-style.css?v=1.8" />
+	<link href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
+	<![endif]-->
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!--[if IE 9]>
+		<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
+	<![endif]-->
+
+	<!-- javascript moved to the footer -->
+	<!-- Google Analytics Starts -->
+
+<script type="text/javascript">
+
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-30969528-1']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+
+    var ga = document.createElement('script');
+
+    ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+</script>
+
+<script type="text/javascript">
+function trackOutboundLinks()
+{
+	var a = document.getElementsByTagName('a');
+
+	for(i = 0; i < a.length; i++){
+
+		if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
+			
+			if(!a[i].onclick){ //check onclick event doesn't already exist
+				a[i].onclick = function(){
+					_gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
+				}
+			}
+		}
+	}
+}
+
+function trackLink(link, category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+     
+    setTimeout(function () {
+        document.location.href = link.href;
+    }, 100);
+}
+
+function trackClick(category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+}
+
+</script>
+
+<!-- Google Analytics Ends -->
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+	<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body onload="trackOutboundLinks()">
+	<div id='wrapper'>
+		<div id='bootstrapnav'class="container">
+			<div class="row">
+
+				<a href='../../node/714.html' title='Home'><img id='nav-logo' src='http://developers.esendex.com/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' /><div id='dev-title'>Developers</div></a>
+				<a href='https://www.esendex.com/home' id='nav-login'>Login</a>
+				<div id='mobile-menu-opener'></div>
+
+				  <div class="block block-menu" id="block-menu-primary-links">
+    
+    <div class="content"><ul class="menu"><li class="leaf first"><a href="../../node/714.html">Home</a></li>
+<li class="expanded"><a href="../../Quickstarts/Send-SMS.html">Quickstarts</a><ul class="menu"><li class="leaf first"><a href="../../Quickstarts/Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+<li class="leaf"><a href="../../Quickstarts/Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+<li class="leaf"><a href="../../Quickstarts/Track-SMS.html" title="Track SMS">Track SMS</a></li>
+<li class="leaf last"><a href="../../Quickstarts/Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
+</ul></li>
+<li class="expanded"><a href="../EsendexAPI/index.html">APIs</a><ul class="menu"><li class="leaf first"><a href="../EsendexAPI/index.html">REST API</a></li>
+<li class="leaf"><a href="../SOAP-SMS-API.html" title="SOAP XML SMS API">SOAP API</a></li>
+<li class="leaf"><a href="../FormPost-API.html" title="HTTP SMS API">FormPost API</a></li>
+<li class="leaf"><a href="../API-Comparison.html" title="API Comparison">Which API should I use?</a></li>
+<li class="leaf last"><a href="../../Documentation/Push-Notifications.html">Push Notifications</a></li>
+</ul></li>
+<li class="expanded"><a href="../../SDKs.html" title="SDKs">SDKs</a><ul class="menu"><li class="leaf first"><a href="../../SDKs/DotNet-SDK.html" title=".Net Rest SDK">.NET SDK</a></li>
+<li class="leaf"><a href="../../SDKs/Java-SDK.html">Java SDK</a></li>
+<li class="leaf"><a href="../../SDKs/PHP-SDK.html" title="PHP Rest SDK">PHP SDK</a></li>
+<li class="leaf"><a href="../../SDKs/Ruby-SDK.html">Ruby SDK</a></li>
+<li class="leaf"><a href="../../SDKs/Go-SDK.html">Go SDK</a></li>
+<li class="leaf"><a href="../../SDKs/Node-SDK.html">Node.js SDK</a></li>
+<li class="divider leaf"><a href="../../node/714.html" >divider</a></li>
+<li class="leaf"><a href="../../SDKs/C-SMS-SDK.html">C++ SDK</a></li>
+<li class="leaf"><a href="../../SDKs/ActiveX-SMS-SDK.1.html">Classic ASP SDK</a></li>
+<li class="leaf"><a href="../../SDKs/Delphi-SMS-SDK.html">Delphi SDK</a></li>
+<li class="leaf"><a href="../../SDKs/Perl-SMS-SDK.html">Perl SDK</a></li>
+<li class="leaf last"><a href="../../SDKs/Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
+</ul></li>
+<li class="dynamic-active leaf last"><a href="../../blog/index.html" >Blog</a></li>
+</ul></div>
+ </div>
+
+			</div>
+		</div>
+
+<div id='headerspacer'></div> <!-- delete this and the sky will fall -->
+
+<div id='three-cols-page'>
+	<div>
+		<div id='dev-content'>
+	<h1 class="title">Sending SMS to a Specific Port</h1>
+		          <div class="node">
+        
+    
+    
+    <div class="content"><p>Recently we seem to be getting more and more support cases raised asking if we support sending an SMS text message to a specific port on a handset.&nbsp; The short answer to this is yes, but it is considered to be an advanced subject that most users won't need to do and is very much a manual process.&nbsp; So if you're willing to roll up your sleeves and dive into this, then please read on, but expect a little preamble before we get to the bones of it.&nbsp; Also, I'm assuming you know how to consume a Web Service, or make HTTP post calls to a web page.</p>
+<p><strong>Please note that this is not supported on the REST API.</strong></p>
+<p><strong>A Brief Introduction to SMPP and PDUs</strong></p>
+<p>Most of our connections to network operators are through the SMPP protocol (see <a href="http://www.smsforum.net/">smsforum.net</a> for downloads of the specification).&nbsp; To send an SMS to a specific port requires at least a rudimentary grasp of the concepts involved in this protocol, particularly the SubmitSM protocol data unit (or PDU).&nbsp; In the loosest possible terms SMPP works using request and response PDUs.&nbsp; In order to send a message, we send a SubmitSM PDU to the operator, who then sends back a response PDU to say they have accepted it.</p>
+<p>A SubmitSM PDU contains everything the operator requires to send one text message: the originator and destination mobile numbers (in the source and destination address parameters), the message text to send (in the user data section), and a number of other parameters that we need to set in order to describe the content of the message.</p>
+<p>The two most important of these other parameters are the data coding scheme, and the ESM class.&nbsp; The data coding scheme (or DCS) is used to describe how the bytes in the user data section of the PDU are encoded.&nbsp; The ESM class describes special attributes that are applied to the message (more on this later).</p>
+<p>Importantly, <strong>there are no parameters in a SubmitSM PDU that directly take the source and destination ports</strong> of the application on the handset to send the message to.</p>
+<p>So how do we specify port values in the PDU if there are no parameters for them?&nbsp; We place a header on the user data section.</p>
+<p><strong>Introduction to User Data Headers (UDH)</strong></p>
+<p>A UDH is a series of bytes within the user data section of a SubmitSM PDU.&nbsp; A standard text message does not have a UDH, so is treated like a normal text message on the phone and is delivered to the standard message inbox.&nbsp; A UDH can contain port and concatenation information, which tells the handset where to send the message, and if there are any further parts of the message it needs to wait for.</p>
+<p>We only need to know about the port information in the UDH for the purposes of this example.</p>
+<p>Here is a stream of bytes (hex encoded) that would be in the user data section of the PDU for a WAP Push message (as a WAP Push message needs to contain port information):</p>
+<p><code>0605040B8423F025060A03AE81EAAF828DADB48401056A0045C60C0364657670726F6A32302E626C6F6773706F742 E636F6D2F000801034D7920426C6F67000101 </code></p>
+<p>The header of this message is this:</p>
+<p><code>0605040B8423F0 </code></p>
+<p>The first three bytes here (060504) describe various lengths within the header.&nbsp; The port information is contained within the next four bytes (0B8423F0).&nbsp; So in summary the entire message can be broken down as:</p>
+<p>060504: Length indicators<br />0B84: Destination port (2948)&nbsp;<br />23F0: Originator port (9200)<br />25060.... : the actual message bytes describing the URL and a piece of text.</p>
+<p>Therefore, a WAP Push message is a series of bytes with a UDH that specifies destination port 2948, and source port 9200.&nbsp; But as headers are optional on a user data section, how does the phone know if one is present?&nbsp; We indicate this in the ESM class parameter of the PDU.</p>
+<p><strong>UDH Indicator and Data Coding</strong></p>
+<p>The ESM class parameter plays a very powerful role in how the message is interpreted and displayed on the phone, and it's just one byte.&nbsp; Combinations of individual bits within this byte indicate different requirements, but the one we're interested in is the UDH Indicator.&nbsp; If you set these bits (and don't need any others set) the value of the ESM class byte is 64 (0x40), and this indicates that a UDH is present in the user data section.</p>
+<p>The DCS parameter comes into play here by indicating how the bytes after the header (if one is present) are to be decoded.&nbsp; In a normal message with no header this parameter is set to 0, which indicates the default alphabet used by the operator.&nbsp; In a Wap Push message this is set to 4 to indicate 8-bit binary.</p>
+<p><strong>So how do I send a message to a port?</strong></p>
+<p>Now you're familiar with the concepts, I'll finally get around to telling you what you're reading this post for.&nbsp; We expose an Advanced Send Service as a&nbsp;<a href="http://www.esendex.com/secure/messenger/soap/AdvancedSendService.asmx">SOAP Service</a>, and via&nbsp;<a href="http://www.esendex.com/secure/messenger/formpost/SendAdvancedSMS.aspx">FormPost</a>.&nbsp; If you take a look at one of these you will see ESMClass and DataCodingScheme parameters (see, I told you they were important, so if you've just skipped to here and don't know what I'm talking about, go back and read everything).</p>
+<p>Let's have an example.&nbsp; Say you need to send a text message "ab"(without the quotes) to port 5000 (for actual port values you'll have to consult the documentation for the application you are sending to).&nbsp;</p>
+<p><em>1. Construct the header</em></p>
+<p>You'll need to construct the header and encode the text onto the end of it.</p>
+<p>For this example the header will be:</p>
+<p><code>06050413880000 </code></p>
+<p>Because:</p>
+<p>060504: Length indicators<br />1388: Destination port (5000)<br />0000: Originator port (zero it if you don't need a specific one)</p>
+<p><em>2. Encode your text</em></p>
+<p>Encode your text to ASCII and append to the header.&nbsp; The text "ab" is 0x6162, so your full message with header is:</p>
+<p><code>060504138800006162 </code></p>
+<p><em>3. Submit the message</em></p>
+<p>In this case the value for the ESMClass parameter will be 64, and the DataCodingScheme should be set to 0.&nbsp; Put the string <em>060504138800006162</em> as the body parameter, enter values for the rest of the parameters (originator, destination, etc.) and submit.</p>
+<p>And that's it.&nbsp; As long as your header is correct and you've encoded the text correctly you should have the message delivered to the application on the phone that needs it.</p>
+<p><strong>Important Notes</strong></p>
+<p>Some things to be aware of when submitting messages like this</p>
+<ul>
+<li>Commonly, if the handset you are sending to cannot interpret the message you're sending it will just do nothing.&nbsp; You will get a delivery receipt for the message saying it has been delivered to the handset, but you will see nothing on the screen.&nbsp; This makes debugging very difficult.</li>
+<li>The body parameter (in this case) needs to be a hex encoded string of the bytes you wish to send.&nbsp; This means 2 hex characters per byte.&nbsp; i.e. 0xA should be sent as <em>0A</em> not just <em>A</em>.</li>
+<li>The values for the ESMClass and DCS should be decimal numbers</li>
+<li>With regards to character encoding, we have received scattered reports of some non-alphanumeric characters not being displayed correctly, but we haven't had been able to narrow down the cause of this.&nbsp; If you experience encoding problems please&nbsp;email <a href="mailto:support@esendex.com">support@esendex.com</a>.</li>
+</ul>
+</div>
+      </div>
+		</div>
+	<div id='right-col'>
+
+		   <div class="block block-block" id="block-block-37">
+    
+    <div class="content"><a href='../../create-an-account.html' id='CreateAccountButton' title='Create an account'>Create an account</a></div>
+ </div>
+  <div class="block block-block" id="block-block-66">
+    
+    <div class="content"><div>
+	<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+</div></div>
+ </div>
+ 
+	</div>
+	<div class='clear'></div>
+	</div>
+</div>
+</div><!-- close wrapper -->
+
+<div id='footerbg'>
+	<div id='footer'>
+            <div id='visit'><a href='http://www.esendex.com/'>Visit our commercial site</a></div>
+
+		<ul id='footerlinks'>
+			<li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
+			<li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
+		</ul>
+		<div id='copyright'>Esendex Limited 2016<br/>Registered company number: 04217280<br/>UK</div>
+            
+	</div>
+</div>
+
+
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+document.documentElement.className += " js"
+/* <![CDATA[ */
+	$(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
+/* ]]> */
+</script>
+
+<!--mobile nav-->
+<script type="text/javascript">
+	(function() {
+		var menu = document.getElementById("block-menu-primary-links");
+		var isOpen = menu.style.display=="block";
+
+		document.getElementById("mobile-menu-opener").addEventListener("click",function() {
+			if(isOpen) {
+				menu.style.display = "";
+				isOpen = false;
+			} else {
+				menu.style.display = "block";
+				isOpen = true;
+			}
+		});
+	})();
+</script>
+<!-- remarketing -->
+<!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1066303896;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;" id="remarketing">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Esendex Development Blog</title>
+	<atom:link href="http://developers.esendex.com/blog/feed/" rel="self" type="application/rss+xml" />
+	<link>http://developers.esendex.com/blog</link>
+	<description>Latest news and interesting articles from the Esendex development team</description>
+	<lastBuildDate>Mon, 02 Feb 2015 09:02:04 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.1</generator>
+	<item>
+		<title>Queueing with RabbitMQ Part 2 &#8211; How AMQP &#038; RabbitMQ work</title>
+		<link>http://developers.esendex.com/blog/queueing-with-rabbitmq-part-2-how-amqp-rabbitmq-work/</link>
+		<comments>http://developers.esendex.com/blog/queueing-with-rabbitmq-part-2-how-amqp-rabbitmq-work/#respond</comments>
+		<pubDate>Mon, 09 Jun 2014 09:00:44 +0000</pubDate>
+		<dc:creator><![CDATA[Andrew Seward]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Esendex developers]]></category>
+		<category><![CDATA[practices]]></category>
+		<category><![CDATA[Queueing]]></category>
+		<category><![CDATA[RabbitMQ]]></category>
+		<category><![CDATA[software]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5798</guid>
+		<description><![CDATA[As detailed in our previous blog post on queueing, the Advanced Message Queuing Protocol(AMQP) is a standardised interface that our technology of choice of which RabbitMQ is one implementation. Here we will discuss some of the key concepts and features of RabbitMQ that we have found useful at Esendex. Key Concepts AMQP has a number of [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>As detailed in our <a title="Queueing with RabbitMQ Part 1" href="http://developers.esendex.com/blog/queueing-with-rabbitmq-part-1/" target="_blank">previous blog post on queueing</a>, the Advanced Message Queuing Protocol(AMQP) is a standardised interface that our technology of choice of which RabbitMQ is one implementation. Here we will discuss some of the key concepts and features of RabbitMQ that we have found useful at Esendex.</p>
+<h3>Key Concepts</h3>
+<p>AMQP has a number of elements that intrinsic to its design, which include:</p>
+<ul>
+<li><strong>Client</strong> &#8211; This is hosted within your software and communicate with a broker in order to achieve tasks such as sending a message or receiving a messages.</li>
+<li><strong>Publisher</strong> &#8211; This is the name for the parts of your software sending messages to the queue.</li>
+<li><strong>Consumer</strong> &#8211; This is the name for the parts of your software receiving messages from the queue.</li>
+<li><strong>Broker</strong> &#8211; A service which operates exchanges and queues and manages connections, this covers the bulk of RabbitMQ’s behaviour.</li>
+<li><strong>Exchange</strong> &#8211; This is a part of the broker and its job is to route the message to a queue, there are different types of exchange which will behave differently according to how you would like your queues to behave.</li>
+<li><strong>Queues</strong> &#8211; The storage mechanism for messages, these can exist in memory or on disk. They can receive messages from multiple exchanges and can be accessed by multiple consumers.</li>
+</ul>
+<p><img class="aligncenter size-full wp-image-5799" alt="Rabbit MQ Diagram" src="http://developers.esendex.com/blog/wp-content/uploads/2014/06/RabbitMQDiagram.png" width="520" height="109" /></p>
+<p>An important thing to remember when working with RabbitMQ is that publishing a message to a broker does not mean that the message will be directly published to a queue like some queueing technologies. Instead, when a message is pushed to a broker it is published to an exchange. It is a Publisher’s job to decide which exchange it would like to send messages to, just as it is a Consumer’s job to decide which queues to read from.</p>
+<p>Publishers should only care about exchanges and Consumers should only care about queues. This, coupled with the fact that routing messages is handled by the exchange, means that Publishers and Consumers do not depend on each other.</p>
+<h3>Exchange Types</h3>
+<p>Here are some of the basic, but commonly useful exchange types</p>
+<ul>
+<li><strong>Direct Exchange</strong> &#8211; The more traditional queueing scenario this exchange will route a copy of each message it receives to all queues bound to it.</li>
+<li><strong>Topic Exchange</strong> &#8211; In this case, messages are routed to queues based on a routing key</li>
+<li><strong>Fanout Exchange</strong> &#8211; Messages are routed to each of the bound queues in turn, according to a Round Robin pattern.</li>
+</ul>
+<p>You can implement your own client capable of acting as a Publisher or Consumer by using one of the numerous SDKs, there will most likely be one available in your language of your choice.</p>
+<p>There are more queueing configurations available than we cover here, if you are interested in finding out more about how these entities can interact to produce a messaging pattern that is useful to you then head over to the <a title="AMQP Concepts - RabbitMQ" href="https://www.rabbitmq.com/tutorials/amqp-concepts.html" target="_blank">AMQP Concepts</a> page on RabbitMQ’s official site.</p>
+<p>To find out more about RabbitMQ see other blog posts in this series or visit the <a title="RabbitMQ Home" href="https://www.rabbitmq.com" target="_blank">RabbitMQ website</a> and <a title="RabbitMQ Blog" href="https://www.rabbitmq.com/blog/" target="_blank">development blog</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/queueing-with-rabbitmq-part-2-how-amqp-rabbitmq-work/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Queueing with RabbitMQ (Part 1)</title>
+		<link>http://developers.esendex.com/blog/queueing-with-rabbitmq-part-1/</link>
+		<comments>http://developers.esendex.com/blog/queueing-with-rabbitmq-part-1/#comments</comments>
+		<pubDate>Tue, 03 Jun 2014 14:01:11 +0000</pubDate>
+		<dc:creator><![CDATA[Andrew Seward]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Practices]]></category>
+		<category><![CDATA[Esendex]]></category>
+		<category><![CDATA[Esendex developers]]></category>
+		<category><![CDATA[Message queueing]]></category>
+		<category><![CDATA[Queueing]]></category>
+		<category><![CDATA[RabbitMQ]]></category>
+		<category><![CDATA[software]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5795</guid>
+		<description><![CDATA[Queueing systems are an excellent way to communicate between applications in a loosely coupled and robust way, they are key within many integration patterns commonly found in distributed systems. This helps you separate the concerns of a system and is capable of running on entirely separate hardware whilst still being a part of that system. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="alignright size-medium wp-image-5796" alt="RabbitMQ" src="http://developers.esendex.com/blog/wp-content/uploads/2014/06/RabbitMQ.sh-600x600-300x300.png" width="300" height="300" srcset="http://developers.esendex.com/blog/wp-content/uploads/2014/06/RabbitMQ.sh-600x600-150x150.png 150w, http://developers.esendex.com/blog/wp-content/uploads/2014/06/RabbitMQ.sh-600x600-300x300.png 300w, http://developers.esendex.com/blog/wp-content/uploads/2014/06/RabbitMQ.sh-600x600.png 600w" sizes="(max-width: 300px) 100vw, 300px" />Queueing systems are an excellent way to communicate between applications in a loosely coupled and robust way, they are key within many integration patterns commonly found in distributed systems. This helps you separate the concerns of a system and is capable of running on entirely separate hardware whilst still being a part of that system.</p>
+<p>Queueing requests before they reach a service provides a mechanism for asynchronous message passing and often allows for more requests to be accepted. This kind of message passing is a core concept in many best practices and features in modern software movements such as The Reactive Manifesto (<a title="Reactive Manifesto" href="http://www.reactivemanifesto.org/" target="_blank">http://www.reactivemanifesto.org</a>).</p>
+<p>In a simple system the queue can act as a buffer in front of a service and a way of regulating the flow of input into a service. In a more complex system it may also be a way to assign certain requests to consumers based on specified criteria. In the case of global systems, a common use would be to route requests to services based on their physical location in order to reduce latency experienced by the customer.</p>
+<p>Here at Esendex we have tested, considered and used many different messaging technologies and have arrived at RabbitMQ to enable greater separation within our messaging system. RabbitMQ is a popular open source messaging system developed by Pivotal, it is an implementation of the open standard for messaging middleware, AMQP (Advanced Message Queuing Protocol).</p>
+<p>Reliability is one of the most critical challenges that we face at Esendex and our customers also have high expectations of the responsiveness of our reporting and so high availability and performance of our queuing implementations is critical. RabbitMQ offers many features that provide us with a highly robust system that is superior to its competitors.</p>
+<p>In the rest of this series of posts we will explore queuing and the features of RabbitMQ that Esendex find most useful.</p>
+<p>To find out more about RabbitMQ see their <a title="RabbitMQ" href="http://www.rabbitmq.com/" target="_blank">website</a> and <a title="RabbitMQ Blog" href="http://www.rabbitmq.com/blog/" target="_blank">development blog</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/queueing-with-rabbitmq-part-1/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Establishing a culture of Pairing</title>
+		<link>http://developers.esendex.com/blog/establishing-a-culture-of-pairing/</link>
+		<comments>http://developers.esendex.com/blog/establishing-a-culture-of-pairing/#respond</comments>
+		<pubDate>Fri, 29 Nov 2013 10:16:58 +0000</pubDate>
+		<dc:creator><![CDATA[Andrew Seward]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Practices]]></category>
+		<category><![CDATA[Esendex]]></category>
+		<category><![CDATA[Esendex developers]]></category>
+		<category><![CDATA[pair programming]]></category>
+		<category><![CDATA[pairing]]></category>
+		<category><![CDATA[practices]]></category>
+		<category><![CDATA[software]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5781</guid>
+		<description><![CDATA[Last week we discussed how pairing can be introduced to a developer or a team of developers. This week, in our final post in the series, we discuss how experience and culture play a key role in effective pair programming. Pairing is a skill A team that pairs effectively does so by utilising pairing skills [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Last week we discussed <a title="Introducing Pairing to developers and teams" href="http://developers.esendex.com/blog/introducing-pairing-to-developers-and-teams/">how pairing can be introduced to a developer or a team of developers</a>. This week, in our final post in the series, we discuss how experience and culture play a key role in effective pair programming.</p>
+<h2>Pairing is a skill<a href="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-2.jpg"><img class="alignright size-medium wp-image-5783" alt="Pairing at Esendex" src="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-2-300x200.jpg" width="300" height="200" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-2-300x200.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-2.jpg 648w" sizes="(max-width: 300px) 100vw, 300px" /></a></h2>
+<p>A team that pairs effectively does so by utilising pairing skills they have learned within a workplace culture that is set up to support pairing as a practice.</p>
+<p>The key point to remember here is that pairing is a skill that you learn and improve like any other. As you work in a pairing environment, you acquire the skills to pair more effectively. This is a big part of the reason many developers find pairing difficult at first.</p>
+<p>Stick at it and you will learn how to deal with different personalities (also a useful life skill), how to work in a way that supports healthy pairing behaviours (such as <a href="http://c2.com/cgi/wiki?PairProgrammingPingPongPattern">ping-ponging</a>) and how to efficiently articulate your intentions and ideas.</p>
+<p>Development of a team’s pairing skills can be encouraged using discussion, retrospectives and coding practice alongside any other professional development you would normally do.</p>
+<p>Every week the Esendex dev team holds a <a href="http://codingdojo.org/cgi-bin/wiki.pl?WhatIsCodingDojo">coding dojo</a>, and we have used these as an opportunity to play with our pairing arrangements. Past examples have involved pairing developers with others they wouldn’t ordinarily work with, <a href="http://dojo.wikidot.com/randori">randori sessions</a>, or rotating pairs in rapid succession.</p>
+<h2>A culture that supports pairing</h2>
+<p>The most valuable asset one has in supporting an effective pairing arrangement is the culture in which the team operates. It is very important to establish a culture of mutual respect, wherein team members are not judgemental, but are able to question and challenge one another’s preconceived ways of working. There is little value in pairing with someone who is not comfortable questioning and challenging the things you do and the assumptions you have made.</p>
+<p><a href="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-1.jpg"><img class="alignleft size-medium wp-image-5782" alt="Pairing at Esendex" src="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-1-300x200.jpg" width="300" height="200" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-1-300x200.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair3-1.jpg 679w" sizes="(max-width: 300px) 100vw, 300px" /></a>As a group, the development team must agree that it is okay to question and challenge one another. Should there be an issue with a pairing arrangement (perhaps because someone is not communicating well, or is hogging the keyboard, or even just needs a break) that it is absolutely okay to say “this isn’t working”, and address the issue (tea helps here).</p>
+<p>We have found it helpful to make that agreement explicit within the team, ensuring that all new members are aware of that agreement and also agree to it themselves.</p>
+<p>What techniques have you found help you pair effectively? <a href="https://twitter.com/esendexdev">Let us know</a> &#8212; we are always looking for ways to improve.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/establishing-a-culture-of-pairing/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Introducing Pairing to developers and teams</title>
+		<link>http://developers.esendex.com/blog/introducing-pairing-to-developers-and-teams/</link>
+		<comments>http://developers.esendex.com/blog/introducing-pairing-to-developers-and-teams/#respond</comments>
+		<pubDate>Tue, 12 Nov 2013 14:08:13 +0000</pubDate>
+		<dc:creator><![CDATA[Andrew Seward]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Practices]]></category>
+		<category><![CDATA[Esendex]]></category>
+		<category><![CDATA[Esendex developers]]></category>
+		<category><![CDATA[pair programming]]></category>
+		<category><![CDATA[pairing]]></category>
+		<category><![CDATA[practices]]></category>
+		<category><![CDATA[software]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5742</guid>
+		<description><![CDATA[Last week we discussed why we love pair programming at Esendex, this week in our blog series on Pair Programming we’ll discuss how pairing can be introduced to a developer or a team of developers. &#160; Pairing can be intimidating Introducing pairing is challenging. The very idea of pairing &#8211; having someone sitting next to you, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Last week we discussed <a href="http://developers.esendex.com/blog/pair-programming-at-esendex/">why we love pair programming at Esendex</a>, this week in our blog series on Pair Programming we’ll discuss how pairing can be introduced to a developer or a team of developers.</p>
+<p>&nbsp;</p>
+<h3>Pairing can be intimidating</h3>
+<p>Introducing pairing is challenging. The very idea of pairing &#8211; having someone sitting next to you, scrutinising your choices &#8211; can be intimidating to a lot of developers. This is completely understandable.</p>
+<p>The answer to this is simply to ask them to be open-minded, and give it a try. Once they&#8217;ve paired for a day or two and found their feet with it, they will see that the pairing arrangement is about working together to create better code, not criticizing each other’s abilities.</p>
+<p><img class="alignright size-medium wp-image-5745" style="border: 1px;" title="A couple of mugs who've agreed to try pair programming" alt="Pairing at Esendex" src="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair_02-300x200.jpg" width="300" height="200" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair_02-300x200.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair_02.jpg 648w" sizes="(max-width: 300px) 100vw, 300px" /></p>
+<p>&nbsp;</p>
+<h3>First steps</h3>
+<p>Be open with your team about what you’re trying to achieve by introducing pairing, talk about its benefits and present it as what it is, an opportunity to learn from one another and write better code. Have a frank and open discussion, allowing people’s concerns to be aired and discussed.</p>
+<p>Ideally you have people in your team with experience of pairing, they can induct others into the practise, demonstrate its value and establish good patterns of pairing behaviour, but if not, have those with the most enthusiasm for pairing bring the team on board.</p>
+<p>Start with a few pairs and expand out gradually, as people try it and experience the benefits it will sell itself.</p>
+<p>&nbsp;</p>
+<h3>Things to recognise</h3>
+<p>If you’re in a team that’s looking at introducing pairing, or even if you’re already pairing, there are a few things that are worth understanding in order to get the most benefit from working in this way:</p>
+<ul>
+<li><strong>Pairing doesn&#8217;t work for all tasks</strong> but it does work for more tasks than you’d think. Is the task creative? Is it particularly challenging? Will the task take longer than a day? Will the organisation benefit from more than one person knowing the details? If the answer to any of these questions is yes, as is the case with most tasks in software development, then it’ll definitely benefit from pairing.</li>
+<li><strong>Developers at all levels can benefit.</strong> From the senior expert who knows that legacy backend system like the back of his hand, to the wide-eyed newbie fresh out of Uni, all developers can benefit from pairing on a task. A new developer will quickly gain familiarity with the myriad systems and processes, as well as picking up the standards and practices of the team. A senior developer will benefit from the fresh perspective of a new pair of eyes.<img class="size-medium wp-image-5746 alignright" title="Just look at AJ's posture. Tsk." alt="Pairing at Esendex" src="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair_04-300x200.jpg" width="300" height="200" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair_04-300x200.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/11/Pair_04.jpg 648w" sizes="(max-width: 300px) 100vw, 300px" /></li>
+<li><strong>Each pairing is unique.</strong> Each combination of individuals in a pairing arrangement, with their own skillsets, personality traits and preconceptions, is different to the next. Different pairings are more effective in facing different kinds of challenges, and require handling in different ways.</li>
+</ul>
+<p>What challenges have you met introducing pairing to your organisation? <a href="https://twitter.com/esendexdev">Let us know</a>, we&#8217;ve probably met them too.</p>
+<p>Next week, in the final part in our series on pair programming, we talk about <a title="Establishing a culture of Pairing" href="http://developers.esendex.com/blog/establishing-a-culture-of-pairing/">how experience and culture play a key role in effective pair programming</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/introducing-pairing-to-developers-and-teams/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Pair Programming at Esendex</title>
+		<link>http://developers.esendex.com/blog/pair-programming-at-esendex/</link>
+		<comments>http://developers.esendex.com/blog/pair-programming-at-esendex/#respond</comments>
+		<pubDate>Mon, 04 Nov 2013 10:30:22 +0000</pubDate>
+		<dc:creator><![CDATA[Andrew Seward]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Practices]]></category>
+		<category><![CDATA[Esendex]]></category>
+		<category><![CDATA[Esendex developers]]></category>
+		<category><![CDATA[pair programming]]></category>
+		<category><![CDATA[pairing]]></category>
+		<category><![CDATA[practices]]></category>
+		<category><![CDATA[software]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5674</guid>
+		<description><![CDATA[As a development team, we love pair programming because experience has shown us that it results in better decisions and more useful and reliable software. What is Pair Programming? Two programmers, one computer, one keyboard, one mouse &#8211; think pilot and co-pilot. One developer “drives” (writes the code) while the co-pilot is hands-off; observing, advising [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>As a development team, we love pair programming because experience has shown us that it results in better decisions and more useful and reliable software.</p>
+<h2>What is Pair Programming?</h2>
+<p><a href="http://developers.esendex.com/blog/wp-content/uploads/2013/10/Dev-1.jpg"><img class="alignright size-medium wp-image-5679" alt="Dev-1" src="http://developers.esendex.com/blog/wp-content/uploads/2013/10/Dev-1-300x201.jpg" width="300" height="201" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/10/Dev-1-300x201.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/10/Dev-1.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" /></a>Two programmers, one computer, one keyboard, one mouse &#8211; think pilot and co-pilot. One developer “drives” (writes the code) while the co-pilot is hands-off; observing, advising and considering the wider context of the code being written.<br />
+The pair constantly discuss their approach, and swap roles regularly<br />
+to ensure a balanced contribution.</p>
+<p>It can be daunting, the idea of<br />
+sharing every bit of how you work with another developer but you’ll<br />
+quickly find that such worries are unfounded and the benefits are numerous.</p>
+<h2>Why Pair?</h2>
+<p>We have found pair programming consistently brings us the following benefits:</p>
+<ul>
+<li><strong>Fewer bugs.</strong> FAR fewer according to <a href="http://journals.heacademy.ac.uk/doi/full/10.11120/ital.2012.11010071">these</a> <a href="http://collaboration.csc.ncsu.edu/laurie/Papers/PP%20in%20Introductory_CSED.pdf">studies</a>.</li>
+<li><strong>More energy and focus.</strong> It’s much harder to get distracted when there are two of you focusing on the task at hand. It’s exhausting at first, but the higher energy level soon becomes addictive.</li>
+<li><strong>Articulation.</strong> The pairing dynamic requires us to articulate what is in our heads, which not only communicates<a href="http://developers.esendex.com/blog/wp-content/uploads/2013/10/dev-2.jpg"><img class="alignright size-medium wp-image-5680" alt="dev-2" src="http://developers.esendex.com/blog/wp-content/uploads/2013/10/dev-2-300x202.jpg" width="300" height="202" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/10/dev-2-300x202.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/10/dev-2.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" /></a> our ideas for our co-pilot to validate, but also organises those ideas in our own minds.</li>
+<li><strong>More ideas and opinions.</strong> Programming is creative! We’re not operating a machine on a production line; we’re creatively solving a problem. In other creative industries collaboration is the norm, so too it should be in software development.</li>
+<li><strong>Shared domain knowledge.</strong> Pairing is a great way to share coding standards and approaches, reduce knowledge silos and thus ensures the team has a high <a href="http://en.wikipedia.org/wiki/Bus_factor">bus factor</a>.</li>
+</ul>
+<p>We’d love to hear about your experiences of pair programming, if you have any comments or questions, please <a href="https://twitter.com/esendexdev">get in touch with us on Twitter</a>.</p>
+<p>Next in our series on Pair Programming we talk about how you can <a title="Introducing Pairing to developers and teams" href="http://developers.esendex.com/blog/introducing-pairing-to-developers-and-teams/">introduce pairing to developers and teams</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/pair-programming-at-esendex/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Esendex at HackManchester 2013</title>
+		<link>http://developers.esendex.com/blog/esendex-at-hackmanchester-2013/</link>
+		<comments>http://developers.esendex.com/blog/esendex-at-hackmanchester-2013/#comments</comments>
+		<pubDate>Mon, 28 Oct 2013 15:53:38 +0000</pubDate>
+		<dc:creator><![CDATA[Andrew Seward]]></dc:creator>
+				<category><![CDATA[Dev community]]></category>
+		<category><![CDATA[community]]></category>
+		<category><![CDATA[dev community]]></category>
+		<category><![CDATA[Esendex]]></category>
+		<category><![CDATA[Esendex developers]]></category>
+		<category><![CDATA[hack]]></category>
+		<category><![CDATA[software]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5696</guid>
+		<description><![CDATA[It was a fragile, subdued development team at the Esendex office this morning. That’s because this weekend 13 of us attended HackManchester, a 24 hour coding competition at the Museum of Science and Industry in Manchester. From 14:00 on Saturday until 14:00 Sunday 230 developers in 72 teams competed to submit the best entry to [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>It was a fragile, subdued development team at the Esendex office this morning. That’s because this weekend 13 of us attended <a href="http://www.hackmanchester.com/">HackManchester</a>, a 24 hour coding competition at the Museum of Science and Industry in Manchester.</p>
+<p>From 14:00 on Saturday until 14:00 Sunday 230 developers in 72 teams competed to submit the best entry to any of the five sponsors’ programming challenges. At the end, each team made a video showing off their hard work.</p>
+<p><a href="http://developers.esendex.com/blog/wp-content/uploads/2013/10/Hack1.jpg"><img class="aligncenter size-medium wp-image-5700" alt="Hacking Away..." src="http://developers.esendex.com/blog/wp-content/uploads/2013/10/Hack1-300x201.jpg" width="300" height="201" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/10/Hack1-300x201.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/10/Hack1.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Esendex entered three teams. Here are their entries:</p>
+<p><strong>QuizBang &#8211;</strong> An SMS-based multiplayer trivia elimination game</p>
+<p><iframe src="//www.youtube.com/embed/_DUCupU5KSY" height="315" width="420" allowfullscreen="" frameborder="0"></iframe></p>
+<p>&nbsp;</p>
+<p><strong>HackTrack &#8211;</strong> A team planning and activity tracking tool for hack events</p>
+<p><iframe src="//www.youtube.com/embed/xCkFx0qtS84" height="315" width="420" allowfullscreen="" frameborder="0"></iframe></p>
+<p>&nbsp;</p>
+<p><strong>TeamSauce &#8211; </strong>A tool for hack events that helps organisers and sponsors communicate with the teams (challenge finalist!)</p>
+<p><iframe src="//www.youtube.com/embed/zO3TNpq5eNc" height="315" width="420" allowfullscreen="" frameborder="0"></iframe></p>
+<p>&nbsp;</p>
+<p>Nottingham was well represented at the event. In addition to Esendex’s teams, the University of Nottingham <a href="https://twitter.com/hacksocnotts">HackSoc</a> were there, entering some brilliant hacks and winning some well-deserved prizes.</p>
+<div id="attachment_5706" style="width: 310px" class="wp-caption aligncenter"><a href="http://developers.esendex.com/blog/wp-content/uploads/2013/10/hackteam.jpg"><img class="size-medium wp-image-5706" alt="Our intrepid team of hackers" src="http://developers.esendex.com/blog/wp-content/uploads/2013/10/hackteam-300x184.jpg" width="300" height="184" srcset="http://developers.esendex.com/blog/wp-content/uploads/2013/10/hackteam-300x184.jpg 300w, http://developers.esendex.com/blog/wp-content/uploads/2013/10/hackteam.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" /></a><p class="wp-caption-text">Our intrepid team of hackers</p></div>
+<p>Well done to all the teams that entered. We were astounded with what <a href="http://vimeo.com/77907408">can</a> <a href="http://www.youtube.com/watch?v=lSh289vltzc">be</a> <a href="http://www.youtube.com/watch?v=fxNvm7Q84jk">achieved</a> in just 24 hours of coding. A big thank you to <a href="https://twitter.com/ruby_gem">Gemma Cameron</a>, <a href="https://twitter.com/TheAllSeeingPie">Joseph Swann</a> and <a href="https://twitter.com/squarejazz">Claire Foster</a> for organising the event. We had enormous fun, and came away inspired but very sleepy.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/esendex-at-hackmanchester-2013/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Get ready for Hack Manchester 2013!</title>
+		<link>http://developers.esendex.com/blog/get-ready-for-hack-manchester-2013/</link>
+		<comments>http://developers.esendex.com/blog/get-ready-for-hack-manchester-2013/#respond</comments>
+		<pubDate>Wed, 16 Oct 2013 10:28:03 +0000</pubDate>
+		<dc:creator><![CDATA[Jeremy]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+
+		<guid isPermaLink="false">http://developers.esendex.com/blog/?p=5653</guid>
+		<description><![CDATA[After the huge success of last year, it’s great to see that Hack Manchester is taking place again, for the second year running! It will be held at the same place – the magnificent Museum of Science and Industry in the heart of Manchester and is on the 26th and 27th of October 2013. Hack [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="http://developers.esendex.com/blog/wp-content/uploads/2013/10/hm_square-2-300x225.jpg"><img class="alignright size-full wp-image-5659" alt="hm_square-2-300x225" src="http://developers.esendex.com/blog/wp-content/uploads/2013/10/hm_square-2-300x225.jpg" width="300" height="225" /></a>After the huge success of last year, it’s great to see that <a href="http://www.hackmanchester.com/">Hack Manchester</a> is taking place again, for the second year running!</p>
+<p>It will be held at the same place – the magnificent <a href="http://www.mosi.org.uk/">Museum of Science and Industry</a> in the heart of Manchester and is on the 26th and 27th of October 2013.</p>
+<p>Hack Manchester 2013 is a 24-hour coding competition and the the idea is that teams of up to four turn up with an idea and just 24 hours later present a working product.</p>
+<p>Last year we helped to sponsor the event and we set a challenge for teams to come up with the best and most ingenious use of our API. The winners were a team from 7digital – they created an online application that allows you to organise football games between you and your friends using text messages. Take a look at our <a href="http://developers.esendex.com/blog/hack-manchester-heres-an-interview-with-the-winners-of-our-challenge/">Hack Manchester write-up</a> for more information.</p>
+<p>This year several of our developers and even our web designer will be getting involved and we’ll be entering 3 teams to tackle some of the exciting challenges on offer.</p>
+<p>Keep an eye on our blog for the event write-up and as we’ll be tweeting live, follow us @esendexdev.</p>
+<p>It’s not too late to get involved but tickets are selling fast – to grab yours visit <a href="hackmanchester.eventbrite.co.uk">hackmanchester.eventbrite.co.uk</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/get-ready-for-hack-manchester-2013/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>YRS Festival of Code 2013 @ Nottingham</title>
+		<link>http://developers.esendex.com/blog/yrs-festival-of-code-2013-nottingham/</link>
+		<comments>http://developers.esendex.com/blog/yrs-festival-of-code-2013-nottingham/#respond</comments>
+		<pubDate>Wed, 14 Aug 2013 15:34:47 +0000</pubDate>
+		<dc:creator><![CDATA[Alex]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+
+		<guid isPermaLink="false">http://www.esendex.co.uk/blog/?p=5447</guid>
+		<description><![CDATA[They say time flies when you&#8217;re having fun and it seems we&#8217;ve barely blinked and Young Rewired State&#8217;s Festival of Code has come round again. The concept is simple &#8211; under 18&#8217;s from all over the country gather at regional centres for a week long hackathon &#8211; competing for awards across numerous categories with a [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>They say time flies when you&#8217;re having fun and it seems we&#8217;ve barely blinked and Young Rewired State&#8217;s Festival of Code has come round again. The concept is simple &#8211; under 18&#8217;s from all over the country gather at regional centres for a week long hackathon &#8211; competing for awards across numerous categories with a final presentation at Birmingham&#8217;s Custard Factory.</p>
+<p>Last year we pitched in helping a group of young developers from all over the East Midlands with their open data based area comparison site, Postcode Wars. This year we were surprised to see three times as many local young developers working fastidiously on no fewer than four different hacks:</p>
+<div><img class="aligncenter size-full wp-image-5448" alt="dev" src="http://developers.esendex.com/blog/wp-content/uploads/2013/08/dev.png" width="512" height="353" /></div>
+<div></div>
+<div>
+<p>More details on the <a href="http://hacks.youngrewiredstate.org/events/YRS2013" target="_blank">projects are available here</a>.</p>
+<p>The teams walked away with a &#8220;Should exist award&#8221; for ProjectHermes, an anti-internet-troll initiative and a &#8220;Runner up &#8211; Best example of Design&#8221; award for their modern take on lost &amp; found, Reunitem. And perhaps most importantly all those involved had a great week&#8217;s high octane programming experience. Most notable though is the outstanding level of flair and skill these young programmers and designers show for their craft, ably creating professional looking software to a tight and immovable presentation deadline. It&#8217;s fantastic to see such coding talent across the East Midlands and we&#8217;re already looking forward to supporting next year&#8217;s event.</p>
+<p>You can find out more about <a href="https://youngrewiredstate.org/festival-of-code" target="_blank">Young Rewired State and Festival of Code here</a>.</p>
+</div>
+<div></div>
+<div></div>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/yrs-festival-of-code-2013-nottingham/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Tech Friday at Esendex</title>
+		<link>http://developers.esendex.com/blog/tech-friday-at-esendex/</link>
+		<comments>http://developers.esendex.com/blog/tech-friday-at-esendex/#respond</comments>
+		<pubDate>Tue, 16 Jul 2013 14:41:59 +0000</pubDate>
+		<dc:creator><![CDATA[Alex]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+
+		<guid isPermaLink="false">http://www.esendex.co.uk/blog/?p=5341</guid>
+		<description><![CDATA[Friday saw the long awaited return of our Tech Friday &#8211; a day where the technical teams work on an improvement of their choice to the Esendex systems. The mission for Tech Friday is simple: Create, deliver and present a tangible useful improvement or task within a day. The more awesome the better! With this [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-5346" alt="Alex" src="http://developers.esendex.com/blog/wp-content/uploads/2013/07/Alex.jpg" width="510" height="343" />Friday saw the long awaited return of our Tech Friday &#8211; a day where the technical teams work on an improvement of their choice to the Esendex systems. The mission for Tech Friday is simple:</p>
+<p><em>Create, deliver and present a tangible useful improvement or task within a day. The more awesome the better!</em></p>
+<p>With this in mind we had no less than 16 improvements proposed by the tech teams for the day from better error handling for our APIs to jQuery plugins to infrastructure and monitoring improvements for our operator connectivity.</p>
+<p>The day kicked off with a brief presentation from each team on their chosen improvement before the coding began in earnest; breaking midday to consume the customary pizza ahead of the final afternoon showdown &#8211; presenting to the company. Here&#8217;s a few selected highlights:</p>
+<p><strong>jQuery SMS plugin by James &amp; Oliver</strong></p>
+<p>A jQuery plugin that converts mobile numbers on a page to links to our online messaging application Echo. Perfect for rapidly adding the ability to send SMS to any web application.<br />
+(<a href="https://github.com/esendex/jquery.esendex.sms" target="_blank">Source is available on GitHub here</a>)</p>
+<p><strong>Google Auth module for Drupal by Jacob &amp; Paul</strong></p>
+<p>A module to allow users to login to Drupal with their Google credentials rather than having to maintain credentials in a separate repository &#8211; really helpful for an ISO27001 compliant company!<br />
+(Source not yet released, drop us a note <a href="https://twitter.com/esendex" target="_blank">@esendex</a> if you&#8217;d like it)</p>
+<p>Thanks to everyone who took part and we look forward to Tech Friday becoming a more frequent event over the coming months!</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/tech-friday-at-esendex/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>The 7digital and Esendex prize for Software Quality</title>
+		<link>http://developers.esendex.com/blog/the-7digital-and-esendex-prize-for-software-quality/</link>
+		<comments>http://developers.esendex.com/blog/the-7digital-and-esendex-prize-for-software-quality/#respond</comments>
+		<pubDate>Wed, 15 May 2013 09:21:09 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+				<category><![CDATA[Development]]></category>
+
+		<guid isPermaLink="false">http://www.esendex.co.uk/blog/?p=5062</guid>
+		<description><![CDATA[Over the past few years Esendex has been giving guest lectures to computer science students at the University of Nottingham. We’ve been working with the university to highlight the benefits of Agile software development to the undergraduates. This year Esendex had the opportunity to take part in the group project open day and help select [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Over the past few years Esendex has been giving guest lectures to computer science students at the University of Nottingham. We’ve been working with the university to highlight the benefits of Agile software development to the undergraduates.</p>
+<p>This year Esendex had the opportunity to take part in the group project open day and help select the winners of the best group project. In partnership with <a href="http://www.7digital.com/" target="_blank">7digital</a> (a leading global open digital content platform), we were also sponsoring and awarding an additional prize for Software Quality. What were we looking for?</p>
+<ul>
+<li>Code quality &amp; architecture</li>
+<li>Testing</li>
+<li>Team organisation</li>
+<li>Knowledge sharing</li>
+</ul>
+<div>
+<p>&#8230;evidence of the principles and practices that we know help us make good quality software. Code quality is important but software quality is about more than well written code; it’s about people and collaboration too.</p>
+<p>The open day was held in the main computer science lab and we made our way around the projects with the rest of the judges. The groups had just a small amount of time to demo the software they’d been working on for the past few months and hopefully impress us. The projects ranged from mobile applications used to monitor and reduce fuel consumption, through to fuzzy logic inference systems written in R. The quality of the software being demonstrated impressed us and the agile methodologies used in the projects (pair programming, short iterations etc.) delighted us.</p>
+<p><strong>And the winner is&#8230;</strong></p>
+</div>
+<div>
+<p>After much deliberation, coffee and cake the judges finally agreed on the winners. Following some alumni talks given from Facebook, Google and the BBC it was time to present the prizes.</p>
+<p>The prize for best project went to ‘HEX’; an impressive chain reactive music generator written in Java. The software was well presented by the group, allowing users to interact via a touchscreen and play a grid of hexagons based upon the harmonic table. The group produced a professional and addictive piece of working software and overcame some interesting challenges around playing simultaneous notes at correct points in time to win the prize.</p>
+<p>The Software Quality award went to ‘Auto Grower’; software for simulating, monitoring, controlling and automating essential greenhouse functions. The project was well researched, unit tested and the team worked in short iterations to deliver regular updates to the stakeholders. The resulting software was well written, well architected and fit for purpose. They also worked well as a team and presented the project excellently on the day too. The deserved winners were each presented with prizes that included the book ‘Clean Code’ by Bob Martin, a Raspberry Pi and high-quality ATK headphones.</p>
+<p><a href="http://www.esendex.co.uk/blog/wp-content/uploads/2013/05/IMG_84152.jpg"><img class="aligncenter size-large wp-image-5069" title="IMG_8415" alt="" src="http://www.esendex.co.uk/blog/wp-content/uploads/2013/05/IMG_84152-1024x768.jpg" width="512" height="384" /></a></p>
+<p>Congratulations to the winning groups, the staff and students involved in a successful day; looking forward to more of the same next year.</p>
+</div>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://developers.esendex.com/blog/the-7digital-and-esendex-prize-for-software-quality/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>API to Send and Receive SMS | Esendex Developers</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Here you'll find everything you need to start sending and receiving SMS via the Esendex SMS API. Also don't forget, to use our API you need to create a free account." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="node/714.html" />
+<link rel="shortcut icon" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon" />
+	<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/sites/all/modules/codefilter/codefilter.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/aggregator/aggregator.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/node/node.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/defaults.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/system.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/system-menus.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/user/user.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/sites/all/modules/cck/theme/content-module.css?n" />
+		<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/style.css?v=1.8" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/dev-style.css?v=1.8" />
+	<link href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
+	<![endif]-->
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!--[if IE 9]>
+		<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
+	<![endif]-->
+
+	<!-- javascript moved to the footer -->
+	<!-- Google Analytics Starts -->
+
+<script type="text/javascript">
+
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-30969528-1']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+
+    var ga = document.createElement('script');
+
+    ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+</script>
+
+<script type="text/javascript">
+function trackOutboundLinks()
+{
+	var a = document.getElementsByTagName('a');
+
+	for(i = 0; i < a.length; i++){
+
+		if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
+			
+			if(!a[i].onclick){ //check onclick event doesn't already exist
+				a[i].onclick = function(){
+					_gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
+				}
+			}
+		}
+	}
+}
+
+function trackLink(link, category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+     
+    setTimeout(function () {
+        document.location.href = link.href;
+    }, 100);
+}
+
+function trackClick(category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+}
+
+</script>
+
+<!-- Google Analytics Ends -->
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+	<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body onload="trackOutboundLinks()">
+<script type="text/javascript" src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/cookies.js"></script>
+<div id='cookies_popup'><img id='close' src='http://developers.esendex.com/sites/all/themes/EsendexDevelopers/images/cookie_close.jpg' /><div id='cookie_wrap'>We use cookies to provide a better user experience and to improve the quality of our site. For more information please <a href='reference/Cookies.html'>click here</a>.</div></div>
+	<div id='wrapper'>
+		<div id='bootstrapnav'class="container">
+			<div class="row">
+
+				<a href='node/714.html' title='Home'><img id='nav-logo' src='http://developers.esendex.com/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' /><div id='dev-title'>Developers</div></a>
+				<a href='https://www.esendex.com/home' id='nav-login'>Login</a>
+				<div id='mobile-menu-opener'></div>
+
+				  <div class="block block-menu" id="block-menu-primary-links">
+    
+    <div class="content"><ul class="menu"><li class="active leaf first active-trail"><a href="node/714.html" >Home</a></li>
+<li class="expanded"><a href="Quickstarts/Send-SMS.html">Quickstarts</a><ul class="menu"><li class="leaf first"><a href="Quickstarts/Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+<li class="leaf"><a href="Quickstarts/Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+<li class="leaf"><a href="Quickstarts/Track-SMS.html" title="Track SMS">Track SMS</a></li>
+<li class="leaf last"><a href="Quickstarts/Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
+</ul></li>
+<li class="expanded"><a href="APIs/EsendexAPI/index.html">APIs</a><ul class="menu"><li class="leaf first"><a href="APIs/EsendexAPI/index.html">REST API</a></li>
+<li class="leaf"><a href="APIs/SOAP-SMS-API.html" title="SOAP XML SMS API">SOAP API</a></li>
+<li class="leaf"><a href="APIs/FormPost-API.html" title="HTTP SMS API">FormPost API</a></li>
+<li class="leaf"><a href="APIs/API-Comparison.html" title="API Comparison">Which API should I use?</a></li>
+<li class="leaf last"><a href="Documentation/Push-Notifications.html">Push Notifications</a></li>
+</ul></li>
+<li class="expanded"><a href="SDKs.html" title="SDKs">SDKs</a><ul class="menu"><li class="leaf first"><a href="SDKs/DotNet-SDK.html" title=".Net Rest SDK">.NET SDK</a></li>
+<li class="leaf"><a href="SDKs/Java-SDK.html">Java SDK</a></li>
+<li class="leaf"><a href="SDKs/PHP-SDK.html" title="PHP Rest SDK">PHP SDK</a></li>
+<li class="leaf"><a href="SDKs/Ruby-SDK.html">Ruby SDK</a></li>
+<li class="leaf"><a href="SDKs/Go-SDK.html">Go SDK</a></li>
+<li class="leaf"><a href="SDKs/Node-SDK.html">Node.js SDK</a></li>
+<li class="divider active leaf"><a href="node/714.html" >divider</a></li>
+<li class="leaf"><a href="SDKs/C-SMS-SDK.html">C++ SDK</a></li>
+<li class="leaf"><a href="SDKs/ActiveX-SMS-SDK.1.html">Classic ASP SDK</a></li>
+<li class="leaf"><a href="SDKs/Delphi-SMS-SDK.html">Delphi SDK</a></li>
+<li class="leaf"><a href="SDKs/Perl-SMS-SDK.html">Perl SDK</a></li>
+<li class="leaf last"><a href="SDKs/Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
+</ul></li>
+<li class="dynamic-active leaf last"><a href="blog/index.html" >Blog</a></li>
+</ul></div>
+ </div>
+
+			</div>
+		</div>
+
+<div id='banner'>
+    <h1 id="homepagetitle">Hello developers.</h1>
+	<div id='bannertext'>Integrate SMS effectively into each and every application. Here you'll find everything you need to start sending and receiving SMS via our API. Also don't forget, to use our API you need to create an account.</div>
+	<a id='createaccount-button' href='create-an-account.html'>Create an account</a>
+	<div id='homesprite-laptop'></div>
+</div>
+<div id='chooseaction'>
+	<a href='Quickstarts/Send-SMS.html' title='a quickstart guide to sending SMS' id='action-send'>Send SMS</a>
+	<a href='Quickstarts/Receive-Messages.html' title='a quickstart guide to receiving SMS' id='action-receive'>Receive SMS</a>
+	<a href='Quickstarts/Track-SMS.html' title='a quickstart guide to tracking SMS' id='action-track'>Track SMS</a>
+	<div class='clear'></div>
+</div>
+<div id='three-cols' class="no-bottom-padding">
+	<div id='col-container'>
+		<div id='col1' class='col'>
+			<div class="homepageapi homeintro">
+<a href="APIs/EsendexAPI/index.html"><h2 id="title-col1" class="home-title">API reference</h2></a>
+<a href="APIs/EsendexAPI/index.html" id='homepageAPIicon'>Our API</a>
+<p>Explore our API documentation to find out more about integrating SMS, contacts and other Esendex services into your application. <a class="learnmoreapi" href="APIs/EsendexAPI/index.html">more</a></p>
+</div>		</div>
+
+		<div id='col2' class='col'>
+			<div class="homepagesolution homeintro">
+<a href="SDKs.html"><h2 id="title-col2" class="home-title">SDKs</h2></a>
+<a href="SDKs.html" id='homepageSDKicon'>Our SDKs</a>
+<p>Our SDKs make integrating with our API from a wide variety of development languages and environments even easier. <a class="learnmoresdks" href="SDKs.html">more</a></p>
+</div>		</div>
+
+		<div id='col3' class='col'>
+			<div class="homepageapi homeintro">
+				<h2 id="title-col3" class="home-title">Developer news</h2>
+				<div class="news-post">
+					<h3>Queueing with RabbitMQ Part 2 – How AMQP &amp; RabbitMQ work</h3>
+					<p>As detailed in our&nbsp;previous blog post on queueing, the Advanced Message Queuing Protocol(AMQP) is a standardised interface that our <a target="_blank" href="blog/index.html%3Fp=5798.html">[…]</a></p>
+					<div class="clearfix">
+						<a href="blog/index.html%3Fp=5798.html" target="blank">View the blog</a>
+						<div class="news-date pull-right">2014-06-09 09:00:44</div>
+					</div>
+				</div>
+				<div class="news-post">
+					<h3>Queueing with RabbitMQ (Part 1)</h3>
+					<p>Queueing systems are an excellent way to communicate between applications in a loosely coupled and robust way, they are key within many <a target="_blank" href="blog/index.html%3Fp=5795.html">[…]</a></p>
+					<div class="clearfix">
+						<a href="blog/index.html%3Fp=5795.html" target="blank">View the blog</a>
+						<div class="news-date pull-right">2014-06-03 14:01:11</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>
+
+</div><!-- close wrapper -->
+
+<div id='footerbg'>
+	<div id='footer'>
+            <div id='visit'><a href='http://www.esendex.com/'>Visit our commercial site</a></div>
+
+		<ul id='footerlinks'>
+			<li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
+			<li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
+		</ul>
+		<div id='copyright'>Esendex Limited 2016<br/>Registered company number: 04217280<br/>UK</div>
+            
+	</div>
+</div>
+
+
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+document.documentElement.className += " js"
+/* <![CDATA[ */
+	$(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
+/* ]]> */
+</script>
+
+<!--mobile nav-->
+<script type="text/javascript">
+	(function() {
+		var menu = document.getElementById("block-menu-primary-links");
+		var isOpen = menu.style.display=="block";
+
+		document.getElementById("mobile-menu-opener").addEventListener("click",function() {
+			if(isOpen) {
+				menu.style.display = "";
+				isOpen = false;
+			} else {
+				menu.style.display = "block";
+				isOpen = true;
+			}
+		});
+	})();
+</script>
+<!-- remarketing -->
+<!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1066303896;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;" id="remarketing">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+</body>
+</html>

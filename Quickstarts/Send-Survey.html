@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Send a Survey with our API</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Esendex's Survey API allow you to send Survey from your applications. Our API is quick and simple to integrate. Get started now with this quickstart guide." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="Send-Survey.html" />
+<link rel="shortcut icon" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon" />
+	<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/sites/all/modules/codefilter/codefilter.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/aggregator/aggregator.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/node/node.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/defaults.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/system.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/system/system-menus.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/modules/user/user.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="http://developers.esendex.com/sites/all/modules/cck/theme/content-module.css?n" />
+		<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/style.css?v=1.8" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/dev-style.css?v=1.8" />
+	<link href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
+	<link rel="stylesheet" type="text/css" href="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
+	<![endif]-->
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!--[if IE 9]>
+		<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
+	<![endif]-->
+
+	<!-- javascript moved to the footer -->
+	<!-- Google Analytics Starts -->
+
+<script type="text/javascript">
+
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-30969528-1']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+
+    var ga = document.createElement('script');
+
+    ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+</script>
+
+<script type="text/javascript">
+function trackOutboundLinks()
+{
+	var a = document.getElementsByTagName('a');
+
+	for(i = 0; i < a.length; i++){
+
+		if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
+			
+			if(!a[i].onclick){ //check onclick event doesn't already exist
+				a[i].onclick = function(){
+					_gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
+				}
+			}
+		}
+	}
+}
+
+function trackLink(link, category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+     
+    setTimeout(function () {
+        document.location.href = link.href;
+    }, 100);
+}
+
+function trackClick(category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+}
+
+</script>
+
+<!-- Google Analytics Ends -->
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+	<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body onload="trackOutboundLinks()">
+	<div id='wrapper'>
+		<div id='bootstrapnav'class="container">
+			<div class="row">
+
+				<a href='../node/714.html' title='Home'><img id='nav-logo' src='http://developers.esendex.com/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' /><div id='dev-title'>Developers</div></a>
+				<a href='https://www.esendex.com/home' id='nav-login'>Login</a>
+				<div id='mobile-menu-opener'></div>
+
+				  <div class="block block-menu" id="block-menu-primary-links">
+    
+    <div class="content"><ul class="menu"><li class="leaf first"><a href="../node/714.html">Home</a></li>
+<li class="expanded active-trail"><a href="Send-SMS.html">Quickstarts</a><ul class="menu"><li class="leaf first"><a href="Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+<li class="leaf"><a href="Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+<li class="leaf"><a href="Track-SMS.html" title="Track SMS">Track SMS</a></li>
+<li class="active leaf last active-trail"><a href="Send-Survey.html" title="Send Survey with our API" >Send Survey</a></li>
+</ul></li>
+<li class="expanded"><a href="../APIs/EsendexAPI/index.html">APIs</a><ul class="menu"><li class="leaf first"><a href="../APIs/EsendexAPI/index.html">REST API</a></li>
+<li class="leaf"><a href="../APIs/SOAP-SMS-API.html" title="SOAP XML SMS API">SOAP API</a></li>
+<li class="leaf"><a href="../APIs/FormPost-API.html" title="HTTP SMS API">FormPost API</a></li>
+<li class="leaf"><a href="../APIs/API-Comparison.html" title="API Comparison">Which API should I use?</a></li>
+<li class="leaf last"><a href="../Documentation/Push-Notifications.html">Push Notifications</a></li>
+</ul></li>
+<li class="expanded"><a href="../SDKs.html" title="SDKs">SDKs</a><ul class="menu"><li class="leaf first"><a href="../SDKs/DotNet-SDK.html" title=".Net Rest SDK">.NET SDK</a></li>
+<li class="leaf"><a href="../SDKs/Java-SDK.html">Java SDK</a></li>
+<li class="leaf"><a href="../SDKs/PHP-SDK.html" title="PHP Rest SDK">PHP SDK</a></li>
+<li class="leaf"><a href="../SDKs/Ruby-SDK.html">Ruby SDK</a></li>
+<li class="leaf"><a href="../SDKs/Go-SDK.html">Go SDK</a></li>
+<li class="leaf"><a href="../SDKs/Node-SDK.html">Node.js SDK</a></li>
+<li class="divider leaf"><a href="../node/714.html" >divider</a></li>
+<li class="leaf"><a href="../SDKs/C-SMS-SDK.html">C++ SDK</a></li>
+<li class="leaf"><a href="../SDKs/ActiveX-SMS-SDK.1.html">Classic ASP SDK</a></li>
+<li class="leaf"><a href="../SDKs/Delphi-SMS-SDK.html">Delphi SDK</a></li>
+<li class="leaf"><a href="../SDKs/Perl-SMS-SDK.html">Perl SDK</a></li>
+<li class="leaf last"><a href="../SDKs/Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
+</ul></li>
+<li class="dynamic-active leaf last"><a href="../blog/index.html" >Blog</a></li>
+</ul></div>
+ </div>
+
+			</div>
+		</div>
+
+<div id='headerspacer'></div> <!-- delete this and the sky will fall -->
+
+<div id='three-cols-page'>
+	<div>
+		<div id='dev-content'>
+	<h1 class="title">Send a Survey with our API</h1>
+		          <div class="node">
+        
+    
+    
+    <div class="content"><p>This guide shows how to send a Survey to a specified recipient, you must supply content for all template fields required by your Survey.</p>
+<h3><strong>Send Survey Code</strong></h3>
+<div class="codeblock">
+<ul id="codeblock-sendsms" class="nav nav-tabs">
+<li><a data-toggle="tab" id="codetab-csharp-sendsms" href="Send-Survey.html#code-csharp-sendsms">C#</a></li>
+<li><a data-toggle="tab" id="codetab-php-sendsms" href="Send-Survey.html#code-php-sendsms">PHP</a></li>
+</ul>
+<div class="tab-content">
+<div id="code-csharp-sendsms" class="tab-pane active">
+<pre class="prettyprint lang-csh">public class AddRecipientToSurveyExample
+{
+    public class AddRecipientRequest
+    {
+        [JsonProperty("phonenumber")]
+        public string PhoneNumber { get; set; }
+
+        [JsonProperty("templatefields")]
+        public Dictionary&lt;string, string&gt; TemplateFields { get; set; }
+    }
+
+    public class AddRecipientsRequest
+    {
+        [JsonProperty("recipients")]
+        public AddRecipientRequest[] Recipients { get; set; }
+    }
+
+    public static void Main()
+    {
+        const string surveyId = "95082677-224B-4789-9452-BC8E391D75E1";
+        const string username = "user@example.com";
+        const string password = "password";
+
+        var requestData = new AddRecipientsRequest
+        {
+            Recipients = new[]
+            {
+                new AddRecipientRequest
+                {
+                    PhoneNumber = "440000000123",
+                    TemplateFields = new Dictionary&lt;string, string&gt;
+                    {
+                        {"Name", "John Doe"},
+                        {"City", "Nottingham"}
+                    }
+                }
+            }
+        };
+
+
+        var requestUrl = string.Format("https://api.surveys.esendex.com/v1.0/surveys/{0}/send", surveyId);
+        var request = (HttpWebRequest) WebRequest.Create(requestUrl);
+
+        request.Method = "POST";
+        request.ContentType = "application/json";
+
+        var encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(username + ":" + password));
+        request.Headers.Add("Authorization", "Basic " + encoded);
+
+        using (var requestStream = request.GetRequestStream())
+        using (var streamWriter = new StreamWriter(requestStream))
+        {
+            JsonSerializer.Create().Serialize(streamWriter, requestData);
+        }
+
+        var response = (HttpWebResponse) request.GetResponse();
+        if ((int) response.StatusCode &gt;= 200 &amp;&amp; (int) response.StatusCode &lt; 300)
+        {
+            Console.WriteLine("Success");
+        }
+        else
+        {
+            Console.WriteLine("Failed with status code {0}", response.StatusCode);
+        }
+
+        Console.ReadKey();
+    }
+}</pre></div>
+<div id="code-php-sendsms" class="tab-pane">
+<pre class="prettyprint lang-php">$data = array("recipients" =&gt; [array(
+"phonenumber" =&gt; "4412345678", 
+"templatefields" =&gt; array(
+      "firstname" =&gt; "John", 
+      "lastname" =&gt; "Doe")
+    )]
+  );
+  
+$data_string = json_encode($data);                                                                                   
+
+$ch = curl_init('https://api.surveys.esendex.com/v1.0/surveys/95082677-224B-4789-9452-BC8E391D75E1/send');                                                                      
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  'Authorization: Basic am9zaHVhLmhhd3h3ZWxsQGVzZW5kZXguY29tOmVzZW5kZXg=',
+  'Content-Type: application/json',
+  'Host: api.surveys.esendex.com')                                                                       
+);                                                                                                                   
+
+$result = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpCode == 200){
+echo "Success!";
+}else{
+   echo $httpCode;
+}</pre></div>
+</div>
+</div>
+<p>&nbsp;</p>
+<div>
+<h3>You will need:</h3>
+<ul>
+<li>A valid Esendex User (which you can <a href="../create-an-account.html">create using our free trial</a><a></a>)</li>
+<li>An active Survey (contact your account manager to set up a Survey and provide you with your Survey GUID)</li>
+<li>Permission for your Esendex User to access the SMS Survey API (your account manager can enable this by request)</li>
+</ul>
+<h3>Handling the response</h3>
+<p>We will send you back 1 of 4 HTTP Status Codes, depending on the result of your request:</p>
+<ul>
+<li>200 OK (Your request was successful)</li>
+<li>400 Bad Request (Your request was: malformed XML or JSON, or contained an incorrect MSISDN, or was missing template fields, or the Survey was not active)</li>
+<li>403 Forbidden (Your user does not have permission to access the Surveys API)</li>
+<li>404 Not Found (The Survey ID you provided is invalid)</li>
+</ul>
+<h3>What you might want to do with the response</h3>
+<p>Our successful response does not return any content, so there are no actions you need to take with this response. If you receive one of our error codes, you should check your request for errors that satisfy the response you received.</p>
+<h3>What you might want to do next</h3>
+<p>To check the responses to your survey, you can review the Survey results report. Contact your account manager if you wish to change the frequency of this report or for ad hoc requests.</p>
+</div>
+</div>
+      </div>
+		</div>
+	<div id='right-col'>
+
+		   <div class="block block-block" id="block-block-37">
+    
+    <div class="content"><a href='../create-an-account.html' id='CreateAccountButton' title='Create an account'>Create an account</a></div>
+ </div>
+  <div class="block block-block" id="block-block-66">
+    
+    <div class="content"><div>
+	<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+</div></div>
+ </div>
+ 
+	</div>
+	<div class='clear'></div>
+	</div>
+</div>
+</div><!-- close wrapper -->
+
+<div id='footerbg'>
+	<div id='footer'>
+            <div id='visit'><a href='http://www.esendex.com/'>Visit our commercial site</a></div>
+
+		<ul id='footerlinks'>
+			<li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
+			<li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
+			<li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
+		</ul>
+		<div id='copyright'>Esendex Limited 2016<br/>Registered company number: 04217280<br/>UK</div>
+            
+	</div>
+</div>
+
+
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://developers.esendex.com/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+document.documentElement.className += " js"
+/* <![CDATA[ */
+	$(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
+/* ]]> */
+</script>
+
+<!--mobile nav-->
+<script type="text/javascript">
+	(function() {
+		var menu = document.getElementById("block-menu-primary-links");
+		var isOpen = menu.style.display=="block";
+
+		document.getElementById("mobile-menu-opener").addEventListener("click",function() {
+			if(isOpen) {
+				menu.style.display = "";
+				isOpen = false;
+			} else {
+				menu.style.display = "block";
+				isOpen = true;
+			}
+		});
+	})();
+</script>
+<!-- remarketing -->
+<!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1066303896;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;" id="remarketing">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+</body>
+</html>
