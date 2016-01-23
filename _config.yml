@@ -1,6 +1,8 @@
 title: Esendex Developers
 description: >
-  This is a site
+  Here you'll find everything you need to start sending and receiving SMS via 
+  the Esendex SMS API. Also don't forget, to use our API you need to create a
+  free account.
 baseurl: ""
 url: "http://localhost:8000"
 markdown: kramdown

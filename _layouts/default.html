@@ -11,7 +11,11 @@
       <div id='cookie_wrap'>We use cookies to provide a better user experience and to improve the quality of our site. For more information please <a href='reference/Cookies.html'>click here</a>.</div>
     </div>
 
-    {{ content }}
+    <div id="wrapper">
+      {% include menu.html %}
+
+      {{ content }}
+    </div> 
 
     {% include footer.html %}
   </body>
