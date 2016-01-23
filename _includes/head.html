@@ -1,12 +1,97 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>API to Send and Receive SMS | Esendex Developers</title>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=utf-8" />
+<meta name="description" content=
+"Here you'll find everything you need to start sending and receiving SMS via the Esendex SMS API. Also don't forget, to use our API you need to create a free account." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="/" />
+<link rel="shortcut icon" href=
+"/sites/all/themes/EsendexDevelopers/favicon.ico" type=
+"image/x-icon" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/codefilter/codefilter.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?n" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?n" />
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/dev-style.css" />
+<link href="/sites/all/themes/EsendexDevelopers/css/tabify.css"rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
+<link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if IE 7]>
+  <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
+<![endif]-->
+<!--[if lte IE 6]>
+  <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
+<![endif]-->
+<!--[if IE 9]>
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
+<![endif]-->
+<!-- Google Analytics Starts -->
+<script type="text/javascript">
+//<![CDATA[
+  var _gaq = _gaq || [];
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  _gaq.push(['_setAccount', 'UA-30969528-1']);
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-</head>
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+
+    var ga = document.createElement('script');
+
+    ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+function trackOutboundLinks()
+{
+        var a = document.getElementsByTagName('a');
+
+        for(i = 0; i < a.length; i++){
+
+                if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
+                        
+                        if(!a[i].onclick){ //check onclick event doesn't already exist
+                                a[i].onclick = function(){
+                                        _gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
+                                }
+                        }
+                }
+        }
+}
+
+function trackLink(link, category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+     
+    setTimeout(function () {
+        document.location.href = link.href;
+    }, 100);
+}
+
+function trackClick(category, action, label) {
+    try { 
+        _gaq.push(['_trackEvent', category , action, label]); 
+    } catch(err) {}
+}
+
+//]]>
+</script><!-- Google Analytics Ends -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script src="/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8"></script>

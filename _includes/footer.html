@@ -1,38 +1,63 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
-      </div>
-    </div>
-
+<div id='footerbg'>
+	<div id='footer'>
+    <div id='visit'><a href='http://www.esendex.com/'>Visit our commercial site</a></div>
+    <ul id='footerlinks'>
+      <li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
+      <li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
+      <li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
+      <li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
+      <li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
+      <li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
+    </ul>
+    <div id='copyright'>Esendex Limited 2016<br />Registered company number: 04217280<br />UK</div>
   </div>
+</div>
+<script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8"></script> 
+<script src="/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8"></script> 
+<script type="text/javascript">
+document.documentElement.className += " js"
+/* <![CDATA[ */
+        $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
+/* ]]> */
+</script> <!--mobile nav-->
+<script type="text/javascript">
+//<![CDATA[
+        (function() {
+                var menu = document.getElementById("block-menu-primary-links");
+                var isOpen = menu.style.display=="block";
 
-</footer>
+                document.getElementById("mobile-menu-opener").addEventListener("click",function() {
+                        if(isOpen) {
+                                menu.style.display = "";
+                                isOpen = false;
+                        } else {
+                                menu.style.display = "block";
+                                isOpen = true;
+                        }
+                });
+        })();
+//]]>
+</script> <!-- remarketing -->
+<!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1066303896;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script> 
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script> 
+<noscript>
+  <div style="display:inline;" id="remarketing">
+    <img height="1" width="1" style="border-style:none;" alt="" 
+         src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0" />
+  </div>
+</noscript>
