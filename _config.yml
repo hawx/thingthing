@@ -1,0 +1,6 @@
+title: Esendex Developers
+description: >
+  This is a site
+baseurl: ""
+url: "http://localhost:8000"
+markdown: kramdown
