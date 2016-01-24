@@ -4,23 +4,17 @@ canonical: /APIs/FormPost-API
 layout: default
 ---
 
-<div id='headerspacer'></div>
-<!-- delete this and the sky will fall -->
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
 <div id='three-cols-page'>
   <div>
     <div id='dev-content'>
       <h1 class="title">FormPost API</h1>
       <div class="node">
         <div class="content">
-          <p>Esendex provides&nbsp;a FormPost API to enable
-          developers to integrate SMS functionality into their
-          applications. All services are accessible using
-          either HTTP or HTTPS protocols.</p>
-          <p>The FormPost API provides functionality through
-          the following services:</p>
+          <p>Esendex provides&nbsp;a FormPost API to enable developers to integrate SMS functionality into their applications. All services are accessible using either HTTP or HTTPS protocols.</p>
+          <p>The FormPost API provides functionality through the following services:</p>
           <h3>Sending</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+          <table border="0" cellpadding="0" cellspacing="1" style="width: 100%;">
             <tbody>
               <tr class="odd">
                 <th class="col0">Service</th>
@@ -30,56 +24,41 @@ layout: default
               <tr class="even">
                 <td class="col0">SendSMS</td>
                 <td>SMS Message sending functionality</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/SendSMS.aspx">
-                URI</a></td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/SendSMS.aspx" target="_blank">URI</a>
+                </td>
               </tr>
               <tr class="alt">
                 <td class="col0">SendWapPushSMS</td>
                 <td>Send a WAP Push SMS to a handset</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/SendWAPPushSMS.aspx">
-                URI</a></td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/SendWAPPushSMS.aspx" target="_blank">URI</a>
+                </td>
               </tr>
               <tr class="even">
                 <td class="col0">ScheduledSendSMS</td>
-                <td>Submits a Message to Esendex that is
-                scheduled to be sent at a later date/time</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/ScheduledSendSMS.aspx">
-                URI</a></td>
+                <td>Submits a Message to Esendex that is scheduled to be sent at a later date/time</td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/ScheduledSendSMS.aspx" target="_blank">URI</a>
+                </td>
               </tr>
               <tr class="alt">
                 <td class="col0">QueryStatus</td>
                 <td>Find out the status of sent Messages</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/QueryStatus.aspx">
-                URI</a></td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/QueryStatus.aspx" target="_blank">URI</a>
+                </td>
               </tr>
             </tbody>
           </table>
           <h4>Notes</h4>
-          <p>The service aliasing feature within the
-          SendSMS&nbsp;service is not available with Evaluation
-          or Premium Accounts. When using these methods, you
-          must set the Originator parameter to your Account
-          Reference or you will receive an error when
-          attempting to send a message.&nbsp;</p>
-          <h4>Configuring your software to send SMS by
-          accessing a URL</h4>
-          <p>If you are trying to send Messages via software
-          that only allows a URL to be specified please try the
-          following replacing the xxx’s as required.</p>
-          <p>
-          <code>https://www.esendex.com/secure/messenger/formpost/SendSMS.aspx?username=xxx@xxx.com&amp;account=ex000xxxx&amp;password=xxx&amp;recipient=xxx&amp;body=xxx&amp;plaintext=1</code></p>
-          <p>Please be aware that each time you access this URL
-          an attempt to send a Message will be made which will
-          debit your Esendex Account. This feature is provided
-          to help customers integrate with software that cannot
-          use an API in any other way.</p>
+          <p>The service aliasing feature within the SendSMS&nbsp;service is not available with Evaluation or Premium Accounts. When using these methods, you must set the Originator parameter to your Account Reference or you will receive an error when attempting to send a message.&nbsp;</p>
+          <h4>Configuring your software to send SMS by accessing a URL</h4>
+          <p>If you are trying to send Messages via software that only allows a URL to be specified please try the following replacing the xxx’s as required.</p>
+          <p><code>https://www.esendex.com/secure/messenger/formpost/SendSMS.aspx?username=xxx@xxx.com&amp;account=ex000xxxx&amp;password=xxx&amp;recipient=xxx&amp;body=xxx&amp;plaintext=1</code></p>
+          <p>Please be aware that each time you access this URL an attempt to send a Message will be made which will debit your Esendex Account. This feature is provided to help customers integrate with software that cannot use an API in any other way.</p>
           <h3>Receiving</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+          <table border="0" cellpadding="0" cellspacing="1" style="width: 100%;">
             <tbody>
               <tr class="odd">
                 <th class="col0">Service</th>
@@ -89,33 +68,30 @@ layout: default
               <tr class="even">
                 <td class="col0">GetInboxMessage</td>
                 <td>Retrieve Inbox Messages</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/GetInboxMessage.aspx">
-                URI</a></td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/GetInboxMessage.aspx" target="_blank">URI</a>
+                </td>
               </tr>
               <tr class="alt" valign="top">
                 <td class="col0">DeleteInboxMessage</td>
                 <td>Delete Inbox Messages</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/DeleteInboxMessage.aspx">
-                URI</a></td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/DeleteInboxMessage.aspx" target="_blank">URI</a>
+                </td>
               </tr>
               <tr class="alt">
                 <td class="col0">GetLatestInboxMessages</td>
-                <td>Retrieves the Messages that were received
-                after a specified Message Id</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/GetLatestInboxMessages.aspx">
-                URI</a></td>
+                <td>Retrieves the Messages that were received after a specified Message Id</td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/GetLatestInboxMessages.aspx" target="_blank">URI</a>
+                </td>
               </tr>
             </tbody>
           </table>
           <p><strong>Notes</strong></p>
-          <p><strong>Please see Push Notifications for
-          receiving Messages<br /></strong></p>
+          <p><strong>Please see Push Notifications for receiving Messages<br></strong></p>
           <h3>Subscription Management</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+          <table border="0" cellpadding="0" cellspacing="1" style="width: 100%;">
             <tbody>
               <tr class="odd">
                 <th class="col0">Service</th>
@@ -124,28 +100,19 @@ layout: default
               </tr>
               <tr class="even">
                 <td class="col0">StopSubscription</td>
-                <td>Stops a subscription for a telephone number
-                to a premum service</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/formpost/StopSubscription.aspx">
-                URI</a></td>
+                <td>Stops a subscription for a telephone number to a premum service</td>
+                <td>
+                  <a href="https://www.esendex.com/secure/messenger/formpost/StopSubscription.aspx" target="_blank">URI</a>
+                </td>
               </tr>
             </tbody>
           </table>
           <h2>API Access</h2>
-          <p>In order to allow customers to manage what their
-          users can do on their account, access to the API is
-          restricted to users with <strong>Admin</strong> and
-          <strong>Standard</strong> roles on an account (in
-          most cases this shouldn't be an issue as
-          <strong>Admin</strong> is the default role of new
-          users).</p>
-          <p>To manage the roles of users on an account, once
-          you've signed up:</p>
+          <p>In order to allow customers to manage what their users can do on their account, access to the API is restricted to users with <strong>Admin</strong> and <strong>Standard</strong> roles on an account (in most cases this shouldn't be an issue as <strong>Admin</strong> is the default role of new users).</p>
+          <p>To manage the roles of users on an account, once you've signed up:</p>
           <ul>
-            <li>Log in to <a href=
-            "https://www.esendex.com/echo" title=
-            "Echo">Echo</a></li>
+            <li>Log in to <a href="https://www.esendex.com/echo" title="Echo">Echo</a>
+            </li>
             <li>Go to Settings -&gt; User Management</li>
           </ul>
         </div>
@@ -154,17 +121,13 @@ layout: default
     <div id='right-col'>
       <div class="block block-block" id="block-block-37">
         <div class="content">
-          <a href='../create-an-account.html' id=
-          'CreateAccountButton' title='Create an account' name=
-          "CreateAccountButton">Create an account</a>
+          <a href='../create-an-account.html' id='CreateAccountButton' name="CreateAccountButton" title='Create an account'>Create an account</a>
         </div>
       </div>
       <div class="block block-block" id="block-block-66">
         <div class="content">
           <div>
-            <p><a class="needahand" href=
-            "http://www.esendex.co.uk/Action/Contact-Us">Need a
-            hand?</a></p>
+            <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
           </div>
         </div>
       </div>
@@ -172,4 +135,3 @@ layout: default
     <div class='clear'></div>
   </div>
 </div>
-

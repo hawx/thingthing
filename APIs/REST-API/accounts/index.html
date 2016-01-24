@@ -7,18 +7,12 @@ layout: rest_page
 <h1 class="title">Accounts</h1>
 <div class="node">
   <div class="content">
-    <p>The Accounts resource can be used to retrieve
-    details on the Esendex Account or Accounts that the
-    user has access to.</p>
-    <h2><a name="accounts" id="accounts"></a>Retrieve
-    Accounts</h2>
-    <p>This operation will return a response containing
-    summary information on all of the Esendex Accounts
-    that the user has permissions to use.</p>
+    <p>The Accounts resource can be used to retrieve details on the Esendex Account or Accounts that the user has access to.</p>
+    <h2><a id="accounts" name="accounts"></a>Retrieve Accounts</h2>
+    <p>This operation will return a response containing summary information on all of the Esendex Accounts that the user has permissions to use.</p>
     <dl class="dl-horizontal">
       <dt>URL</dt>
-      <dd>
-      <code>https://api.esendex.com/v1.0/accounts</code></dd>
+      <dd><code>https://api.esendex.com/v1.0/accounts</code></dd>
       <dt>HTTP Method</dt>
       <dd>GET</dd>
       <dt>Authentication</dt>
@@ -26,7 +20,7 @@ layout: rest_page
       <dt>Example request</dt>
       <dd>n/a</dd>
       <dt>Response</dt>
-      <dd>Content Type: application/xml<br />
+      <dd>Content Type: application/xml<br>
       HTTP Status Code: 200</dd>
       <dt>Response data</dt>
       <dd>
@@ -43,18 +37,15 @@ layout: rest_page
 &lt;role&gt;PowerUser&lt;/role&gt; 
 &lt;settings uri="http://api.esendex.com/v1.0/accounts/A00F0218-510D-423D-A74E-5A65342FE070/settings" /&gt; 
 &lt;/account&gt; 
-&lt;/accounts&gt;</pre>
+&lt;/accounts&gt;
+</pre>
       </dd>
     </dl>
-    <h2><a name="account" id="account"></a>Retrieve
-    Account</h2>
-    <p>This option will return an Account response for an
-    individual Esendex Account that the user has
-    permission to use.</p>
+    <h2><a id="account" name="account"></a>Retrieve Account</h2>
+    <p>This option will return an Account response for an individual Esendex Account that the user has permission to use.</p>
     <dl class="dl-horizontal">
       <dt>URL</dt>
-      <dd>
-      <code>https://api.esendex.com/v1.0/accounts/<em>D35FA8EB-3C12-4E8E-8DEC-8568B2F35890</em></code></dd>
+      <dd><code>https://api.esendex.com/v1.0/accounts/<em>D35FA8EB-3C12-4E8E-8DEC-8568B2F35890</em></code></dd>
       <dt>HTTP Method</dt>
       <dd>GET</dd>
       <dt>Authentication</dt>
@@ -62,7 +53,7 @@ layout: rest_page
       <dt>Example request</dt>
       <dd>n/a</dd>
       <dt>Response</dt>
-      <dd>Content Type: application/xml<br />
+      <dd>Content Type: application/xml<br>
       HTTP Status Code: 200</dd>
       <dt>Response data</dt>
       <dd>
@@ -77,18 +68,15 @@ layout: rest_page
 &lt;expireson&gt;2999-02-25T00:00:00&lt;/expireson&gt; 
 &lt;role&gt;PowerUser&lt;/role&gt; 
 &lt;settings uri="http://api.esendex.com/v1.0/accounts/A00F0218-510D-423D-A74E-5A65342FE070/settings" /&gt; 
-&lt;/account&gt;</pre>
+&lt;/account&gt;
+</pre>
       </dd>
     </dl>
-    <h2><a name="account-update" id=
-    "account-update"></a>Update Account Details</h2>
-    <p>This operation allows changes to be made on one or
-    more Account settings. Currently, the only field that
-    can be updated is the Account Label.</p>
+    <h2><a id="account-update" name="account-update"></a>Update Account Details</h2>
+    <p>This operation allows changes to be made on one or more Account settings. Currently, the only field that can be updated is the Account Label.</p>
     <dl class="dl-horizontal">
       <dt>URL</dt>
-      <dd>
-      <code>https://api.esendex.com/v1.0/accounts/D35FA8EB-3C12-4E8E-8DEC-8568B2F35890</code></dd>
+      <dd><code>https://api.esendex.com/v1.0/accounts/D35FA8EB-3C12-4E8E-8DEC-8568B2F35890</code></dd>
       <dt>HTTP Method</dt>
       <dd>PUT</dd>
       <dt>Authentication</dt>
@@ -99,18 +87,18 @@ layout: rest_page
 &lt;?xml version="1.0" encoding="utf-8"?&gt; 
 &lt;account xmlns="http://api.esendex.com/ns/"&gt; 
 &lt;label&gt;My Label&lt;/label&gt;
-&lt;/account&gt;</pre>
+&lt;/account&gt;
+</pre>
       </dd>
       <dt>Response</dt>
-      <dd>Content Type: application/xml<br />
+      <dd>Content Type: application/xml<br>
       HTTP Status Code: 200</dd>
       <dt>Response data</dt>
       <dd>N/A</dd>
     </dl>
-    <h2><a name="response-elements" id=
-    "response-elements"></a>Response Elements</h2>
+    <h2><a id="response-elements" name="response-elements"></a>Response Elements</h2>
     <h3>&lt;account&gt; elements</h3>
-    <table class="table table-striped" border="0">
+    <table border="0" class="table table-striped">
       <thead>
         <tr>
           <th>Element name</th>
@@ -120,16 +108,11 @@ layout: rest_page
       <tbody>
         <tr class="odd">
           <td><code>id</code> (<em>attribute</em>)</td>
-          <td>The unique identifier for the Account. Each
-          Account returned will include a non-empty GUID
-          id value. It is a stable GUID that does not
-          change.</td>
+          <td>The unique identifier for the Account. Each Account returned will include a non-empty GUID id value. It is a stable GUID that does not change.</td>
         </tr>
         <tr class="even">
           <td><code>uri</code> (<em>attribute</em>)</td>
-          <td>The URI field represents the path to follow
-          to return only an individual Account
-          object.</td>
+          <td>The URI field represents the path to follow to return only an individual Account object.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;reference&gt;</code></td>
@@ -137,51 +120,33 @@ layout: rest_page
         </tr>
         <tr class="even">
           <td><code>&lt;address&gt;</code></td>
-          <td>The telephone number which is used to send
-          and receive Messages.</td>
+          <td>The telephone number which is used to send and receive Messages.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;alias&gt;</code></td>
-          <td>The alias MAY be set to change the default
-          telephone number which Outbound Messages appear
-          to come from. By default it will mirror the
-          address value. If changed, the new alias must
-          be either a valid phone number or an
-          alphanumeric value with a maximum length of 11
-          characters, that may contain letters, numbers
-          and the following special characters: <code>* $
-          ? ! ” # % &amp; _ - , . @ ' +</code>.</td>
+          <td>The alias MAY be set to change the default telephone number which Outbound Messages appear to come from. By default it will mirror the address value. If changed, the new alias must be either a valid phone number or an alphanumeric value with a maximum length of 11 characters, that may contain letters, numbers and the following special characters: <code>* $ ? ! ” # % &amp; _ - , . @ ' +</code>.</td>
         </tr>
         <tr class="even">
           <td><code>&lt;label&gt;</code></td>
-          <td>A text label for the Account. This will
-          appear in Esendex applications and can be used
-          to give the Account a “friendly name”. Can be
-          from 0 to 50 characters long.</td>
+          <td>A text label for the Account. This will appear in Esendex applications and can be used to give the Account a “friendly name”. Can be from 0 to 50 characters long.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;type&gt;</code></td>
-          <td>The type of Esendex Account. Values
-          include: Professional, Trial and Broadcast</td>
+          <td>The type of Esendex Account. Values include: Professional, Trial and Broadcast</td>
         </tr>
         <tr class="even">
           <td><code>&lt;messagesremaining&gt;</code></td>
-          <td>The number of SMS credits remaining to be
-          used on an individual Account.</td>
+          <td>The number of SMS credits remaining to be used on an individual Account.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;expireson&gt;</code></td>
-          <td>The date that the Account will cease to be
-          live.</td>
+          <td>The date that the Account will cease to be live.</td>
         </tr>
         <tr class="even">
           <td><code>&lt;role&gt;</code></td>
-          <td>A string representation of the security
-          permission assigned to the User making the
-          request for the Account.</td>
+          <td>A string representation of the security permission assigned to the User making the request for the Account.</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-

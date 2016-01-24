@@ -7,18 +7,12 @@ layout: rest_page
 <h1 class="title">Account Settings</h1>
 <div class="node">
   <div class="content">
-    <p>The Account Settings resource can be used to
-    retrieve and update settings for an Esendex Account
-    that the user has access to.</p>
-    <h2><a name="account-settings" id=
-    "account-settings"></a>Retrieve Account Settings</h2>
-    <p>This operation returns an Account Settings
-    response detailing the current state of certain
-    settings on an Esendex Account.</p>
+    <p>The Account Settings resource can be used to retrieve and update settings for an Esendex Account that the user has access to.</p>
+    <h2><a id="account-settings" name="account-settings"></a>Retrieve Account Settings</h2>
+    <p>This operation returns an Account Settings response detailing the current state of certain settings on an Esendex Account.</p>
     <dl class="dl-horizontal">
       <dt>URL</dt>
-      <dd>
-      <code>https://api.esendex.com/v1.0/accounts/<em>164AA1D7-7557-4B30-A4F9-40D5DA7E659A</em>/settings</code></dd>
+      <dd><code>https://api.esendex.com/v1.0/accounts/<em>164AA1D7-7557-4B30-A4F9-40D5DA7E659A</em>/settings</code></dd>
       <dt>HTTP Method</dt>
       <dd>GET</dd>
       <dt>Authentication</dt>
@@ -26,7 +20,7 @@ layout: rest_page
       <dt>Example request</dt>
       <dd>n/a</dd>
       <dt>Response</dt>
-      <dd>Content Type: application/xml<br />
+      <dd>Content Type: application/xml<br>
       HTTP Status Code: 200</dd>
       <dt>Response data</dt>
       <dd>
@@ -58,20 +52,15 @@ layout: rest_page
 &lt;directreplyincludeoriginalmessage&gt;false&lt;/directreplyincludeoriginalmessage&gt; 
 &lt;signaturemarker/&gt; 
 &lt;/emailgeneral&gt; 
-&lt;/accountsettings&gt;</pre>
+&lt;/accountsettings&gt;
+</pre>
       </dd>
     </dl>
-    <h2><a name="account-settings-update" id=
-    "account-settings-update"></a>Update Account
-    Settings</h2>
-    <p>This operation allows updates to be performed on
-    one or more Account Settings. The Concurrency Id
-    element is required, and can be obtained by making a
-    GET request to the Account Settings resource.</p>
+    <h2><a id="account-settings-update" name="account-settings-update"></a>Update Account Settings</h2>
+    <p>This operation allows updates to be performed on one or more Account Settings. The Concurrency Id element is required, and can be obtained by making a GET request to the Account Settings resource.</p>
     <dl class="dl-horizontal">
       <dt>URL</dt>
-      <dd>
-      <code>https://api.esendex.com/v1.0/accounts/<em>164AA1D7-7557-4B30-A4F9-40D5DA7E659A</em>/settings</code></dd>
+      <dd><code>https://api.esendex.com/v1.0/accounts/<em>164AA1D7-7557-4B30-A4F9-40D5DA7E659A</em>/settings</code></dd>
       <dt>HTTP Method</dt>
       <dd>PUT</dd>
       <dt>Authentication</dt>
@@ -92,25 +81,25 @@ layout: rest_page
 &lt;message&gt;this is my auto response&lt;/message&gt; 
 &lt;type&gt;SMS&lt;/type&gt; 
 &lt;/autoresponse&gt; 
-&lt;/accountsettings&gt;</pre>
+&lt;/accountsettings&gt;
+</pre>
       </dd>
-      <dt>Successful<br />
+      <dt>Successful<br>
       response</dt>
-      <dd>Content Type: application/xml<br />
+      <dd>Content Type: application/xml<br>
       HTTP Status Code: 200</dd>
-      <dt>Successful<br />
+      <dt>Successful<br>
       response data</dt>
       <dd>N/A</dd>
-      <dt>Unsuccessful<br />
+      <dt>Unsuccessful<br>
       response</dt>
-      <dd>Content Type: text/plain<br />
-      HTTP Status Code: 409 Concurrency ID mismatch<br />
+      <dd>Content Type: text/plain<br>
+      HTTP Status Code: 409 Concurrency ID mismatch<br>
       HTTP Status Code: 400 Validation error</dd>
     </dl>
-    <h2><a name="response-elements" id=
-    "response-elements"></a>Response Elements</h2>
+    <h2><a id="response-elements" name="response-elements"></a>Response Elements</h2>
     <h3>&lt;accountsettings&gt; elements</h3>
-    <table class="table table-striped" border="0">
+    <table border="0" class="table table-striped">
       <thead>
         <tr>
           <th>Element name</th>
@@ -120,136 +109,84 @@ layout: rest_page
       <tbody>
         <tr class="odd">
           <td><code>concurrencyid</code></td>
-          <td colspan="2">A unique identifying string
-          which will have a new value when the Account
-          Settings have changed.</td>
+          <td colspan="2">A unique identifying string which will have a new value when the Account Settings have changed.</td>
         </tr>
         <tr class="even">
           <td rowspan="4"><code>outbound</code></td>
-          <td colspan="2">This XML element contains an
-          Account’s default outbound values. The number
-          of elements within it will vary depending on
-          the type of Account, e.g. Professional,
-          Broadcast, Evaluation etc.</td>
+          <td colspan="2">This XML element contains an Account’s default outbound values. The number of elements within it will vary depending on the type of Account, e.g. Professional, Broadcast, Evaluation etc.</td>
         </tr>
         <tr class="odd">
           <td><code>defaultaliasenabled</code></td>
-          <td>This optional element indicates whether a
-          default alias (used as the ‘From’ value when
-          sending) will be used, if set (see below). It
-          can be set to either ‘true’ or ‘false’.<br />
-          This setting is only applicable to
-          Professional, Broadcast and Trial
-          Accounts.</td>
+          <td>This optional element indicates whether a default alias (used as the ‘From’ value when sending) will be used, if set (see below). It can be set to either ‘true’ or ‘false’.<br>
+          This setting is only applicable to Professional, Broadcast and Trial Accounts.</td>
         </tr>
         <tr class="even">
           <td><code>&lt;defaultalias&gt;</code></td>
-          <td>This optional element indicates the default
-          alias value that will be used as the ‘From’
-          value when sending SMS Messages.<br />
-          This must be either a valid phone number or an
-          alphanumeric value with a maximum length of 11
-          characters, that may contain letters, numbers
-          and the following special characters: <code>* $
-          ? ! ” # % &amp; _ - , . @ ' +</code>.<br />
-          This setting is only applicable to
-          Professional, Broadcast and Trial
-          Accounts.</td>
+          <td>This optional element indicates the default alias value that will be used as the ‘From’ value when sending SMS Messages.<br>
+          This must be either a valid phone number or an alphanumeric value with a maximum length of 11 characters, that may contain letters, numbers and the following special characters: <code>* $ ? ! ” # % &amp; _ - , . @ ' +</code>.<br>
+          This setting is only applicable to Professional, Broadcast and Trial Accounts.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;defaultvalidity&gt;</code></td>
-          <td>This optional element indicates the number
-          of hours that networks will attempt to retry
-          SMS Messages for in the event that a Message
-          cannot be delivered immediately.<br />
-          A value of 0 indicates the system default
-          (usually 72 hours).</td>
+          <td>This optional element indicates the number of hours that networks will attempt to retry SMS Messages for in the event that a Message cannot be delivered immediately.<br>
+          A value of 0 indicates the system default (usually 72 hours).</td>
         </tr>
         <tr class="even">
-          <td rowspan="4">
-          <code>&lt;autoresponse&gt;</code></td>
-          <td colspan="2">This XML element allows the
-          User to set a predefined Message content and
-          type which will be sent out each time an
-          Inbound Message reaches the Account.</td>
+          <td rowspan="4"><code>&lt;autoresponse&gt;</code></td>
+          <td colspan="2">This XML element allows the User to set a predefined Message content and type which will be sent out each time an Inbound Message reaches the Account.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;enabled&gt;</code></td>
-          <td>Indicates if the Auto Response settings are
-          currently active.</td>
+          <td>Indicates if the Auto Response settings are currently active.</td>
         </tr>
         <tr class="even">
           <td><code>&lt;message&gt;</code></td>
-          <td>The Message text which will be sent out if
-          Auto Response is enabled.</td>
+          <td>The Message text which will be sent out if Auto Response is enabled.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;type&gt;</code></td>
-          <td>The type of Message to be sent: 'SMS' or
-          'Voice'.</td>
+          <td>The type of Message to be sent: 'SMS' or 'Voice'.</td>
         </tr>
         <tr class="even">
-          <td rowspan="4">
-          <code>&lt;emailforwarding&gt;</code></td>
+          <td rowspan="4"><code>&lt;emailforwarding&gt;</code></td>
           <td><code>&lt;enabled&gt;</code></td>
-          <td>Indicates if the Email Forwarding settings
-          are currently active.</td>
+          <td>Indicates if the Email Forwarding settings are currently active.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;emailaddress&gt;</code></td>
-          <td>The email address that any Incoming
-          Messages are forwarded to.</td>
+          <td>The email address that any Incoming Messages are forwarded to.</td>
         </tr>
         <tr class="even">
           <td><code>&lt;omitfooter&gt;</code></td>
-          <td>Indicates if the Esendex email footer
-          should be left off any forwarded emails.</td>
+          <td>Indicates if the Esendex email footer should be left off any forwarded emails.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;hideoriginator&gt;</code></td>
-          <td>Indicates if the telephone number of the
-          incoming message should be hidden from email
-          recipients.</td>
+          <td>Indicates if the telephone number of the incoming message should be hidden from email recipients.</td>
         </tr>
         <tr class="even">
-          <td rowspan="2">
-          <code>&lt;emailnotification&gt;</code></td>
+          <td rowspan="2"><code>&lt;emailnotification&gt;</code></td>
           <td><code>&lt;deliveryenabled&gt;</code></td>
-          <td>Indicates if an email should be sent to the
-          Email Forwarding email address when an Outbound
-          Message has been delivered.</td>
+          <td>Indicates if an email should be sent to the Email Forwarding email address when an Outbound Message has been delivered.</td>
         </tr>
         <tr class="odd">
           <td><code>&lt;failedenabled&gt;</code></td>
-          <td>Indicates if an email should be sent to the
-          Email Forwarding email address when an Outbound
-          Message has failed.</td>
+          <td>Indicates if an email should be sent to the Email Forwarding email address when an Outbound Message has failed.</td>
         </tr>
         <tr class="even">
-          <td rowspan="3">
-          <code>&lt;emailgeneral&gt;</code></td>
-          <td>
-          <code>&lt;directreplyenabled&gt;</code></td>
-          <td>Indicates if an email reply to a forwarded
-          email message should be sent to the telephone
-          number of the Inbound Message.</td>
+          <td rowspan="3"><code>&lt;emailgeneral&gt;</code></td>
+          <td><code>&lt;directreplyenabled&gt;</code></td>
+          <td>Indicates if an email reply to a forwarded email message should be sent to the telephone number of the Inbound Message.</td>
         </tr>
         <tr class="odd">
-          <td>
-          <code>&lt;directreplyincludeoriginalmessage&gt;</code></td>
-          <td>Indicates if the original Inbound Message
-          content should be included in the Direct
-          Reply.</td>
+          <td><code>&lt;directreplyincludeoriginalmessage&gt;</code></td>
+          <td>Indicates if the original Inbound Message content should be included in the Direct Reply.</td>
         </tr>
         <tr class="even">
           <td><code>&lt;signaturemarker&gt;</code></td>
-          <td>Email Forwarding will remove any text after
-          a match with this value to allow email
-          signatures to not be included in any
-          Message.</td>
+          <td>Email Forwarding will remove any text after a match with this value to allow email signatures to not be included in any Message.</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
