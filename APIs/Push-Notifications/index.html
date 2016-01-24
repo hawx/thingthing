@@ -1,522 +1,211 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
-dir="ltr">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Windows version 5.1.25" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Push Notifications | Esendex Developers</title>
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <meta name="description" content=
-  "Push Notifications is a feature of our messaging platform that can notify your applications of activity on your Account e.g. the arrival of new messages in your Inbox or notification that a SMS has been delivered." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="/Documentation/Push-Notifications" />
-  <link rel="shortcut icon" href=
-  "/sites/all/themes/EsendexDevelopers/favicon.ico" type=
-  "image/x-icon" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/sites/all/modules/codefilter/codefilter.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/aggregator/aggregator.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/node/node.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/system/defaults.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/system/system.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/system/system-menus.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/user/user.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/sites/all/modules/cck/theme/content-module.css?n" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/style.css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/dev-style.css" />
-  <link href="/sites/all/themes/EsendexDevelopers/css/tabify.css"
-  rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css" />
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1" /><!--[if IE 7]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if lte IE 6]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if IE 9]>
-                <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
-        <![endif]-->
-  <!-- javascript moved to the footer -->
-  <!-- Google Analytics Starts -->
+---
+title: Push Notifications | Esendex Developers
+canonical: /Documentation/Push-Notifications
+description: >-
+  Push Notifications is a feature of our messaging platform that can notify
+  your applications of activity on your Account e.g. the arrival of new 
+  messages in your Inbox or notification that a SMS has been delivered.
+layout: default
+---
 
-  <script type="text/javascript">
-  //<![CDATA[
-
-
-  var _gaq = _gaq || [];
-
-  _gaq.push(['_setAccount', 'UA-30969528-1']);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-
-    var ga = document.createElement('script');
-
-    ga.type = 'text/javascript'; ga.async = true;
-
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-
-  })();
-
-
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
-  function trackOutboundLinks()
-  {
-        var a = document.getElementsByTagName('a');
-
-        for(i = 0; i < a.length; i++){
-
-                if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
-                        
-                        if(!a[i].onclick){ //check onclick event doesn't already exist
-                                a[i].onclick = function(){
-                                        _gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
-                                }
-                        }
-                }
-        }
-  }
-
-  function trackLink(link, category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-     
-    setTimeout(function () {
-        document.location.href = link.href;
-    }, 100);
-  }
-
-  function trackClick(category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-  }
-
-  //]]>
-  </script><!-- Google Analytics Ends -->
-
-  <script type="text/javascript" src=
-  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
-  </script>
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type=
-  "text/javascript" charset="utf-8">
-  </script>
-</head>
-<body onload="trackOutboundLinks()">
-  <div id='wrapper'>
-    <div id='bootstrapnav' class="container">
-      <div class="row">
-        <a href='/' title='Home'><img id='nav-logo' src=
-        '/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg'
-        width='122px' height='39px' name="nav-logo" /></a>
-        <div id='dev-title'>
-          Developers
-        </div><a href='https://www.esendex.com/home' id='nav-login'
-        name="nav-login">Login</a>
-        <div id='mobile-menu-opener'></div>
-        <div class="block block-menu" id=
-        "block-menu-primary-links">
-          <div class="content">
-            <ul class="menu">
-              <li class="leaf first"><a href="/">Home</a></li>
-              <li class="expanded">
-                <a href=
-                "/Quickstarts/Send-SMS.html">Quickstarts</a>
-                <ul class="menu">
-                  <li class="leaf first"><a href=
-                  "/Quickstarts/Send-SMS.html" title=
-                  "Send a SMS">Send SMS</a></li>
-                  <li class="leaf"><a href=
-                  "/Quickstarts/Receive-Messages.html" title=
-                  "Receive Messages">Receive SMS</a></li>
-                  <li class="leaf"><a href=
-                  "/Quickstarts/Track-SMS.html" title=
-                  "Track SMS">Track SMS</a></li>
-                  <li class="leaf last"><a href=
-                  "/Quickstarts/Send-Survey.html" title=
-                  "Send Survey with our API">Send Survey</a></li>
-                </ul>
-              </li>
-              <li class="expanded active-trail">
-                <a href="EsendexAPI/index.html">APIs</a>
-                <ul class="menu">
-                  <li class="leaf first"><a href=
-                  "EsendexAPI/index.html">REST API</a></li>
-                  <li class="leaf"><a href="SOAP-SMS-API.html"
-                  title="SOAP XML SMS API">SOAP API</a></li>
-                  <li class="leaf"><a href="/APIs/FormPost-API"
-                  title="HTTP SMS API">FormPost API</a></li>
-                  <li class="leaf"><a href="API-Comparison.html"
-                  title="API Comparison">Which API should I
-                  use?</a></li>
-                  <li class="active leaf last active-trail">
-                  <a href="/Documentation/Push-Notifications">Push
-                  Notifications</a></li>
-                </ul>
-              </li>
-              <li class="expanded">
-                <a href="/SDKs.html" title="SDKs">SDKs</a>
-                <ul class="menu">
-                  <li class="leaf first"><a href="/SDKs/DotNet-SDK"
-                  title=".Net Rest SDK">.NET SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Java-SDK">Java
-                  SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/PHP-SDK" title=
-                  "PHP Rest SDK">PHP SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Ruby-SDK">Ruby
-                  SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Go-SDK">Go
-                  SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Node-SDK">Node.js
-                  SDK</a></li>
-                  <li class="divider leaf"><a href=
-                  "/">divider</a></li>
-                  <li class="leaf"><a href="/SDKs/C-SMS-SDK">C++
-                  SDK</a></li>
-                  <li class="leaf"><a href=
-                  "/SDKs/ActiveX-SMS-SDK">Classic ASP SDK</a></li>
-                  <li class="leaf"><a href=
-                  "/SDKs/Delphi-SMS-SDK">Delphi SDK</a></li>
-                  <li class="leaf"><a href=
-                  "/SDKs/Perl-SMS-SDK">Perl SDK</a></li>
-                  <li class="leaf last"><a href=
-                  "/SDKs/Visual-Basic-SOAP-SDK">Visual Basic 6
-                  SDK</a></li>
-                </ul>
-              </li>
-              <li class="dynamic-active leaf last"><a href=
-              "/blog/index.html">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id='headerspacer'></div>
-    <!-- delete this and the sky will fall -->
-    <div id='three-cols-page'>
-      <div>
-        <div id='dev-content'>
-          <h1 class="title">Push Notifications</h1>
-          <div class="node">
-            <div class="content">
-              <p>Push Notifications is a feature of our Messaging
-              Platform that can notify your applications of
-              activity on your Account e.g. the arrival of new
-              Messages in your Inbox or Notification that a Message
-              has been delivered. It requires a publicly accessible
-              web page or web service that you host which Esendex
-              posts information about the Notification to.</p>
-              <h2>Setting up Push Notifications</h2>
-              <h3>Step 1: Host a Push Notifications Handler on your
-              web server</h3>
-              <p>Our Push Notifications are delivered across the
-              Internet as HTTP POST requests so you'll need to host
-              your Push Notifications Handler code on a publicly
-              accessible web server. This could be your own server
-              or one provided by a hosting company. Our <a href=
-              "/Quickstarts/Receive-SMS-via-Push.html">Quickstart
-              page</a> provides example code for setting up a Push
-              Notification Handler.</p>
-              <p>In order to receive Notifications you will need to
-              write a Handler to process the XML that is sent by
-              Esendex and respond with an HTTP Status Code of 200.
-              If an HTTP Status Code of 200 is not received (e.g.
-              if your Handler is unavailable for any reason) then a
-              Notification will be retried again for the next 72
-              hours. All Inbound Messages are delivered to the
-              Account Inbox regardless of whether the Push
-              Notification has been successfully handled by your
-              Push Notifications Handler.</p>
-              <h3>Step 2: Configure the Push Notifications Handler
-              URL</h3>
-              <p>To configure the public URL to access your Push
-              Notifications Handler on your Account:</p>
+<div id='headerspacer'></div>
+<!-- delete this and the sky will fall -->
+<div id='three-cols-page'>
+  <div>
+    <div id='dev-content'>
+      <h1 class="title">Push Notifications</h1>
+      <div class="node">
+        <div class="content">
+          <p>Push Notifications is a feature of our Messaging
+          Platform that can notify your applications of
+          activity on your Account e.g. the arrival of new
+          Messages in your Inbox or Notification that a Message
+          has been delivered. It requires a publicly accessible
+          web page or web service that you host which Esendex
+          posts information about the Notification to.</p>
+          <h2>Setting up Push Notifications</h2>
+          <h3>Step 1: Host a Push Notifications Handler on your
+          web server</h3>
+          <p>Our Push Notifications are delivered across the
+          Internet as HTTP POST requests so you'll need to host
+          your Push Notifications Handler code on a publicly
+          accessible web server. This could be your own server
+          or one provided by a hosting company. Our <a href=
+          "/Quickstarts/Receive-SMS-via-Push.html">Quickstart
+          page</a> provides example code for setting up a Push
+          Notification Handler.</p>
+          <p>In order to receive Notifications you will need to
+          write a Handler to process the XML that is sent by
+          Esendex and respond with an HTTP Status Code of 200.
+          If an HTTP Status Code of 200 is not received (e.g.
+          if your Handler is unavailable for any reason) then a
+          Notification will be retried again for the next 72
+          hours. All Inbound Messages are delivered to the
+          Account Inbox regardless of whether the Push
+          Notification has been successfully handled by your
+          Push Notifications Handler.</p>
+          <h3>Step 2: Configure the Push Notifications Handler
+          URL</h3>
+          <p>To configure the public URL to access your Push
+          Notifications Handler on your Account:</p>
+          <ul>
+            <li>Log-in to <a title="Developer Tools" href=
+            "https://www.esendex.com/developertools/" target=
+            "_blank">Developer Tools</a></li>
+            <li>If you have more than one Account with us,
+            select the Account you wish to configure the
+            Notification for.</li>
+            <li>Decide which of the Notifications you wish to
+            setup and click the corresponding Configure
+            button</li>
+            <li>Enter the valid public URL for your Push
+            Notifications handler</li>
+            <li>If you wish, you may enter optional Notes for
+            the Notification you are setting up. These notes
+            are for your reference and do not affect the way in
+            which Push Notifications work.</li>
+          </ul>
+          <h3>Step 3: Test your Push Notifications Handler</h3>
+          <p>You can test the three types of Push Notification
+          in the following ways:</p>
+          <ul>
+            <li>Message Received Push Notification
               <ul>
-                <li>Log-in to <a title="Developer Tools" href=
-                "https://www.esendex.com/developertools/" target=
-                "_blank">Developer Tools</a></li>
-                <li>If you have more than one Account with us,
-                select the Account you wish to configure the
-                Notification for.</li>
-                <li>Decide which of the Notifications you wish to
-                setup and click the corresponding Configure
-                button</li>
-                <li>Enter the valid public URL for your Push
-                Notifications handler</li>
-                <li>If you wish, you may enter optional Notes for
-                the Notification you are setting up. These notes
-                are for your reference and do not affect the way in
-                which Push Notifications work.</li>
+                <li>Send an SMS to your Esendex Account's
+                Virtual Mobile Number. You'll be able to check
+                that the Message arrives in your Inbox in
+                <a title="Echo" href=
+                "http://www.esendex.com/echo/%20target=">Echo</a>
+                and that a Message Received Notification is
+                pushed to your Push Notifications Handler.</li>
               </ul>
-              <h3>Step 3: Test your Push Notifications Handler</h3>
-              <p>You can test the three types of Push Notification
-              in the following ways:</p>
+            </li>
+            <li>Message Delivered Push Notification
               <ul>
-                <li>Message Received Push Notification
-                  <ul>
-                    <li>Send an SMS to your Esendex Account's
-                    Virtual Mobile Number. You'll be able to check
-                    that the Message arrives in your Inbox in
-                    <a title="Echo" href=
-                    "http://www.esendex.com/echo/%20target=">Echo</a>
-                    and that a Message Received Notification is
-                    pushed to your Push Notifications Handler.</li>
-                  </ul>
-                </li>
-                <li>Message Delivered Push Notification
-                  <ul>
-                    <li>Send a Message from your Esendex Account to
-                    a mobile phone that you have access to and is
-                    able to receive messages. Once the SMS has
-                    arrived at the mobile phone, the mobile phone
-                    networks inform us of the delivery of the
-                    message and you should receive a Message
-                    Delivered Push Notification.</li>
-                  </ul>
-                </li>
-                <li>Message Failed Push Notification
-                  <ul>
-                    <li>Send a Message from your Esendex Account to
-                    a known bad telephone number (like 1). The
-                    attempt to send will fail and you should
-                    receive a Message Failed Push
-                    Notification.</li>
-                  </ul>
-                </li>
+                <li>Send a Message from your Esendex Account to
+                a mobile phone that you have access to and is
+                able to receive messages. Once the SMS has
+                arrived at the mobile phone, the mobile phone
+                networks inform us of the delivery of the
+                message and you should receive a Message
+                Delivered Push Notification.</li>
               </ul>
-              <p>Note: Any outbound activity from Account,
-              including failed Messages, will incur a Message
-              charge</p>
-              <h2>Types of Notification</h2>
-              <h4><a name="message-received" id=
-              "message-received"></a>Message Received</h4>
-              <p>When an Account's Message Received Notification is
-              setup with a valid public URL, Esendex will HTTP POST
-              the following XML to your Push Notifications
-              Handler:</p>
-              <dl class="dl-horizontal">
-                <dt>URL</dt>
-                <dd><em>Your Push Notifications Handler URL as set
-                in Developer Tools</em></dd>
-                <dt>HTTP Method</dt>
-                <dd>POST</dd>
-                <dt>Authentication</dt>
-                <dd>n/a</dd>
-                <dt>Request</dt>
-                <dd>Content Type: application/xml</dd>
-                <dt>Example Request</dt>
-                <dd>
-                  <pre class="prettyprint lang-xml">
+            </li>
+            <li>Message Failed Push Notification
+              <ul>
+                <li>Send a Message from your Esendex Account to
+                a known bad telephone number (like 1). The
+                attempt to send will fail and you should
+                receive a Message Failed Push
+                Notification.</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Note: Any outbound activity from Account,
+          including failed Messages, will incur a Message
+          charge</p>
+          <h2>Types of Notification</h2>
+          <h4><a name="message-received" id=
+          "message-received"></a>Message Received</h4>
+          <p>When an Account's Message Received Notification is
+          setup with a valid public URL, Esendex will HTTP POST
+          the following XML to your Push Notifications
+          Handler:</p>
+          <dl class="dl-horizontal">
+            <dt>URL</dt>
+            <dd><em>Your Push Notifications Handler URL as set
+            in Developer Tools</em></dd>
+            <dt>HTTP Method</dt>
+            <dd>POST</dd>
+            <dt>Authentication</dt>
+            <dd>n/a</dd>
+            <dt>Request</dt>
+            <dd>Content Type: application/xml</dd>
+            <dt>Example Request</dt>
+            <dd>
+              <pre class="prettyprint lang-xml">
 &lt;InboundMessage&gt;<br /> &lt;Id&gt;{push-notification-id}&lt;/Id&gt;<br /> &lt;MessageId&gt;{inbound-message-id}&lt;/MessageId&gt;<br /> &lt;AccountId&gt;{esendex-account-id}&lt;/AccountId&gt;<br /> &lt;MessageText&gt;{Message text of inbound message}&lt;/MessageText&gt;<br /> &lt;From&gt;{phone number of sender of the message}&lt;/From&gt;<br /> &lt;To&gt;{Virtual Mobile Number of your Account}&lt;/To&gt;<br />&lt;/InboundMessage&gt;
 </pre>
-                </dd>
-                <dt>Expected Response</dt>
-                <dd>HTTP Status Code: 200</dd>
-              </dl>
-              <h4><a name="message-delivered" id=
-              "message-delivered"></a>Message Delivered</h4>
-              <p>When an Account's Message Delivered Notification
-              is setup with a valid public URL, Esendex will HTTP
-              POST the following XML to your Push Notifications
-              Handler:</p>
-              <dl class="dl-horizontal">
-                <dt>URL</dt>
-                <dd><em>Your Push Notifications Handler URL as set
-                in Developer Tools</em></dd>
-                <dt>HTTP Method</dt>
-                <dd>POST</dd>
-                <dt>Authentication</dt>
-                <dd>n/a</dd>
-                <dt>Request</dt>
-                <dd>Content Type: application/xml</dd>
-                <dt>Example Request</dt>
-                <dd>
-                  <pre class="prettyprint lang-xml">
+            </dd>
+            <dt>Expected Response</dt>
+            <dd>HTTP Status Code: 200</dd>
+          </dl>
+          <h4><a name="message-delivered" id=
+          "message-delivered"></a>Message Delivered</h4>
+          <p>When an Account's Message Delivered Notification
+          is setup with a valid public URL, Esendex will HTTP
+          POST the following XML to your Push Notifications
+          Handler:</p>
+          <dl class="dl-horizontal">
+            <dt>URL</dt>
+            <dd><em>Your Push Notifications Handler URL as set
+            in Developer Tools</em></dd>
+            <dt>HTTP Method</dt>
+            <dd>POST</dd>
+            <dt>Authentication</dt>
+            <dd>n/a</dd>
+            <dt>Request</dt>
+            <dd>Content Type: application/xml</dd>
+            <dt>Example Request</dt>
+            <dd>
+              <pre class="prettyprint lang-xml">
 &lt;MessageDelivered&gt;<br /> &lt;Id&gt;{push-notification-id}&lt;/Id&gt;<br /> &lt;MessageId&gt;{inbound-message-id}&lt;/MessageId&gt;<br /> &lt;AccountId&gt;{esendex-account-id}&lt;/AccountId&gt;<br /> &lt;OccurredAt&gt;<br />  {the UTC DateTime (yyyy-MM-ddThh:mm:ss) the message was delivered}<br /> &lt;/OccurredAt&gt;<br />&lt;/MessageDelivered&gt;</pre>
-                </dd>
-                <dt>Expected Response</dt>
-                <dd>HTTP Status Code: 200</dd>
-              </dl>
-              <h4><a name="message-failed" id=
-              "message-failed"></a>Message Failed</h4>
-              <p>When an Account's Message Failed Notification is
-              setup with a valid public URL, Esendex will HTTP POST
-              the following XML to your Push Notifications
-              Handler:</p>
-              <dl class="dl-horizontal">
-                <dt>URL</dt>
-                <dd><em>Your Push Notifications Handler URL as set
-                in Developer Tools</em></dd>
-                <dt>HTTP Method</dt>
-                <dd>POST</dd>
-                <dt>Authentication</dt>
-                <dd>n/a</dd>
-                <dt>Request</dt>
-                <dd>Content Type: application/xml</dd>
-                <dt>Example Request</dt>
-                <dd>
-                  <pre class="prettyprint lang-xml">
+            </dd>
+            <dt>Expected Response</dt>
+            <dd>HTTP Status Code: 200</dd>
+          </dl>
+          <h4><a name="message-failed" id=
+          "message-failed"></a>Message Failed</h4>
+          <p>When an Account's Message Failed Notification is
+          setup with a valid public URL, Esendex will HTTP POST
+          the following XML to your Push Notifications
+          Handler:</p>
+          <dl class="dl-horizontal">
+            <dt>URL</dt>
+            <dd><em>Your Push Notifications Handler URL as set
+            in Developer Tools</em></dd>
+            <dt>HTTP Method</dt>
+            <dd>POST</dd>
+            <dt>Authentication</dt>
+            <dd>n/a</dd>
+            <dt>Request</dt>
+            <dd>Content Type: application/xml</dd>
+            <dt>Example Request</dt>
+            <dd>
+              <pre class="prettyprint lang-xml">
 &lt;MessageFailed&gt;<br /> &lt;Id&gt;{push-notification-id}&lt;/Id&gt;<br /> &lt;MessageId&gt;{inbound-message-id}&lt;/MessageId&gt;<br /> &lt;AccountId&gt;{esendex-account-id}&lt;/AccountId&gt;<br /> &lt;OccurredAt&gt;<br />  {the UTC DateTime (yyyy-MM-ddThh:mm:ss) the message failed}<br /> &lt;/OccurredAt&gt;<br />&lt;/MessageFailed&gt;</pre>
-                </dd>
-                <dt>Expected Response</dt>
-                <dd>HTTP Status Code: 200</dd>
-              </dl>
-              <h3>Security</h3>
-              <p>Our Messaging Platform supports, and we encourage
-              the use of, SSL encrypted communication between it
-              and your Push Notifications Handler through the use
-              of a certificate certified by one of the well know
-              Root Authorities, e.g. VeriSign, Thawte, etc.</p>
-            </div>
-          </div>
+            </dd>
+            <dt>Expected Response</dt>
+            <dd>HTTP Status Code: 200</dd>
+          </dl>
+          <h3>Security</h3>
+          <p>Our Messaging Platform supports, and we encourage
+          the use of, SSL encrypted communication between it
+          and your Push Notifications Handler through the use
+          of a certificate certified by one of the well know
+          Root Authorities, e.g. VeriSign, Thawte, etc.</p>
         </div>
-        <div id='right-col'>
-          <div class="block block-block" id="block-block-37">
-            <div class="content">
-              <a href='../create-an-account.html' id=
-              'CreateAccountButton' title='Create an account' name=
-              "CreateAccountButton">Create an account</a>
-            </div>
-          </div>
-          <div class="block block-block" id="block-block-66">
-            <div class="content">
-              <div>
-                <p><a class="needahand" href=
-                "http://www.esendex.co.uk/Action/Contact-Us">Need a
-                hand?</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class='clear'></div>
       </div>
     </div>
-  </div><!-- close wrapper -->
-  <div id='footerbg'>
-    <div id='footer'>
-      <div id='visit'>
-        <a href='http://www.esendex.com/'>Visit our commercial
-        site</a>
+    <div id='right-col'>
+      <div class="block block-block" id="block-block-37">
+        <div class="content">
+          <a href='../create-an-account.html' id=
+          'CreateAccountButton' title='Create an account' name=
+          "CreateAccountButton">Create an account</a>
+        </div>
       </div>
-      <ul id='footerlinks'>
-        <li class='first'><a href=
-        'http://www.esendex.co.uk/reference/terms-and-conditions'>Terms
-        and conditions</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/terms-of-use'>Terms of
-        use</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/security'>Security</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/data-protection'>Data
-        protection</a></li>
-        <li class='last'><a href=
-        'http://www.esendex.co.uk/sla'>Service level
-        agreement</a></li>
-      </ul>
-      <div id='copyright'>
-        Esendex Limited 2016<br />
-        Registered company number: 04217280<br />
-        UK
+      <div class="block block-block" id="block-block-66">
+        <div class="content">
+          <div>
+            <p><a class="needahand" href=
+            "http://www.esendex.co.uk/Action/Contact-Us">Need a
+            hand?</a></p>
+          </div>
+        </div>
       </div>
     </div>
+    <div class='clear'></div>
   </div>
-  <script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js"
-  type="text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js"
-  type="text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/placeholders.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/codesamples.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script type="text/javascript">
-  document.documentElement.className += " js"
-  /* <![CDATA[ */
-        $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
-  /* ]]> */
-  </script> <!--mobile nav-->
-  <script type="text/javascript">
-  //<![CDATA[
-        (function() {
-                var menu = document.getElementById("block-menu-primary-links");
-                var isOpen = menu.style.display=="block";
+</div>
 
-                document.getElementById("mobile-menu-opener").addEventListener("click",function() {
-                        if(isOpen) {
-                                menu.style.display = "";
-                                isOpen = false;
-                        } else {
-                                menu.style.display = "block";
-                                isOpen = true;
-                        }
-                });
-        })();
-  //]]>
-  </script> <!-- remarketing -->
-  <!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
-  <script type="text/javascript">
-  /* <![CDATA[ */
-  var google_conversion_id = 1066303896;
-  var google_conversion_language = "en";
-  var google_conversion_format = "3";
-  var google_conversion_color = "666666";
-  var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
-  var google_conversion_value = 0;
-  /* ]]> */
-  </script> 
-  <script type="text/javascript" src=
-  "http://www.googleadservices.com/pagead/conversion.js">
-  </script> <noscript>
-  <div style="display:inline;" id="remarketing"><img height="1"
-  width="1" style="border-style:none;" alt="" src=
-  "http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0" /></div></noscript>
-</body>
-</html>

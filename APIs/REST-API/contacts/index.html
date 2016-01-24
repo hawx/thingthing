@@ -1,0 +1,296 @@
+---
+title: Contacts | Esendex Developers
+canonical: /APIs/REST-API/contacts
+layout: rest_page
+---
+
+<h1 class="title">Contacts</h1>
+<div class="node">
+  <div class="content">
+    <p>The Contacts resource allows the retrieval and
+    creation of named contacts and telephone numbers.
+    Contacts are associated with an account and must be
+    unique by both quick name and phone number within the
+    account, and must not be the same as any contact
+    group name within the same account.</p>
+    <h2><a name="contacts" id="contacts"></a>Retrieve All
+    Contacts</h2>
+    <p>Retrieves a <a href="paging.html">paged
+    response</a> of contacts within the specified
+    account.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contacts?accountreference=EX0000000</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint lang-xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contacts startindex="0" count="1" totalcount="1118790" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;contact id="5f552b6a-d162-477b-b10e-0046d44c132b"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Work Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000000&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts/5f552b6a-d162-477b-b10e-0046d44c132b" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contact&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts?accountReference=EX0000000&amp;amp;startIndex=0" /&gt;
+&lt;/contacts&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact" id="contact"></a>Retrieve a
+    Single Contact</h2>
+    <p>Retrieves a contact identified by ID.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contacts/<em>5f552b6a-d162-477b-b10e-0046d44c132b</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contact id="5f552b6a-d162-477b-b10e-0046d44c132b" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Work Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000000&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts/5f552b6a-d162-477b-b10e-0046d44c132b" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contact&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-create" id=
+    "contact-create"></a>Create a Contact</h2>
+    <p>Creates a new contact and returns the created
+    contact in the response.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contacts</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>POST</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Request</dt>
+      <dd>Content-Type: application/xml</dd>
+      <dt>Example request</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contact xmlns="http://api.esendex.com/ns/"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Home Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000001&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;/contact&gt;</pre>
+      </dd>
+      <dt>Successful<br />
+      Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 201 Created</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://api.esendex.com/ns/"&gt;
+&lt;contact id="5f552b6a-d162-477b-b10e-0046d44c132b"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Home Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000001&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts/5f552b6a-d162-477b-b10e-0046d44c132b" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contact&gt;
+&lt;/response&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-update" id=
+    "contact-update"></a>Update a Contact</h2>
+    <p>Amends an existing contact.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contacts/<em>5f552b6a-d162-477b-b10e-0046d44c132b</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>PUT</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Request</dt>
+      <dd>Content-Type: application/xml</dd>
+      <dt>Example request</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contact xmlns="http://api.esendex.com/ns/"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Second Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000001&lt;/phonenumber&gt;
+&lt;/contact&gt;</pre>
+      </dd>
+      <dt>Successful<br />
+      Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contact id="5f552b6a-d162-477b-b10e-0046d44c132b" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Second Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000001&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts/5f552b6a-d162-477b-b10e-0046d44c132b" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contact&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-delete" id=
+    "contact-delete"></a>Delete a Contact</h2>
+    <p>Deletes an existing contact. <em>This operation
+    cannot be undone!</em></p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contacts/<em>5f552b6a-d162-477b-b10e-0046d44c132b</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>DELETE</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>N/A</dd>
+      <dt>Successful<br />
+      Response</dt>
+      <dd>HTTP Status Code: 204 No Content</dd>
+      <dt>Response data</dt>
+      <dd>N/A</dd>
+    </dl>
+    <h2><a name="request-elements" id=
+    "request-elements"></a>Request Elements</h2>
+    <h3>&lt;contact&gt; element</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>&lt;firstname&gt;</code></td>
+          <td>The first name of this contact. Limited to
+          50 characters.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;lastname&gt;</code></td>
+          <td>The last name of this contact. Limited to
+          50 characters.</td>
+        </tr>
+        <tr class="odd">
+          <td><a name="quickname" id=
+          "quickname"></a><code>&lt;quickname&gt;</code></td>
+          <td><strong>Required:</strong> The quick name
+          of this contact. This must be unique per
+          account, and must not be the same as a contact
+          group name. Limited to 50 characters.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;phonenumber&gt;</code></td>
+          <td><strong>Required:</strong> The phone number
+          for this contact. This must be international
+          E.164 format excluding the '+' sign and without
+          any white space, e.g.
+          <em>447900000000</em>.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;accountreference&gt;</code></td>
+          <td><strong>Required:</strong> The account
+          reference of the account which will contain the
+          contact.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2><a name="response-elements" id=
+    "response-elements"></a>Response Elements</h2>
+    <h3>&lt;contact&gt; elements</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>id</code> (<em>attribute</em>)</td>
+          <td>The unique identifier for the contact. Each
+          contact returned will include an ID which does
+          not change.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;firstname&gt;</code></td>
+          <td>The first name of this contact.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;lastname&gt;</code></td>
+          <td>The last name of this contact.</td>
+        </tr>
+        <tr class="even">
+          <td><a name="quickname" id=
+          "quickname"></a><code>&lt;quickname&gt;</code></td>
+          <td>The quick name of this contact.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;phonenumber&gt;</code></td>
+          <td>The phone number for this contact.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;accountreference&gt;</code></td>
+          <td>The account reference of the account which
+          contains this contact.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;link&gt;</code></td>
+          <td>Each link element defines the location of
+          related resources such as the
+          <code>account</code>. The <code>self</code>
+          link always links back to the resource being
+          represented.<br />
+          The <code>rel</code> <em>attribute</em>
+          describes which resource the link relates to,
+          and the <code>href</code> <em>attribute</em>
+          contains the location of the resource.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+---
+title: REST | Esendex Developers
+canonical: /APIs/REST-API/REST
+layout: rest_page
+---
+
+<h1 class="title">REST</h1>
+<div class="node">
+  <div class="content">
+    <p>The REST API (application programming interface)
+    is simple, lightweight and built on simple and
+    established standards that reduce the need for
+    special toolkits. This allows Esendex to support a
+    wider range of programming languages more easily than
+    ever before.</p>
+    <p>This document describes the REST interactions the
+    API offers to the business messaging services
+    provided by Esendex. It is intended to provide all
+    the information required to get started using the
+    API.</p>
+    <p>The REST API has been based on the REST
+    architectural style and has been implemented on the
+    HTTP protocol. It uses the standard HTTP methods of
+    GET, POST, PUT and DELETE to interact with a set of
+    defined resources. The requests made to and the
+    responses from the REST API are UTF-8 encoded XML
+    representations.</p>
+    <p>In order to use the REST API, the following items
+    are required:</p>
+    <ul>
+      <li>An active internet connection</li>
+      <li>Handling for HTTP Request/Response objects</li>
+      <li>XML Parsing functionality</li>
+    </ul>
+    <h2>REST Principles</h2>
+    <p>The Representational State Transfer (REST)
+    architecture was defined by Roy Fielding in 2000. It
+    describes how clients can make requests to a server
+    on a set of defined ‘resources’ and get an
+    appropriate response back.</p>
+    <p>By using basic HTTP method verbs to specific
+    resource URIs (uniform resource identifier) using
+    request and response headers, interactions with a
+    REST API mirrors the basic principles that the
+    Internet is built on.</p>
+    <h2>HTTP Methods</h2>
+    <p>There are four main HTTP methods or verbs which
+    are used to interact with the REST API. These are
+    GET, POST, PUT and DELETE.</p>
+    <p>The use of these verbs describes operations on a
+    resource in the following manner:</p>
+    <dl class="dl-horizontal">
+      <dt>GET</dt>
+      <dd>Retrieves a representation of the requested
+      resource (current state)</dd>
+      <dt>POST</dt>
+      <dd>Create a new instance of a resource</dd>
+      <dt>PUT</dt>
+      <dd>Update an existing instance of a resource</dd>
+      <dt>DELETE</dt>
+      <dd>Remove an existing instance of a resource</dd>
+    </dl>
+    <h2>HTTP Status Codes</h2>
+    <p>When interacting with the REST API, any HTTP
+    responses will have an accompanying Status Code to
+    indicate the success or failure of the operation you
+    requested. Here is a list of the common ones
+    used:</p>
+    <dl class="dl-horizontal">
+      <dt>200</dt>
+      <dd>OK</dd>
+      <dt>400</dt>
+      <dd>Bad Request</dd>
+      <dt>402</dt>
+      <dd>Payment Required</dd>
+      <dt>403</dt>
+      <dd>Not Authorised</dd>
+      <dt>404</dt>
+      <dd>Resource Not Found</dd>
+      <dt>405</dt>
+      <dd>Method not Allowed</dd>
+      <dt>408</dt>
+      <dd>Request Timed Out</dd>
+      <dt>409</dt>
+      <dd>Concurrency ID mismatch</dd>
+      <dt>412</dt>
+      <dd>Precondition Failed</dd>
+      <dt>500</dt>
+      <dd>Problem with REST API</dd>
+      <dt>503</dt>
+      <dd>Server Under Maintenance</dd>
+    </dl>
+    <h2>API Access</h2>
+    <p>In order to allow customers to manage what their
+    users can do on their account, access to the API is
+    restricted to users with <strong>Admin</strong> and
+    <strong>Standard</strong> roles on an account (in
+    most cases this shouldn't be an issue as
+    <strong>Admin</strong> is the default role of new
+    users).</p>
+    <p>To manage the roles of users on an account, once
+    you've signed up:</p>
+    <ul>
+      <li>Log in to <a title="Echo" href=
+      "https://www.esendex.com/echo">Echo</a></li>
+      <li>Go to Settings -&gt; User Management</li>
+    </ul>
+    <p>&nbsp;</p>
+  </div>
+</div>
+

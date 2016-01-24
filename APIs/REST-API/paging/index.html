@@ -1,0 +1,51 @@
+---
+title: Paging | Esendex Developers
+canonical: /APIs/REST-API/paging
+layout: rest_page
+---
+
+<h1 class="title">Paging</h1>
+<div class="node">
+  <div class="content">
+    <p>For requests on resources which generate a
+    response the REST API will return an appropriate
+    representation of the result in UTF-8 encoded XML.
+    This section details the types of representation
+    objects that describe the state of the resources
+    being queried or manipulated. With each data
+    representation, a list of expected Fields will be
+    listed.</p>
+    <h2>Paged Representations</h2>
+    <p>When exposing certain large collections of data to
+    the user, the REST API will return a subset of that
+    information in a paged representation. Paged
+    representations will have three defined XML
+    attributes to give information on the scope of the
+    current response and the overall size of the data
+    collection.</p>
+    <p>For example, when the Inbox resource returns a
+    collection of Message Header objects these are
+    contained within a MessageHeaders XML element.</p>
+    <pre class="prettyprint">
+&lt;messageheaders startindex="0" count="15" totalcount="239"&gt;
+&lt;messageheader …</pre>
+    <p>In this example,</p>
+    <dl class="dl-horizontal">
+      <dt>startindex="0"</dt>
+      <dd>The index of the first message in the returned
+      data; the index of the first object of any
+      collection is 0</dd>
+      <dt>count="15"</dt>
+      <dd>The number of messages returned.</dd>
+      <dt>totalcount="239"</dt>
+      <dd>The total number of messages in the Inbox.
+      Further pages of data can be retrieved by making
+      additional requests to the resource by shifting the
+      startIndex value.</dd>
+    </dl>
+    <p>Paged collections have a maximum page size and
+    requests for a larger ‘count’ value than is permitted
+    will be reduced to the maximum allowed.</p>
+  </div>
+</div>
+

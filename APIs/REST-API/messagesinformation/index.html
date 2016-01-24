@@ -1,0 +1,219 @@
+---
+title: Messages Information | Esendex Developers
+canonical: /APIs/REST-API/messagesinformation
+layout: rest_page
+---
+
+<h1 class="title">Messages Information</h1>
+<div class="node">
+  <div class="content">
+    <p>The Messages Information resource can be used to
+    obtain information for a message to help understand
+    the costs involved in sending the message.</p>
+    <h2><a name="analyse-message" id=
+    "analyse-message"></a>Retrieve message
+    information</h2>
+    <p>This request will return the analysed message
+    information for a message.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/messages/information</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>POST</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Request</dt>
+      <dd>Content Type: application/xml</dd>
+      <dt>Example Request</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;messages xmlns="http://api.esendex.com/ns/"&gt;
+&lt;message&gt;
+&lt;body&gt;Every message matters!&lt;/body&gt;
+&lt;characterset&gt;Auto&lt;/characterset&gt;
+&lt;/message&gt;
+&lt;/messages&gt;</pre>
+      </dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response Data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://api.esendex.com/ns/"&gt;
+&lt;messages&gt;
+&lt;message elementat="0"&gt;
+&lt;parts&gt;1&lt;/parts&gt;
+&lt;characterset&gt;GSM&lt;/characterset&gt;
+&lt;availablecharactersinlastpart&gt;138&lt;/availablecharactersinlastpart&gt;
+&lt;/message&gt;
+&lt;/messages&gt;
+&lt;errors /&gt;
+&lt;/response&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="analyse-multiple-messages" id=
+    "analyse-multiple-messages"></a>Retrieve multiple
+    message information</h2>
+    <p>This request will return analysed message
+    information for all specified messages. The character
+    represented by the code &amp;#x1F433; is the <a href=
+    "http://codepoints.net/U+1F433">spouting whale</a>
+    character. This will be replaced with two spaces for
+    GSM and counted as two character spaces in Unicode
+    messages.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/messages/information</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>POST</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Request</dt>
+      <dd>Content Type: application/xml</dd>
+      <dt>Example Request</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;messages xmlns="http://api.esendex.com/ns/"&gt;
+&lt;characterset&gt;Auto&lt;/characterset&gt;
+&lt;message elementat="0"&gt;
+&lt;body&gt;Every message matters!&lt;/body&gt;
+&lt;/message&gt;
+&lt;message elementat="1"&gt;
+&lt;body&gt;Every message matters!&lt;/body&gt;
+&lt;characterset&gt;GSM&lt;/characterset&gt;
+&lt;/message&gt;
+&lt;message elementat="2"&gt;
+&lt;body&gt;Every message matters!&lt;/body&gt;
+&lt;characterset&gt;Unicode&lt;/characterset&gt;
+&lt;/message&gt;
+&lt;/messages&gt;</pre>
+      </dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response Data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://api.esendex.com/ns/"&gt;
+&lt;messages&gt;
+&lt;message elementat="0"&gt;
+&lt;parts&gt;1&lt;/parts&gt;
+&lt;characterset&gt;Unicode&lt;/characterset&gt;
+&lt;availablecharactersinlastpart&gt;45&lt;/availablecharactersinlastpart&gt;
+&lt;/message&gt;
+&lt;message elementat="1"&gt;
+&lt;parts&gt;1&lt;/parts&gt;
+&lt;characterset&gt;GSM&lt;/characterset&gt;
+&lt;availablecharactersinlastpart&gt;135&lt;/availablecharactersinlastpart&gt;
+&lt;/message&gt;
+&lt;message elementat="2"&gt;
+&lt;parts&gt;1&lt;/parts&gt;
+&lt;characterset&gt;Unicode&lt;/characterset&gt;
+&lt;availablecharactersinlastpart&gt;45&lt;/availablecharactersinlastpart&gt;
+&lt;/message&gt;
+&lt;/messages&gt;
+&lt;errors /&gt;
+&lt;/response&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="request-elements" id=
+    "request-elements"></a>Request Elements</h2>
+    <h3>&lt;messages&gt; elements</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>characterset</code></td>
+          <td>The default character set to be used when
+          analysing message information. Valid values
+          are: <code>GSM</code>, <code>Unicode</code> or
+          <code>Auto</code>. When using <code>Auto</code>
+          the character set is detected automatically,
+          and analysis is performed using the detected
+          character set.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>One or more &lt;message&gt; elements</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>body</code></td>
+          <td><strong>Required:</strong> The message body
+          to be analysed. This is a required
+          element.</td>
+        </tr>
+        <tr class="even">
+          <td><code>characterset</code></td>
+          <td>The character set to be used when analysing
+          this message. Valid values are:
+          <code>GSM</code>, <code>Unicode</code> or
+          <code>Auto</code>. When using <code>Auto</code>
+          the character set is detected automatically,
+          and analysis is performed using the detected
+          character set. This element is required if
+          <code>characterset</code> is not specified in
+          the <code>messages</code> element.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2><a name="response-elements" id=
+    "response-elements"></a>Response Elements</h2>
+    <h3>&lt;message&gt; element</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>elementat</code>
+          (<em>attribute</em>)</td>
+          <td>Specifies the index of the request
+          <code>message</code> element which this
+          response element references.</td>
+        </tr>
+        <tr class="even">
+          <td><code>parts</code></td>
+          <td>The calculated number of parts the message
+          will consume, based upon the character
+          set.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>characterset</code></td>
+          <td>The character set used when analysing the
+          message.</td>
+        </tr>
+        <tr class="even">
+          <td>
+          <code>availablecharactersinlastpart</code></td>
+          <td>The number of characters that are available
+          for use in the last part.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,346 @@
+---
+title: Inbox | Esendex Developers
+canonical: /APIs/REST-API/inbox
+layout: rest_page
+---
+
+<h1 class="title">Inbox</h1>
+<div class="node">
+  <div class="content">
+    <p>The Inbox resource can be used to query Messages
+    which have been received into an Esendex Account. The
+    most common uses of the Inbox resource are to ‘pull’
+    (retrieve) the Inbound Messages and delete those
+    Messages that have been processed.</p>
+    <h2><a name="inbox-messages" id=
+    "inbox-messages"></a>Retrieve Inbox Messages</h2>
+    <p>This operation will return a <a href=
+    "paging.html">paged response</a> of all Inbound
+    Messages to any Account that the user has permissions
+    to view.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/inbox/messages</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt; 
+&lt;messageheaders startindex="0" count="15" totalcount="200" xmlns="http://api.esendex.com/ns/"&gt; 
+&lt;messageheader id="C74A7192-C65F-4BD1-A066-E3A4C6AF5BCE"&gt; 
+&lt;reference&gt;EX0000000&lt;/reference&gt; 
+&lt;status&gt;Submitted&lt;/status&gt; 
+&lt;receivedat&gt;2012-01-01T00:00:00&lt;/receivedat&gt; 
+&lt;type&gt;SMS&lt;/type&gt; 
+&lt;to&gt; 
+&lt;phonenumber&gt;447700900123&lt;/phonenumber&gt; 
+&lt;/to&gt;
+&lt;from&gt; 
+&lt;phonenumber&gt;447700900654&lt;/phonenumber&gt; 
+&lt;/from&gt; 
+&lt;summary&gt;Testing REST API&lt;/summary&gt; 
+&lt;body id="C74A7192-C65F-4BD1-A066-E3A4C6AF5BCE" uri="http://api.esendex.com/v1.0/messageheaders/C74A7192-C65F-4BD1-A066-E3A4C6AF5BCE/body"/&gt; 
+&lt;direction&gt;Inbound&lt;/direction&gt; 
+&lt;parts&gt;1&lt;/parts&gt; 
+&lt;readat&gt;2012-01-01T00:00:10&lt;/readat&gt; 
+&lt;readby&gt;user@example.com&lt;/readby&gt; 
+&lt;/messageheader&gt; 
+...[Additional message headers]... 
+&lt;/messageheaders&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="inbox-messages-date-range" id=
+    "inbox-messages-date-range"></a>Retrieve Inbox
+    Messages for Date Range</h2>
+    <p>This operation will return a <a href=
+    "paging.html">paged response</a> of all Inbound
+    Messages that were received within the requested date
+    range to any Account that the user has permissions to
+    view.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/inbox/messages?start=<em>2013-03-01T00:00:00Z</em>&amp;finish=<em>2013-03-02T00:00:00Z</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version=”1.0 encoding=”utf-8”?&gt; 
+&lt;messageheaders startindex="0" count="15" totalcount="200" xmlns="http://api.esendex.com/ns/"&gt; 
+&lt;messageheader id="C74A7192-C65F-4BD1-A066-E3A4C6AF5BCE"&gt; 
+&lt;reference&gt;EX0000000&lt;/reference&gt; 
+&lt;status&gt;Submitted&lt;/status&gt; 
+&lt;receivedat&gt;2012-01-01T00:00:00&lt;/receivedat&gt; 
+&lt;type&gt;SMS&lt;/type&gt; 
+&lt;to&gt; 
+&lt;phonenumber&gt;447700900123&lt;/phonenumber&gt; 
+&lt;/to&gt;
+&lt;from&gt; 
+&lt;phonenumber&gt;447700900654&lt;/phonenumber&gt; 
+&lt;/from&gt; 
+&lt;summary&gt;Testing REST API&lt;/summary&gt; 
+&lt;body id="C74A7192-C65F-4BD1-A066-E3A4C6AF5BCE" uri="http://api.esendex.com/v1.0/messageheaders/C74A7192-C65F-4BD1-A066-E3A4C6AF5BCE/body"/&gt; 
+&lt;direction&gt;Inbound&lt;/direction&gt; 
+&lt;parts&gt;1&lt;/parts&gt; 
+&lt;readat&gt;2012-01-01T00:00:10&lt;/readat&gt; 
+&lt;readby&gt;user@example.com&lt;/readby&gt; 
+&lt;/messageheader&gt; 
+...[Additional message headers]... 
+&lt;/messageheaders&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="inbox-messages-one-account" id=
+    "inbox-messages-one-account"></a>Retrieve Inbox
+    Messages for one account</h2>
+    <p>This operation will return a <a href=
+    "paging.html">paged response</a> of all Inbound
+    Messages to one Account that the user has permissions
+    to view. The Account is specified by adding the
+    Reference to the URI.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/inbox/EX0000000/messages</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version=”1.0 encoding=”utf-8”?&gt; 
+&lt;messageheaders startindex="0" count="15" totalcount="200" xmlns="http://api.esendex.com/ns/"&gt; 
+&lt;messageheader id="48BE06B4-B8E6-4016-B63C-724186B367E9"&gt; 
+&lt;reference&gt;EX0000000&lt;/reference&gt; 
+&lt;status&gt;Submitted&lt;/status&gt; 
+&lt;receivedat&gt;2012-01-01T00:00:00&lt;/receivedat&gt; 
+&lt;type&gt;SMS&lt;/type&gt; 
+&lt;to&gt; 
+&lt;phonenumber&gt;447700900123&lt;/phonenumber&gt; 
+&lt;/to&gt;
+&lt;from&gt; 
+&lt;phonenumber&gt;447700900654&lt;/phonenumber&gt; 
+&lt;/from&gt; 
+&lt;summary&gt;Testing REST API&lt;/summary&gt; 
+&lt;body id="48BE06B4-B8E6-4016-B63C-724186B367E9" uri="http://api.esendex.com/v1.0/messageheaders/48BE06B4-B8E6-4016-B63C-724186B367E9/body"/&gt; 
+&lt;direction&gt;Inbound&lt;/direction&gt; 
+&lt;parts&gt;1&lt;/parts&gt; 
+&lt;readat&gt;2012-01-01T00:00:10&lt;/readat&gt; 
+&lt;readby&gt;user@example.com&lt;/readby&gt; 
+&lt;/messageheader&gt; 
+...[Additional message headers]... 
+&lt;/messageheaders&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="inbox-mark-read-unread" id=
+    "inbox-mark-read-unread"></a>Update Read/Unread
+    status for an Inbox Message</h2>
+    <p>This operation will mark an individual Inbox
+    Message as having been read or unread. The PUT
+    request does not require the Message Header object to
+    be included in the request body.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/inbox/messages/12F3CD14-EA4B-4DB7-A5D7-BD8C25A62CA2?action=read</code></dd>
+      <dd>
+      <code>https://api.esendex.com/v1.0/inbox/messages/12F3CD14-EA4B-4DB7-A5D7-BD8C25A62CA2?action=unread</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>PUT</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response data</dt>
+      <dd>N/A</dd>
+    </dl>
+    <h2><a name="inbox-delete-message" id=
+    "inbox-delete-message"></a>Delete Inbox Message</h2>
+    <p>This operation will remove an individual Message
+    from an Inbox. As the message is identified by its
+    GUID there is no additional need to specify which
+    Account the Message belongs to.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/inbox/messages/C13054FF-6B55-49AC-9543-5EA1F6563EA4</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>DELETE</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response data</dt>
+      <dd>N/A</dd>
+    </dl>
+    <h2><a name="response-elements" id=
+    "response-elements"></a>Response Elements</h2>
+    <h3>&lt;messageheader&gt; elements</h3>
+    <p>&nbsp;</p>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>id</code> (<em>attribute</em>)</td>
+          <td>The unique identifier for the Message
+          Header. Each Message Header returned will
+          include a non-empty GUID Id value. It will be a
+          stable GUID that will not change.</td>
+        </tr>
+        <tr class="even">
+          <td><code>uri</code> (<em>attribute</em>)</td>
+          <td>The URI field represents the path to follow
+          to return only the individual Message Header
+          resource.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;reference&gt;</code></td>
+          <td>The Esendex Account reference that the
+          Message was received by.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;status&gt;</code></td>
+          <td>
+            The status code refers to the current state
+            of the Message. The possible values
+            are:<br />
+            <dl>
+              <dt>Submitted</dt>
+              <dd>Message is being processed by
+              Esendex</dd>
+              <dt>Sent</dt>
+              <dd>Message has been passed on to the
+              Mobile Networks</dd>
+              <dt>Delivered</dt>
+              <dd>Message has been delivered to the
+              Recipient</dd>
+              <dt>Expired</dt>
+              <dd>Message could not be delivered within
+              the validity period</dd>
+              <dt>Failed</dt>
+              <dd>Message could not be delivered</dd>
+              <dt>Failed Authorisation</dt>
+              <dd>Premium message could not be authorised
+              to this Recipient</dd>
+              <dt>Acknowledged</dt>
+              <dd>Voice Message has been acknowledged by
+              the Recipient</dd>
+              <dt>Connecting</dt>
+              <dd>Voice Message is currently being
+              delivered to the Recipient</dd>
+            </dl>
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;receivedat&gt;</code></td>
+          <td>The date/time that the Message was
+          received.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;type&gt;</code></td>
+          <td>For Inbound Messages this will only be
+          'SMS'.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;to&gt;</code></td>
+          <td>
+            This Field will contain the telephone number
+            that the Message was sent to. E.g.
+            <pre class="prettyprint">&lt;to&gt;
+&lt;phonenumber&gt;44123456789&lt;/phonenumber&gt;
+&lt;/to&gt;</pre>
+          </td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;from&gt;</code></td>
+          <td>
+            This Field contains the telephone number that
+            the Message has been sent from. If the
+            telephone number is not in your list of
+            Contacts, the telephone number will look
+            like:
+            <pre class="prettyprint">&lt;from&gt; 
+&lt;phonenumber&gt;447700900123&lt;/phonenumber&gt; 
+&lt;/from&gt;</pre>
+            <p>If the telephone number can be matched to
+            one of your Contacts, a more detailed
+            response will be returned:</p>
+            <pre class="prettyprint">
+&lt;from id="06970C0B-FBC6-40B1-BA45-B193377821D5" uri="http://api.esendex.com/v1.0/Contacts/06970C0B-FBC6-40B1-BA45-B193377821D5"&gt; 
+&lt;displayname&gt;Test Contact&lt;/displayname&gt; 
+&lt;phonenumber&gt;447700900753&lt;/phonenumber&gt; 
+&lt;/from&gt;</pre>
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;summary&gt;</code></td>
+          <td>The shortened version of the Message will
+          only return the first few characters of a
+          Message as a preview of the contents held
+          within the Message Body.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;body&gt;</code></td>
+          <td>Provides the Id and URL to follow which
+          will return the complete content of the Message
+          (Message Body) rather than just the
+          summary.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;direction&gt;</code></td>
+          <td>For Inbound Messages, this will only be
+          'Inbound'.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;parts&gt;</code></td>
+          <td>The number of SMS parts that make up the
+          Message.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;readat&gt;</code></td>
+          <td>The date when the Message was marked as
+          having been read.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;readby&gt;</code></td>
+          <td>The username that marked the Message as
+          read.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

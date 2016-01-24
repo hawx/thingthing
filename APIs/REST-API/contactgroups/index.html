@@ -1,0 +1,362 @@
+---
+title: Contact Groups | Esendex Developers
+canonical: /APIs/REST-API/contactgroups
+layout: rest_page
+---
+
+<h1 class="title">Contact Groups</h1>
+<div class="node">
+  <div class="content">
+    <p>The contact groups resource allows the retrieval
+    and creation of named groups which can be used to
+    collect together one or more contacts. The name of a
+    contact group must be unique per account, and must
+    not be the same as any contact <a href=
+    "contacts.html#quickname">quick names</a> within the
+    same account.</p>
+    <h2><a name="contact-groups" id=
+    "contact-groups"></a>Retrieve All Contact Groups</h2>
+    <p>Retrieves a <a href="paging.html">paged
+    response</a> of contact groups within the specified
+    account.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/?accountreference=EX0000000</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contactgroups startindex="0" count="1" totalcount="14" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;contactgroup id="d49f774b-c1bd-48d3-a718-8ee3d926ec25" contactcount="2"&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;name&gt;Friends&lt;/name&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25" /&gt;
+&lt;link rel="contacts" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/contacts" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contactgroup&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contactgroups?accountReference=EX0000000&amp;amp;startIndex=0" /&gt;
+&lt;/contactgroups&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-group" id=
+    "contact-group"></a>Retrieve a Single Contact
+    Group</h2>
+    <p>Retrieves a contact group identified by ID.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/<em>d49f774b-c1bd-48d3-a718-8ee3d926ec25</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contactgroup id="d49f774b-c1bd-48d3-a718-8ee3d926ec25" contactcount="2" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;name&gt;Friends&lt;/name&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25" /&gt;
+&lt;link rel="contacts" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/contacts" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contactgroup&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-group-create" id=
+    "contact-group-create"></a>Create a Contact
+    Group</h2>
+    <p>Creates a new contact group and returns the
+    created contact group in the response.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>POST</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contactgroup xmlns="http://api.esendex.com/ns/"&gt;
+&lt;name&gt;Relatives&lt;/name&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;/contactgroup&gt;</pre>
+      </dd>
+      <dt>Successful<br />
+      Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 201 Created</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contactgroup id="1ee544e3-8255-442b-b5fb-900d1ccce906" contactcount="0" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;name&gt;Relatives&lt;/name&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contactgroups/1ee544e3-8255-442b-b5fb-900d1ccce906" /&gt;
+&lt;link rel="contacts" href="https://api.esendex.com/v2.0/contactgroups/1ee544e3-8255-442b-b5fb-900d1ccce906/contacts" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contactgroup&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-group-update" id=
+    "contact-group-update"></a>Update a Contact
+    Group</h2>
+    <p>Amends an existing contact.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/<em>d49f774b-c1bd-48d3-a718-8ee3d926ec25</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>PUT</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contactgroup xmlns="http://api.esendex.com/ns/"&gt;
+&lt;name&gt;Distant Relatives&lt;/name&gt;
+&lt;/contactgroup&gt;</pre>
+      </dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contactgroup id="d49f774b-c1bd-48d3-a718-8ee3d926ec25" contactcount="0" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;name&gt;Distant Relatives&lt;/name&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25" /&gt;
+&lt;link rel="contacts" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/contacts" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contactgroup&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contact-group-delete" id=
+    "contact-group-delete"></a>Delete a Contact
+    Group</h2>
+    <p>Deletes an existing contact group. <em>This
+    operation cannot be undone!</em></p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/<em>d49f774b-c1bd-48d3-a718-8ee3d926ec25</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>DELETE</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>N/A</dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml<br />
+      HTTP Status Code: 204 No Content</dd>
+      <dt>Response data</dt>
+      <dd>N/A</dd>
+    </dl>
+    <h2><a name="contacts" id="contacts"></a>Retrieve
+    Contacts in a Contact Group</h2>
+    <p>Retrieves a <a href="paging.html">paged
+    response</a> of contacts within the specified contact
+    group. See the <a href="contacts.html">contacts</a>
+    documentation for details of the elements returned
+    when getting contacts in a contact group.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/<em>contacts</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>GET</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>n/a</dd>
+      <dt>Response</dt>
+      <dd>Content-Type: application/xml;
+      charset=utf-8<br />
+      HTTP Status Code: 200 OK</dd>
+      <dt>Response data</dt>
+      <dd>
+        <pre class="prettyprint lang-xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contacts startindex="0" count="2" totalcount="2" xmlns="http://api.esendex.com/ns/"&gt;
+&lt;contact id="7d6501c7-b5d0-40d1-8907-9053ec7d2616"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Home Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000001&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0064044&lt;/accountreference&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts/7d6501c7-b5d0-40d1-8907-9053ec7d2616" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contact&gt;
+&lt;contact id="5f552b6a-d162-477b-b10e-0046d44c132b"&gt;
+&lt;firstname&gt;John&lt;/firstname&gt;
+&lt;lastname&gt;Smith&lt;/lastname&gt;
+&lt;quickname&gt;John's Work Phone&lt;/quickname&gt;
+&lt;phonenumber&gt;447000000000&lt;/phonenumber&gt;
+&lt;accountreference&gt;EX0064044&lt;/accountreference&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contacts/5f552b6a-d162-477b-b10e-0046d44c132b" /&gt;
+&lt;link rel="account" href="https://api.esendex.com/v1.0/accounts/f6462f9d-87a2-4cac-97a6-5a2d9cb81997" /&gt;
+&lt;/contact&gt;
+&lt;link rel="self" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/contacts?count=2&amp;amp;startIndex=0" /&gt;
+&lt;link rel="contactgroup" href="https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25" /&gt;
+&lt;/contacts&gt;</pre>
+      </dd>
+    </dl>
+    <h2><a name="contacts" id="contacts"></a>Add a
+    Contact to a Contact Group</h2>
+    <p>Adds a contact to the specified contact group.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/<em>contacts</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>POST</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>
+        <pre class="prettyprint lang-xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;contacts xmlns="http://api.esendex.com/ns/"&gt;
+&lt;contactid&gt;c41a7329-27bb-46b8-9b19-9e92d292a06a&lt;/contactid&gt;
+&lt;/contacts&gt;</pre>
+      </dd>
+      <dt>Response</dt>
+      <dd>HTTP Status Code: 204 No Content</dd>
+      <dt>Response data</dt>
+      <dd>N/A</dd>
+    </dl>
+    <h2><a name="contacts" id="contacts"></a>Remove a
+    Contact from a Contact Group</h2>
+    <p>Removes a contact from the specified contact
+    group.</p>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v2.0/contactgroups/d49f774b-c1bd-48d3-a718-8ee3d926ec25/contacts/<em>c41a7329-27bb-46b8-9b19-9e92d292a06a</em></code></dd>
+      <dt>HTTP Method</dt>
+      <dd>DELETE</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>N/A</dd>
+      <dt>Response</dt>
+      <dd>HTTP Status Code: 204 No Content</dd>
+      <dt>Response data</dt>
+      <dd>N/A</dd>
+    </dl>
+    <h2><a name="request-elements" id=
+    "request-elements"></a>Request Elements</h2>
+    <h3>&lt;contactgroup&gt; element</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>&lt;name&gt;</code></td>
+          <td><strong>Required:</strong> The name of this
+          contact group. This must be unique per account,
+          and must not be the same as a contact quick
+          name. Limited to 50 characters.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;accountreference&gt;</code></td>
+          <td><strong>Required:</strong> The account
+          reference of the account which will contain the
+          contact group.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>&lt;contacts&gt; element</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>&lt;contactid&gt;</code></td>
+          <td><strong>Required:</strong> The identifier
+          of the contact to be added to the contact
+          group.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2><a name="response-elements" id=
+    "response-elements"></a>Response Elements</h2>
+    <h3>&lt;contactgroup&gt; elements</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>id</code> (<em>attribute</em>)</td>
+          <td>The unique identifier for the contact
+          group. Each contact group returned will include
+          an ID which does not change.</td>
+        </tr>
+        <tr class="even">
+          <td><code>contactcount</code>
+          (<em>attribute</em>)</td>
+          <td>Describes the number of contacts within the
+          contact group.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;accountreference&gt;</code></td>
+          <td>The account reference of the account which
+          contains this contact group.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;name&gt;</code></td>
+          <td>The name of this contact group.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;link&gt;</code></td>
+          <td>Each link element defines the location of
+          related resources such as the
+          <code>account</code> or <code>contact</code>.
+          The <code>self</code> link always links back to
+          the resource being represented.<br />
+          The <code>rel</code> <em>attribute</em>
+          describes which resource the link relates to,
+          and the <code>href</code> <em>attribute</em>
+          contains the location of the resource.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

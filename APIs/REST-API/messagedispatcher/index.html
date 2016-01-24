@@ -1,0 +1,309 @@
+---
+title: Message Dispatcher | Esendex Developers
+canonical: /APIs/REST-API/messagedispatcher
+layout: rest_page
+---
+
+<h1 class="title">Message Dispatcher</h1>
+<div class="node">
+  <div class="content">
+    <p>The Message Dispatcher resource can be used to
+    send one or more SMS and Voice messages either
+    straight away or scheduled in the future at a later
+    point. The XML request object will contain the
+    details of the message(s) to be sent and will
+    generate a message batch response containing a URI to
+    allow future queries to discover the status of the
+    message(s).</p>
+    <h2><a name="send-sms" id="send-sms"></a>Send
+    message</h2>
+    <dl class="dl-horizontal">
+      <dt>URL</dt>
+      <dd>
+      <code>https://api.esendex.com/v1.0/messagedispatcher</code></dd>
+      <dt>HTTP Method</dt>
+      <dd>POST</dd>
+      <dt>Authentication</dt>
+      <dd>Basic / Session</dd>
+      <dt>Example request</dt>
+      <dd>
+        <pre class="prettyprint">
+        &lt;?xml version=<span class=
+        "str">'1.0' encoding=<span class=
+        "str">'UTF-8'?&gt;  
+&lt;messages&gt;  
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;message&gt;
+&lt;to&gt;447700900123&lt;/to&gt;
+&lt;body&gt;Every message matters!&lt;/body&gt;
+&lt;/message&gt;  
+&lt;/messages&gt;</span></span></pre>
+      </dd>
+      <dt>Response</dt>
+      <dd>Content Type: application/xml<br />
+      HTTP Status Code: 200</dd>
+      <dt>Response Data</dt>
+      <dd>
+        <pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt; 
+&lt;messageheaders batchid="F8BF9867-FF81-49E4-ACC5-774DE793B776" <br />xmlns="http://api.esendex.com/ns/"&gt; 
+&lt;messageheader uri="https://api.esendex.com/v1.0/MessageHeaders/1183C73D-2E62-4F60-B610-30F160BDFBD5" id="1183C73D-2E62-4F60-B610-30F160BDFBD5" /&gt; 
+&lt;/messageheaders&gt;</pre>
+      </dd>
+    </dl>
+    <h2>Example Requests</h2>
+    <h3><a name="send-from" id="send-from"></a>Send SMS
+    message with a From address</h3>
+    <pre class="prettyprint">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;  
+&lt;messages&gt;  
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;message&gt;
+&lt;from&gt;07700900654&lt;/from&gt;
+&lt;to&gt;07700900123&lt;/to&gt;
+&lt;type&gt;SMS&lt;/type&gt;
+&lt;body&gt;This is an SMS message&lt;/body&gt;
+&lt;/message&gt;  
+&lt;/messages&gt;</pre>
+    <h3><a name="send-scheduled" id=
+    "send-scheduled"></a>Send scheduled SMS message</h3>
+    <pre class="prettyprint">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;  
+&lt;messages&gt;  
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt; 
+&lt;sendat&gt;2012-01-01T14:31:00&lt;/sendat&gt;
+&lt;message&gt;  
+&lt;to&gt;07700900123&lt;/to&gt;  
+&lt;type&gt;SMS&lt;/type&gt;  
+&lt;body&gt;This is an SMS message &lt;/body&gt;
+&lt;/message&gt;  
+&lt;/messages&gt;</pre>
+    <h3><a name="send-multiple-default-from" id=
+    "send-multiple-default-from"></a>Send multiple SMS
+    messages with default From address</h3>
+    <pre class="prettyprint">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;  
+&lt;messages&gt;  
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt; 
+&lt;from&gt;07700900654&lt;/from&gt;
+&lt;message&gt;  
+&lt;to&gt;07700900123&lt;/to&gt;  
+&lt;type&gt;SMS&lt;/type&gt;  
+&lt;body&gt;Hello Mr Sands.&lt;/body&gt;
+&lt;/message&gt;  
+&lt;message&gt;  
+&lt;to&gt;07700900124&lt;/to&gt;  
+&lt;type&gt;SMS&lt;/type&gt;  
+&lt;body&gt;Hello Mr Mayo.&lt;/body&gt;
+&lt;/message&gt;  
+&lt;/messages&gt;</pre>
+    <h3><a name="send-voice" id="send-voice"></a>Send
+    Voice message</h3>
+    <pre class="prettyprint">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;  
+&lt;messages&gt;  
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt; 
+&lt;message&gt;  
+&lt;to&gt;0123456789&lt;/to&gt;  
+&lt;type&gt;Voice&lt;/type&gt;  
+&lt;body&gt;This is a Voice message&lt;/body&gt;  
+&lt;lang&gt;en-GB&lt;/lang&gt;  
+&lt;retries&gt;3&lt;/retries&gt;  
+&lt;/message&gt; 
+&lt;/messages&gt;</pre>
+    <h3><a name="send-from" id="send-from"></a>Send SMS
+    messages with specified character set</h3>
+    <pre class="prettyprint">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;  
+&lt;messages&gt;  
+&lt;accountreference&gt;EX0000000&lt;/accountreference&gt;
+&lt;characterset&gt;Auto&lt;/characterset&gt;
+&lt;message&gt;
+&lt;type&gt;SMS&lt;/type&gt;
+&lt;body&gt;This is an SMS message&lt;/body&gt;
+&lt;characterset&gt;GSM&lt;/characterset&gt;
+&lt;/message&gt;
+&lt;message&gt;
+&lt;type&gt;SMS&lt;/type&gt;
+&lt;body&gt;This is an SMS message&lt;/body&gt;
+&lt;characterset&gt;Unicode&lt;/characterset&gt;
+&lt;/message&gt;
+&lt;message&gt;
+&lt;type&gt;SMS&lt;/type&gt;
+&lt;body&gt;This is an SMS message&lt;/body&gt;
+&lt;/message&gt;
+&lt;/messages&gt;</pre>
+    <h2><a name="request-elements" id=
+    "request-elements"></a>Request Elements</h2>
+    <h3>&lt;messages&gt; elements</h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>
+          <strong><code>&lt;accountreference&gt;</code></strong></td>
+          <td><strong>Required:</strong>&nbsp;The Esendex
+          Account reference that the messages should be
+          sent from. This is a required element.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;from&gt;</code></td>
+          <td>The default alphanumeric originator that
+          the message appears to originate from. Can be
+          overridden on a per message basis.&nbsp;<br />
+          This must be either a valid phone number or an
+          alphanumeric value with a maximum length of 11
+          characters, that may contain letters, numbers
+          and the following special
+          characters:&nbsp;<br />
+          <code>* $ ? ! ” # % &amp; _ - , @ '
+          +</code></td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;type&gt;</code></td>
+          <td>The default type of all messages to be
+          sent: either <code>SMS</code> or
+          <code>Voice</code>. Can be overridden on a
+          per-message basis.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;lang&gt;</code></td>
+          <td><em>Voice only:</em>&nbsp;The default
+          language to use for all Voice SMS messages in
+          this request. Currently supports: en-GB
+          (English UK), en-AU(English-Australian), fr-FR
+          (French), es-ES (Spanish) and de-DE
+          (German).</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;retries&gt;</code></td>
+          <td><em>Voice only:</em>&nbsp;The default
+          number of times for all messages in this
+          request to attempt to call and deliver a Voice
+          SMS message.</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;validity&gt;</code></td>
+          <td><em>SMS only:</em>&nbsp;The default
+          validity period in hours for all messages in
+          this request (defaults to 0 which indicates the
+          MAX allowed).</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;sendat&gt;</code></td>
+          <td>The time to schedule the messages for
+          delivery for all messages in this request. It
+          cannot be overridden on a per-message
+          basis.&nbsp;<br />
+          The format
+          is&nbsp;<code>yyyy-MM-ddThh:mm:ssZ</code>&nbsp;where
+          y=year, M=month, d=day, T=separator, h=hour,
+          m=min and s=seconds. The value is treated as
+          per ISO 8601 semantics, e.g. without time zone
+          information the value is assumed to be the
+          local time of the server, otherwise as an
+          offset from UTC with Z representing a UTC
+          time</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;characterset&gt;</code></td>
+          <td>The default character set of the messages
+          to be used when not specified within each
+          message. Valid values are: <code>GSM</code>,
+          <code>Unicode</code> and
+          <code>Auto</code>.<br />
+          When using <code>Auto</code> the most
+          appropriate character set is automatically
+          detected. The default value is
+          <code>GSM</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3><strong>One or more &lt;message&gt;
+    elements</strong></h3>
+    <table class="table table-striped" border="0">
+      <thead>
+        <tr>
+          <th>Element name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><code>&lt;from&gt;</code></td>
+          <td>The alphanumeric originator for the message
+          to appear to originate from. This will override
+          any &lt;from&gt; value set in the
+          &lt;messages&gt; section.<br />
+          This must be either a valid phone number or an
+          alphanumeric value with a maximum length of 11
+          characters, that may contain letters, numbers
+          and the following special
+          characters:&nbsp;<br />
+          <code>* $ ? ! ” # % &amp; _ - , . @ '
+          +</code></td>
+        </tr>
+        <tr class="even">
+          <td>
+          <strong><code>&lt;to&gt;</code></strong></td>
+          <td><strong>Required:</strong>&nbsp;The
+          telephone number or numbers to send this
+          message to. Multiple telephone numbers must be
+          comma separated.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;type&gt;</code></td>
+          <td>The type of the message to be sent: either
+          <code>SMS</code> or <code>Voice</code>. If no
+          type is specified, the default is
+          <code>SMS</code>.</td>
+        </tr>
+        <tr class="even">
+          <td>
+          <strong><code>&lt;body&gt;</code></strong></td>
+          <td><strong>Required:</strong>&nbsp;The message
+          content.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;lang&gt;</code></td>
+          <td><em><strong>Required</strong>&nbsp;for
+          Voice only:</em>&nbsp;The language to use for
+          this Voice SMS message. Currently supports:
+          en-GB (English UK), en-AU (English Australian),
+          fr-FR(French), es-ES (Spanish) and de-DE
+          (German).</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;retries&gt;</code></td>
+          <td><em>Voice only:</em>&nbsp;The number of
+          times to attempt to call and deliver a Voice
+          SMS message.</td>
+        </tr>
+        <tr class="odd">
+          <td><code>&lt;validity&gt;</code></td>
+          <td><em>SMS only:</em>&nbsp;The validity period
+          for this message in hours (defaults to 0 which
+          indicates the MAX allowed).</td>
+        </tr>
+        <tr class="even">
+          <td><code>&lt;characterset&gt;</code></td>
+          <td>The character set of the message to be
+          used. Valid values are: <code>GSM</code>,
+          <code>Unicode</code> and
+          <code>Auto</code>.<br />
+          When using <code>Auto</code> the most
+          appropriate character set is automatically
+          detected. The default value is
+          <code>GSM</code>, unless specified in the
+          <code>messages</code> element.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
