@@ -1,0 +1,115 @@
+---
+title: API to Track SMS | Esendex Developers
+canonical: /Quickstarts/Track-SMS
+layout: default
+menu_highlight: Quickstarts
+---
+
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
+<div id='three-cols-page'>
+  <div>
+    <div id='dev-content'>
+      <h1 class="title">Track SMS</h1>
+
+      <div class="node">
+        <div class="content">
+          <p>This guide shows how to retrieve the current status of an individual Message using the <a href="/APIs/EsendexAPI" title="REST API">REST API</a>.</p>
+
+          <h3>Track SMS Code</h3>
+
+          <div class="codeblock">
+            <ul id="codeblock-tracksms" class="nav nav-tabs">
+              <li><a data-toggle="tab" href="Track-SMS.html#code-csharp-tracksms" id="codetab-csharp-tracksms" name="codetab-csharp-tracksms">C#</a></li>
+
+              <li><a data-toggle="tab" href="Track-SMS.html#code-php-tracksms" id="codetab-php-tracksms" name="codetab-php-tracksms">PHP</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="code-csharp-tracksms" class="tab-pane active">
+                <pre class="prettyprint lang-csh">
+//This example uses the Esendex C# SDK available to download from CodePlex
+var loginCredentials = new EsendexCredentials("esendexusername", "esendexpassword");
+var sentMessageService = new com.esendex.sdk.sent.SentService(credentials);
+var message = test.GetMessage(new Guid('esendexmessageid'));
+Console.WriteLine(message.Status);
+                </pre>
+              </div>
+
+              <div id="code-php-tracksms" class="tab-pane">
+                <pre class="prettyprint lang-csh">
+//This example uses the Esendex PHP SDK available from Composer/PEAR/GitHub
+$authentication = new \Esendex\Authentication\LoginAuthentication(
+    "EX000000", // Your Esendex Account Reference
+    "user@example.com", // Your login email address
+    "password" // Your password
+);
+$headerService = new \Esendex\MessageHeaderService($authentication);
+$message = $headerService-&gt;message("messageId");
+print_r($message-&gt;status());
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <h3>You will need:</h3>
+
+          <ul>
+            <li>Your Esendex Account Reference (EX0xxxxxx), username and password
+
+              <ul>
+                <li><strong>Don't have an Account yet?</strong> You'll need to <a href="/create-an-account">create an Account</a></li>
+              </ul>
+            </li>
+
+            <li>The ID of the Message you wish to track</li>
+          </ul>
+
+          <h3>What you might want to do with the response</h3>
+
+          <ul>
+            <li>Save the response against the action that triggered your system to send a Message</li>
+          </ul>
+
+          <h3>What else you might want to do</h3>
+
+          <ul>
+            <li>Check the status of all the Messages in the Batch you sent</li>
+          </ul>
+
+          <h3>What you might want to do next</h3>
+
+          <ul>
+            <li>Repeat this call again later if the Message hasn&acirc;&euro;&trade;t been delivered.</li>
+
+            <li>Check for a reply to your Message</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id='right-col'>
+      <div class="block block-block" id="block-block-37">
+        <div class="content">
+          <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+        </div>
+      </div>
+
+      <div class="block block-block" id="block-block-66">
+        <div class="content">
+          <div>
+            <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block block-block" id="block-block-76">
+        <div class="content">
+          <p><img src="../upload/testimonials/testimonials_06.jpg" alt=""></p>
+        </div>
+      </div>
+    </div>
+
+    <div class='clear'></div>
+  </div>
+</div>

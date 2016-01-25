@@ -1,0 +1,146 @@
+---
+title: Send SMS with our API | Esendex Developers
+canonical: /Quickstarts/Send-SMS
+layout: default
+menu_highlight: Quickstarts
+---
+
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
+<div id='three-cols-page'>
+  <div>
+    <div id='dev-content'>
+      <h1 class="title">Sending SMS with our API</h1>
+
+      <div class="node">
+        <div class="content">
+          <p>This guide shows how to send a Message using our REST API.</p>
+
+          <h3><strong>Send SMS Code</strong></h3>
+
+          <div class="codeblock">
+            <ul id="codeblock-sendsms" class="nav nav-tabs">
+              <li><a href="Send-SMS.html#code-csharp-sendsms" id="codetab-csharp-sendsms" data-toggle="tab" name="codetab-csharp-sendsms">C#</a></li>
+
+              <li><a href="Send-SMS.html#code-php-sendsms" id="codetab-php-sendsms" data-toggle="tab" name="codetab-php-sendsms">PHP</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="code-csharp-sendsms" class="tab-pane active">
+                <pre class="prettyprint lang-csh">
+var messagingService = new MessagingService("username", "password");
+messagingService.SendMessage(new SmsMessage("07123456789", "Hello!", "accountRef"));
+                </pre>
+
+                <h5>This example uses the <a href="/SDKs/DotNet-SDK">Esendex .Net SMS SDK</a></h5>
+              </div>
+
+              <div id="code-php-sendsms" class="tab-pane">
+                <pre class="prettyprint lang-php">
+//This example uses the Esendex PHP SDK available from Composer/PEAR/GitHub
+$message = new \Esendex\Model\DispatchMessage(
+    "WebApp", // Send from
+    "447700900123", // Send to any valid number
+    "My Web App is SMS enabled!",
+    \Esendex\Model\Message::SmsType
+);
+$authentication = new \Esendex\Authentication\LoginAuthentication(
+    "EX000000", // Your Esendex Account Reference
+    "user@example.com", // Your login email address
+    "password" // Your password
+);
+$service = new \Esendex\DispatchService($authentication);
+$result = $service-&gt;send($message);
+
+print $result-&gt;id();
+print $result-&gt;uri();
+                </pre>
+
+                <h5>This example uses the <a href="/SDKs/PHP-SDK">Esendex PHP SMS SDK</a></h5>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3>You will need:</h3>
+
+            <ul>
+              <li>Your Esendex Account Reference (EX0xxxxxx), username and password
+
+                <ul>
+                  <li><strong>Don't have an Account yet?</strong> You'll need to <a href="/create-an-account">create an Account</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Handling the response</h3>
+
+            <p>We will send you back an XML acknowledgment with an HTTP Status Code of 200 if successful. The response will include the Batch Id of the submission and an Id for the Message.</p>
+
+            <h3>What you might want to do with the response</h3>
+
+            <p>You may wish to store the Batch Id in your systems against the action that triggered your system to generate the request to send Messages. You may also wish to store the individual Message Ids. By storing these Message Ids you can retrieve the status of the Batch or Messages from the <a title="REST API" href="/APIs/EsendexAPI">REST API</a> in the future.</p>
+
+            <h3>What else you might want to do when sending a message</h3>
+
+            <ul>
+              <li>Set a name that the SMS Message will appear to be from (e.g. "12345" or "MyCompany")</li>
+
+              <li>Schedule a Message to be sent later</li>
+
+              <li>Send a Voice Message</li>
+            </ul>
+
+            <h3>What you might want to do next</h3>
+
+            <p>What are the next steps in your process?</p>
+
+            <ul>
+              <li>Are you expecting a response back from the Message? If so you might want learn how to <a href="Receive-Messages.html">receive a message</a> via the <a title="REST API" href="/APIs/EsendexAPI">REST API</a></li>
+
+              <li>Do you need to know when a Message is delivered or if it fails? If so you might want to <a href="Track-SMS.html">check the status of a message</a>.</li>
+
+              <li>Are you making frequent calls to the <a title="REST API" href="/APIs/EsendexAPI">REST API</a>? Would you prefer to use Session Authentication instead of using Basic Authentication with each request?</li>
+            </ul>
+
+            <h2>A note on API access</h2>
+
+            <p>In order to allow customers to manage what their users can do on their account, access to the API is restricted to users with <strong>Admin</strong> and <strong>Standard</strong> roles on an account (in most cases this shouldn't be an issue as <strong>Admin</strong> is the default role of new users).</p>
+
+            <p>To manage the roles of users on an account, once you've signed up:</p>
+
+            <ul>
+              <li>Log in to <a title="Echo" href="https://www.esendex.com/echo">Echo</a></li>
+
+              <li>Go to Settings -&gt; User Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id='right-col'>
+      <div class="block block-block" id="block-block-37">
+        <div class="content">
+          <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+        </div>
+      </div>
+
+      <div class="block block-block" id="block-block-66">
+        <div class="content">
+          <div>
+            <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block block-block" id="block-block-68">
+        <div class="content">
+          <p><img src="../upload/testimonials/testimonial1.jpg" alt="" width="312" height="163"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class='clear'></div>
+  </div>
+</div>

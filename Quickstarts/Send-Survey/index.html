@@ -1,0 +1,193 @@
+---
+title: Send a Survey with our API
+canonical: /Quickstarts/Send-Survey
+layout: default
+menu_highlight: Quickstarts
+---
+
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
+<div id='three-cols-page'>
+  <div>
+    <div id='dev-content'>
+      <h1 class="title">Send a Survey with our API</h1>
+
+      <div class="node">
+        <div class="content">
+          <p>This guide shows how to send a Survey to a specified recipient, you must supply content for all template fields required by your Survey.</p>
+
+          <h3><strong>Send Survey Code</strong></h3>
+
+          <div class="codeblock">
+            <ul id="codeblock-sendsms" class="nav nav-tabs">
+              <li><a data-toggle="tab" id="codetab-csharp-sendsms" href="Send-Survey.html#code-csharp-sendsms" name="codetab-csharp-sendsms">C#</a></li>
+
+              <li><a data-toggle="tab" id="codetab-php-sendsms" href="Send-Survey.html#code-php-sendsms" name="codetab-php-sendsms">PHP</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="code-csharp-sendsms" class="tab-pane active">
+                <pre class="prettyprint lang-csh">
+public class AddRecipientToSurveyExample
+{
+    public class AddRecipientRequest
+    {
+        [JsonProperty("phonenumber")]
+        public string PhoneNumber { get; set; }
+
+        [JsonProperty("templatefields")]
+        public Dictionary&lt;string, string&gt; TemplateFields { get; set; }
+    }
+
+    public class AddRecipientsRequest
+    {
+        [JsonProperty("recipients")]
+        public AddRecipientRequest[] Recipients { get; set; }
+    }
+
+    public static void Main()
+    {
+        const string surveyId = "95082677-224B-4789-9452-BC8E391D75E1";
+        const string username = "user@example.com";
+        const string password = "password";
+
+        var requestData = new AddRecipientsRequest
+        {
+            Recipients = new[]
+            {
+                new AddRecipientRequest
+                {
+                    PhoneNumber = "440000000123",
+                    TemplateFields = new Dictionary&lt;string, string&gt;
+                    {
+                        {"Name", "John Doe"},
+                        {"City", "Nottingham"}
+                    }
+                }
+            }
+        };
+
+
+        var requestUrl = string.Format("https://api.surveys.esendex.com/v1.0/surveys/{0}/send", surveyId);
+        var request = (HttpWebRequest) WebRequest.Create(requestUrl);
+
+        request.Method = "POST";
+        request.ContentType = "application/json";
+
+        var encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(username + ":" + password));
+        request.Headers.Add("Authorization", "Basic " + encoded);
+
+        using (var requestStream = request.GetRequestStream())
+        using (var streamWriter = new StreamWriter(requestStream))
+        {
+            JsonSerializer.Create().Serialize(streamWriter, requestData);
+        }
+
+        var response = (HttpWebResponse) request.GetResponse();
+        if ((int) response.StatusCode &gt;= 200 &amp;&amp; (int) response.StatusCode &lt; 300)
+        {
+            Console.WriteLine("Success");
+        }
+        else
+        {
+            Console.WriteLine("Failed with status code {0}", response.StatusCode);
+        }
+
+        Console.ReadKey();
+    }
+}
+                </pre>
+              </div>
+
+              <div id="code-php-sendsms" class="tab-pane">
+                <pre class="prettyprint lang-php">
+$data = array("recipients" =&gt; [array(
+"phonenumber" =&gt; "4412345678",
+"templatefields" =&gt; array(
+      "firstname" =&gt; "John",
+      "lastname" =&gt; "Doe")
+    )]
+  );
+
+$data_string = json_encode($data);
+
+$ch = curl_init('https://api.surveys.esendex.com/v1.0/surveys/95082677-224B-4789-9452-BC8E391D75E1/send');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  'Authorization: Basic am9zaHVhLmhhd3h3ZWxsQGVzZW5kZXguY29tOmVzZW5kZXg=',
+  'Content-Type: application/json',
+  'Host: api.surveys.esendex.com')
+);
+
+$result = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpCode == 200){
+echo "Success!";
+}else{
+   echo $httpCode;
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <p>&nbsp;</p>
+
+          <div>
+            <h3>You will need:</h3>
+
+            <ul>
+              <li>A valid Esendex User (which you can <a href="/create-an-account">create using our free trial</a>)</li>
+
+              <li>An active Survey (contact your account manager to set up a Survey and provide you with your Survey GUID)</li>
+
+              <li>Permission for your Esendex User to access the SMS Survey API (your account manager can enable this by request)</li>
+            </ul>
+
+            <h3>Handling the response</h3>
+
+            <p>We will send you back 1 of 4 HTTP Status Codes, depending on the result of your request:</p>
+
+            <ul>
+              <li>200 OK (Your request was successful)</li>
+
+              <li>400 Bad Request (Your request was: malformed XML or JSON, or contained an incorrect MSISDN, or was missing template fields, or the Survey was not active)</li>
+
+              <li>403 Forbidden (Your user does not have permission to access the Surveys API)</li>
+
+              <li>404 Not Found (The Survey ID you provided is invalid)</li>
+            </ul>
+
+            <h3>What you might want to do with the response</h3>
+
+            <p>Our successful response does not return any content, so there are no actions you need to take with this response. If you receive one of our error codes, you should check your request for errors that satisfy the response you received.</p>
+
+            <h3>What you might want to do next</h3>
+
+            <p>To check the responses to your survey, you can review the Survey results report. Contact your account manager if you wish to change the frequency of this report or for ad hoc requests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id='right-col'>
+      <div class="block block-block" id="block-block-37">
+        <div class="content">
+          <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+        </div>
+      </div>
+
+      <div class="block block-block" id="block-block-66">
+        <div class="content">
+          <div>
+            <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='clear'></div>
+  </div>
+</div>
