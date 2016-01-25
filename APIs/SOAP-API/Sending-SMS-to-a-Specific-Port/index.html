@@ -3,213 +3,128 @@ title: Sending SMS to a Specific Port - Esendex Dev
 canonical: /APIs/SOAP-API/Sending-SMS-to-a-Specific-Port
 description: Esendex offer the capability to send SMS messages to a specific port on a handset. Find out more about this option here!
 layout: default
+menu_highlight: APIs
 ---
 
-<div id='headerspacer'></div>
-<!-- delete this and the sky will fall -->
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
 <div id='three-cols-page'>
   <div>
     <div id='dev-content'>
       <h1 class="title">Sending SMS to a Specific Port</h1>
+
       <div class="node">
         <div class="content">
-          <p>Recently we seem to be getting more and more
-          support cases raised asking if we support sending an
-          SMS text message to a specific port on a
-          handset.&nbsp; The short answer to this is yes, but
-          it is considered to be an advanced subject that most
-          users won't need to do and is very much a manual
-          process.&nbsp; So if you're willing to roll up your
-          sleeves and dive into this, then please read on, but
-          expect a little preamble before we get to the bones
-          of it.&nbsp; Also, I'm assuming you know how to
-          consume a Web Service, or make HTTP post calls to a
-          web page.</p>
-          <p><strong>Please note that this is not supported on
-          the REST API.</strong></p>
-          <p><strong>A Brief Introduction to SMPP and
-          PDUs</strong></p>
-          <p>Most of our connections to network operators are
-          through the SMPP protocol (see <a href=
-          "http://www.smsforum.net/">smsforum.net</a> for
-          downloads of the specification).&nbsp; To send an SMS
-          to a specific port requires at least a rudimentary
-          grasp of the concepts involved in this protocol,
-          particularly the SubmitSM protocol data unit (or
-          PDU).&nbsp; In the loosest possible terms SMPP works
-          using request and response PDUs.&nbsp; In order to
-          send a message, we send a SubmitSM PDU to the
-          operator, who then sends back a response PDU to say
-          they have accepted it.</p>
-          <p>A SubmitSM PDU contains everything the operator
-          requires to send one text message: the originator and
-          destination mobile numbers (in the source and
-          destination address parameters), the message text to
-          send (in the user data section), and a number of
-          other parameters that we need to set in order to
-          describe the content of the message.</p>
-          <p>The two most important of these other parameters
-          are the data coding scheme, and the ESM class.&nbsp;
-          The data coding scheme (or DCS) is used to describe
-          how the bytes in the user data section of the PDU are
-          encoded.&nbsp; The ESM class describes special
-          attributes that are applied to the message (more on
-          this later).</p>
-          <p>Importantly, <strong>there are no parameters in a
-          SubmitSM PDU that directly take the source and
-          destination ports</strong> of the application on the
-          handset to send the message to.</p>
-          <p>So how do we specify port values in the PDU if
-          there are no parameters for them?&nbsp; We place a
-          header on the user data section.</p>
-          <p><strong>Introduction to User Data Headers
-          (UDH)</strong></p>
-          <p>A UDH is a series of bytes within the user data
-          section of a SubmitSM PDU.&nbsp; A standard text
-          message does not have a UDH, so is treated like a
-          normal text message on the phone and is delivered to
-          the standard message inbox.&nbsp; A UDH can contain
-          port and concatenation information, which tells the
-          handset where to send the message, and if there are
-          any further parts of the message it needs to wait
-          for.</p>
-          <p>We only need to know about the port information in
-          the UDH for the purposes of this example.</p>
-          <p>Here is a stream of bytes (hex encoded) that would
-          be in the user data section of the PDU for a WAP Push
-          message (as a WAP Push message needs to contain port
-          information):</p>
-          <p>
-          <code>0605040B8423F025060A03AE81EAAF828DADB48401056A0045C60C0364657670726F6A32302E626C6F6773706F742
-          E636F6D2F000801034D7920426C6F67000101</code></p>
+          <p>Recently we seem to be getting more and more support cases raised asking if we support sending an SMS text message to a specific port on a handset.&nbsp; The short answer to this is yes, but it is considered to be an advanced subject that most users won't need to do and is very much a manual process.&nbsp; So if you're willing to roll up your sleeves and dive into this, then please read on, but expect a little preamble before we get to the bones of it.&nbsp; Also, I'm assuming you know how to consume a Web Service, or make HTTP post calls to a web page.</p>
+
+          <p><strong>Please note that this is not supported on the REST API.</strong></p>
+
+          <p><strong>A Brief Introduction to SMPP and PDUs</strong></p>
+
+          <p>Most of our connections to network operators are through the SMPP protocol (see <a href="http://www.smsforum.net/">smsforum.net</a> for downloads of the specification).&nbsp; To send an SMS to a specific port requires at least a rudimentary grasp of the concepts involved in this protocol, particularly the SubmitSM protocol data unit (or PDU).&nbsp; In the loosest possible terms SMPP works using request and response PDUs.&nbsp; In order to send a message, we send a SubmitSM PDU to the operator, who then sends back a response PDU to say they have accepted it.</p>
+
+          <p>A SubmitSM PDU contains everything the operator requires to send one text message: the originator and destination mobile numbers (in the source and destination address parameters), the message text to send (in the user data section), and a number of other parameters that we need to set in order to describe the content of the message.</p>
+
+          <p>The two most important of these other parameters are the data coding scheme, and the ESM class.&nbsp; The data coding scheme (or DCS) is used to describe how the bytes in the user data section of the PDU are encoded.&nbsp; The ESM class describes special attributes that are applied to the message (more on this later).</p>
+
+          <p>Importantly, <strong>there are no parameters in a SubmitSM PDU that directly take the source and destination ports</strong> of the application on the handset to send the message to.</p>
+
+          <p>So how do we specify port values in the PDU if there are no parameters for them?&nbsp; We place a header on the user data section.</p>
+
+          <p><strong>Introduction to User Data Headers (UDH)</strong></p>
+
+          <p>A UDH is a series of bytes within the user data section of a SubmitSM PDU.&nbsp; A standard text message does not have a UDH, so is treated like a normal text message on the phone and is delivered to the standard message inbox.&nbsp; A UDH can contain port and concatenation information, which tells the handset where to send the message, and if there are any further parts of the message it needs to wait for.</p>
+
+          <p>We only need to know about the port information in the UDH for the purposes of this example.</p>
+
+          <p>Here is a stream of bytes (hex encoded) that would be in the user data section of the PDU for a WAP Push message (as a WAP Push message needs to contain port information):</p>
+
+          <p><code>0605040B8423F025060A03AE81EAAF828DADB48401056A0045C60C0364657670726F6A32302E626C6F6773706F742 E636F6D2F000801034D7920426C6F67000101</code></p>
+
           <p>The header of this message is this:</p>
+
           <p><code>0605040B8423F0</code></p>
-          <p>The first three bytes here (060504) describe
-          various lengths within the header.&nbsp; The port
-          information is contained within the next four bytes
-          (0B8423F0).&nbsp; So in summary the entire message
-          can be broken down as:</p>
-          <p>060504: Length indicators<br />
-          0B84: Destination port (2948)&nbsp;<br />
-          23F0: Originator port (9200)<br />
-          25060.... : the actual message bytes describing the
-          URL and a piece of text.</p>
-          <p>Therefore, a WAP Push message is a series of bytes
-          with a UDH that specifies destination port 2948, and
-          source port 9200.&nbsp; But as headers are optional
-          on a user data section, how does the phone know if
-          one is present?&nbsp; We indicate this in the ESM
-          class parameter of the PDU.</p>
+
+          <p>The first three bytes here (060504) describe various lengths within the header.&nbsp; The port information is contained within the next four bytes (0B8423F0).&nbsp; So in summary the entire message can be broken down as:</p>
+
+          <p>060504: Length indicators<br>
+          0B84: Destination port (2948)&nbsp;<br>
+          23F0: Originator port (9200)<br>
+          25060.... : the actual message bytes describing the URL and a piece of text.</p>
+
+          <p>Therefore, a WAP Push message is a series of bytes with a UDH that specifies destination port 2948, and source port 9200.&nbsp; But as headers are optional on a user data section, how does the phone know if one is present?&nbsp; We indicate this in the ESM class parameter of the PDU.</p>
+
           <p><strong>UDH Indicator and Data Coding</strong></p>
-          <p>The ESM class parameter plays a very powerful role
-          in how the message is interpreted and displayed on
-          the phone, and it's just one byte.&nbsp; Combinations
-          of individual bits within this byte indicate
-          different requirements, but the one we're interested
-          in is the UDH Indicator.&nbsp; If you set these bits
-          (and don't need any others set) the value of the ESM
-          class byte is 64 (0x40), and this indicates that a
-          UDH is present in the user data section.</p>
-          <p>The DCS parameter comes into play here by
-          indicating how the bytes after the header (if one is
-          present) are to be decoded.&nbsp; In a normal message
-          with no header this parameter is set to 0, which
-          indicates the default alphabet used by the
-          operator.&nbsp; In a Wap Push message this is set to
-          4 to indicate 8-bit binary.</p>
-          <p><strong>So how do I send a message to a
-          port?</strong></p>
-          <p>Now you're familiar with the concepts, I'll
-          finally get around to telling you what you're reading
-          this post for.&nbsp; We expose an Advanced Send
-          Service as a&nbsp;<a href=
-          "http://www.esendex.com/secure/messenger/soap/AdvancedSendService.asmx">SOAP
-          Service</a>, and via&nbsp;<a href=
-          "http://www.esendex.com/secure/messenger/formpost/SendAdvancedSMS.aspx">FormPost</a>.&nbsp;
-          If you take a look at one of these you will see
-          ESMClass and DataCodingScheme parameters (see, I told
-          you they were important, so if you've just skipped to
-          here and don't know what I'm talking about, go back
-          and read everything).</p>
-          <p>Let's have an example.&nbsp; Say you need to send
-          a text message "ab"(without the quotes) to port 5000
-          (for actual port values you'll have to consult the
-          documentation for the application you are sending
-          to).&nbsp;</p>
+
+          <p>The ESM class parameter plays a very powerful role in how the message is interpreted and displayed on the phone, and it's just one byte.&nbsp; Combinations of individual bits within this byte indicate different requirements, but the one we're interested in is the UDH Indicator.&nbsp; If you set these bits (and don't need any others set) the value of the ESM class byte is 64 (0x40), and this indicates that a UDH is present in the user data section.</p>
+
+          <p>The DCS parameter comes into play here by indicating how the bytes after the header (if one is present) are to be decoded.&nbsp; In a normal message with no header this parameter is set to 0, which indicates the default alphabet used by the operator.&nbsp; In a Wap Push message this is set to 4 to indicate 8-bit binary.</p>
+
+          <p><strong>So how do I send a message to a port?</strong></p>
+
+          <p>Now you're familiar with the concepts, I'll finally get around to telling you what you're reading this post for.&nbsp; We expose an Advanced Send Service as a&nbsp;<a href="http://www.esendex.com/secure/messenger/soap/AdvancedSendService.asmx">SOAP Service</a>, and via&nbsp;<a href="http://www.esendex.com/secure/messenger/formpost/SendAdvancedSMS.aspx">FormPost</a>.&nbsp; If you take a look at one of these you will see ESMClass and DataCodingScheme parameters (see, I told you they were important, so if you've just skipped to here and don't know what I'm talking about, go back and read everything).</p>
+
+          <p>Let's have an example.&nbsp; Say you need to send a text message "ab"(without the quotes) to port 5000 (for actual port values you'll have to consult the documentation for the application you are sending to).&nbsp;</p>
+
           <p><em>1. Construct the header</em></p>
-          <p>You'll need to construct the header and encode the
-          text onto the end of it.</p>
+
+          <p>You'll need to construct the header and encode the text onto the end of it.</p>
+
           <p>For this example the header will be:</p>
+
           <p><code>06050413880000</code></p>
+
           <p>Because:</p>
-          <p>060504: Length indicators<br />
-          1388: Destination port (5000)<br />
-          0000: Originator port (zero it if you don't need a
-          specific one)</p>
+
+          <p>060504: Length indicators<br>
+          1388: Destination port (5000)<br>
+          0000: Originator port (zero it if you don't need a specific one)</p>
+
           <p><em>2. Encode your text</em></p>
-          <p>Encode your text to ASCII and append to the
-          header.&nbsp; The text "ab" is 0x6162, so your full
-          message with header is:</p>
+
+          <p>Encode your text to ASCII and append to the header.&nbsp; The text "ab" is 0x6162, so your full message with header is:</p>
+
           <p><code>060504138800006162</code></p>
+
           <p><em>3. Submit the message</em></p>
-          <p>In this case the value for the ESMClass parameter
-          will be 64, and the DataCodingScheme should be set to
-          0.&nbsp; Put the string <em>060504138800006162</em>
-          as the body parameter, enter values for the rest of
-          the parameters (originator, destination, etc.) and
-          submit.</p>
-          <p>And that's it.&nbsp; As long as your header is
-          correct and you've encoded the text correctly you
-          should have the message delivered to the application
-          on the phone that needs it.</p>
+
+          <p>In this case the value for the ESMClass parameter will be 64, and the DataCodingScheme should be set to 0.&nbsp; Put the string <em>060504138800006162</em> as the body parameter, enter values for the rest of the parameters (originator, destination, etc.) and submit.</p>
+
+          <p>And that's it.&nbsp; As long as your header is correct and you've encoded the text correctly you should have the message delivered to the application on the phone that needs it.</p>
+
           <p><strong>Important Notes</strong></p>
-          <p>Some things to be aware of when submitting
-          messages like this</p>
+
+          <p>Some things to be aware of when submitting messages like this</p>
+
           <ul>
-            <li>Commonly, if the handset you are sending to
-            cannot interpret the message you're sending it will
-            just do nothing.&nbsp; You will get a delivery
-            receipt for the message saying it has been
-            delivered to the handset, but you will see nothing
-            on the screen.&nbsp; This makes debugging very
-            difficult.</li>
-            <li>The body parameter (in this case) needs to be a
-            hex encoded string of the bytes you wish to
-            send.&nbsp; This means 2 hex characters per
-            byte.&nbsp; i.e. 0xA should be sent as <em>0A</em>
-            not just <em>A</em>.</li>
-            <li>The values for the ESMClass and DCS should be
-            decimal numbers</li>
-            <li>With regards to character encoding, we have
-            received scattered reports of some non-alphanumeric
-            characters not being displayed correctly, but we
-            haven't had been able to narrow down the cause of
-            this.&nbsp; If you experience encoding problems
-            please&nbsp;email <a href=
-            "mailto:support@esendex.com">support@esendex.com</a>.</li>
+            <li>Commonly, if the handset you are sending to cannot interpret the message you're sending it will just do nothing.&nbsp; You will get a delivery receipt for the message saying it has been delivered to the handset, but you will see nothing on the screen.&nbsp; This makes debugging very difficult.</li>
+
+            <li>The body parameter (in this case) needs to be a hex encoded string of the bytes you wish to send.&nbsp; This means 2 hex characters per byte.&nbsp; i.e. 0xA should be sent as <em>0A</em> not just <em>A</em>.</li>
+
+            <li>The values for the ESMClass and DCS should be decimal numbers</li>
+
+            <li>With regards to character encoding, we have received scattered reports of some non-alphanumeric characters not being displayed correctly, but we haven't had been able to narrow down the cause of this.&nbsp; If you experience encoding problems please&nbsp;email <a href="mailto:support@esendex.com">support@esendex.com</a>.</li>
           </ul>
         </div>
       </div>
     </div>
+
     <div id='right-col'>
       <div class="block block-block" id="block-block-37">
         <div class="content">
-          <a href='../../create-an-account.html' id=
-          'CreateAccountButton' title='Create an account' name=
-          "CreateAccountButton">Create an account</a>
+          <a href='../../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
         </div>
       </div>
+
       <div class="block block-block" id="block-block-66">
         <div class="content">
           <div>
-            <p><a class="needahand" href=
-            "http://www.esendex.co.uk/Action/Contact-Us">Need a
-            hand?</a></p>
+            <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
           </div>
         </div>
       </div>
     </div>
+
     <div class='clear'></div>
   </div>
 </div>
-

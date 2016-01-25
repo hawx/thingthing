@@ -2,364 +2,547 @@
 title: Send Survey | Esendex Developers
 canonical: /APIs/REST-API/sendsurvey
 layout: rest_page
+menu_highlight: APIs
 ---
 
 <h1 class="title">Send Survey</h1>
+
 <div class="node">
   <div class="content">
-    <p>The Send Survey endpoint allows you to send a
-    survey to a specified recipient, you must supply
-    content for all template fields required by your
-    Survey. Requests can be made in either JSON or
-    XML.</p>
-    <h2><a name="send-sms" style=
-    "background-image: url(&quot;%3Bimg/items.gif&quot;%3B.html);"
-    id="send-sms"></a>Send Survey</h2>
+    <p>The Send Survey endpoint allows you to send a survey to a specified recipient, you must supply content for all template fields required by your Survey. Requests can be made in either JSON or XML.</p>
+
+    <h2><a name="send-sms" style="background-image: url(&quot;%3Bimg/items.gif&quot;%3B.html);" id="send-sms"></a>Send Survey</h2>
+
     <dl class="dl-horizontal">
       <dt>URL</dt>
-      <dd>
-      <code>https://api.surveys.esendex.com/v1.0/surveys/{surveyId}/send</code></dd>
+
+      <dd><code>https://api.surveys.esendex.com/v1.0/surveys/{surveyId}/send</code></dd>
+
       <dt>HTTP Method</dt>
+
       <dd>POST</dd>
+
       <dt>Authentication</dt>
+
       <dd>Basic / Session</dd>
+
       <dt>Example Request</dt>
+
       <dd>
         <div id="dev-content">
           <div class="codeblock">
-            <ul id="codeblock-request" class=
-            "nav nav-tabs">
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-json-request" id=
-              "codetab-json-request" data-toggle="tab"
-              name="codetab-json-request">JSON</a></li>
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-xml-request" id=
-              "codetab-xml-request" data-toggle="tab"
-              name="codetab-xml-request">XML</a></li>
+            <ul id="codeblock-request" class="nav nav-tabs">
+              <li style="background: none;"><a href="sendsurvey.html#code-json-request" id="codetab-json-request" data-toggle="tab" name="codetab-json-request">JSON</a></li>
+
+              <li style="background: none;"><a href="sendsurvey.html#code-xml-request" id="codetab-xml-request" data-toggle="tab" name="codetab-xml-request">XML</a></li>
             </ul>
+
             <div class="tab-content">
-              <div id="code-json-request" class=
-              "tab-pane active">
+              <div id="code-json-request" class="tab-pane active">
                 <pre class="prettyprint">
-                Content-Type: application/json
+      Content-Type: application/json
 
-{
-  "recipients": [
-    {
-      "phonenumber": "447700900123",
-      "templatefields": {
-        "Name": "John Doe",
-        "City": "Nottingham"
-      }
-    }
-  ]
-}</pre>
+
+nts": [
+
+nenumber": "447700900123",
+platefields": {
+ame": "John Doe",
+ity": "Nottingham"
+
+
+
+
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
-              <div id="code-xml-request" class=
-              "tab-pane">
-                <pre class="prettyprint">
-                Content-Type: application/xml
 
-</pre>
-                <pre class="prettyprint" style=
-                "border: none; padding: 0; margin: 0;">
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;recipients xmlns="http://api.esendex.com/ns/"&gt;
-  &lt;recipient&gt;
-    &lt;phonenumber&gt;447700900123&lt;/phonenumber&gt;
-    &lt;templatefields&gt;
-      &lt;templatefield&gt;
-        &lt;name&gt;Name&lt;/name&gt;
-        &lt;value&gt;John Doe&lt;/value&gt;
-      &lt;/templatefield&gt;
-      &lt;templatefield&gt;
-        &lt;name&gt;City&lt;/name&gt;
-        &lt;value&gt;Nottingham&lt;/value&gt;
-      &lt;/templatefield&gt;
-    &lt;/templatefields&gt;
-  &lt;/recipient&gt;
-&lt;/recipients&gt;</pre>
+              <div id="code-xml-request" class="tab-pane">
+                <pre class="prettyprint">
+      Content-Type: application/xml
+
+
+        
+;
+          
+gt;
+            
+e&gt;
+              
+pre>
+                <pre class="prettyprint" style="border: none; padding: 0; margin: 0;">
+
+
+
+
+ersion="1.0" encoding="utf-8"?&gt;
+ents xmlns="http://api.esendex.com/ns/"&gt;
+pient&gt;
+onenumber&gt;447700900123&lt;/phonenumber&gt;
+mplatefields&gt;
+templatefield&gt;
+t;name&gt;Name&lt;/name&gt;
+t;value&gt;John Doe&lt;/value&gt;
+/templatefield&gt;
+templatefield&gt;
+t;name&gt;City&lt;/name&gt;
+t;value&gt;Nottingham&lt;/value&gt;
+/templatefield&gt;
+emplatefields&gt;
+ipient&gt;
+ients&gt;
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
             </div>
           </div>
         </div>
       </dd>
+
       <dt>Response</dt>
+
       <dd>
         <pre class="prettyprint">
-        HTTP Status Code 200</pre>
+TP Status Code 200
+
+
+;
+
+gt;
+  
+e&gt;
+    
+pre>
       </dd>
     </dl>
-    <h3><a name="error-responses" style=
-    "background-image: url(&quot;%3Bimg/items.gif&quot;%3B.html);"
-    id="error-responses"></a>Error Responses</h3>
-    <p>If a request is missing mandatory template fields,
-    the following response will be received:</p>
+
+    <h3><a name="error-responses" style="background-image: url(&quot;%3Bimg/items.gif&quot;%3B.html);" id="error-responses"></a>Error Responses</h3>
+
+    <p>If a request is missing mandatory template fields, the following response will be received:</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <div id="dev-content">
           <div class="codeblock">
-            <ul id="codeblock-error-1" class=
-            "nav nav-tabs">
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-json-error-1" id=
-              "codetab-json-error-1" data-toggle="tab"
-              name="codetab-json-error-1">JSON</a></li>
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-xml-error-1" id=
-              "codetab-xml-error-1" data-toggle="tab"
-              name="codetab-xml-error-1">XML</a></li>
+            <ul id="codeblock-error-1" class="nav nav-tabs">
+              <li style="background: none;"><a href="sendsurvey.html#code-json-error-1" id="codetab-json-error-1" data-toggle="tab" name="codetab-json-error-1">JSON</a></li>
+
+              <li style="background: none;"><a href="sendsurvey.html#code-xml-error-1" id="codetab-xml-error-1" data-toggle="tab" name="codetab-xml-error-1">XML</a></li>
             </ul>
+
             <div class="tab-content">
-              <div id="code-json-error-1" class=
-              "tab-pane active">
+              <div id="code-json-error-1" class="tab-pane active">
                 <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/json
+      HTTP Status Code 400
+pe: application/json
 
-{
-"errors": [
-{
-"code": "templatefields_missing",
-"description": "Template fields that are required by this Survey were not supplied",
-"values": ["Name", "Age"]
-}
-]
-}
-</pre>
+
+[
+
+emplatefields_missing",
+on": "Template fields that are required by this Survey were not supplied",
+["Name", "Age"]
+
+
+
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
-              <div id="code-xml-error-1" class=
-              "tab-pane">
-                <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/xml
 
-</pre>
-                <pre class="prettyprint" style=
-                "border: none; padding: 0; margin: 0;">
-&lt;response xmlns="http://api.esendex.com/ns/"&gt;
-&lt;errors&gt;
-&lt;error&gt;
-&lt;code&gt;templatefields_missing&lt;/code&gt;
-&lt;description&gt;Template fields that are required by this Survey were not supplied&lt;/description&gt;
-&lt;values&gt;
-&lt;value&gt;Name&lt;/value&gt;
-&lt;value&gt;Age&lt;/value&gt;
-&lt;/values&gt;
-&lt;/error&gt;
-&lt;/errors&gt;
-&lt;/response&gt;</pre>
+              <div id="code-xml-error-1" class="tab-pane">
+                <pre class="prettyprint">
+      HTTP Status Code 400
+pe: application/xml
+
+
+        
+;
+          
+gt;
+            
+e&gt;
+              
+pre>
+                <pre class="prettyprint" style="border: none; padding: 0; margin: 0;">
+
+
+
+
+se xmlns="http://api.esendex.com/ns/"&gt;
+&gt;
+gt;
+t;templatefields_missing&lt;/code&gt;
+ption&gt;Template fields that are required by this Survey were not supplied&lt;/description&gt;
+&gt;
+gt;Name&lt;/value&gt;
+gt;Age&lt;/value&gt;
+s&gt;
+&gt;
+s&gt;
+nse&gt;
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
             </div>
           </div>
         </div>
       </dd>
     </dl>
-    <p>If a request contains an invalid phone number, the
-    following response will be received:</p>
+
+    <p>If a request contains an invalid phone number, the following response will be received:</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <div id="dev-content">
           <div class="codeblock">
-            <ul id="codeblock-error-2" class=
-            "nav nav-tabs">
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-json-error-2" id=
-              "codetab-json-error-2" data-toggle="tab"
-              name="codetab-json-error-2">JSON</a></li>
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-xml-error-2" id=
-              "codetab-xml-error-2" data-toggle="tab"
-              name="codetab-xml-error-2">XML</a></li>
+            <ul id="codeblock-error-2" class="nav nav-tabs">
+              <li style="background: none;"><a href="sendsurvey.html#code-json-error-2" id="codetab-json-error-2" data-toggle="tab" name="codetab-json-error-2">JSON</a></li>
+
+              <li style="background: none;"><a href="sendsurvey.html#code-xml-error-2" id="codetab-xml-error-2" data-toggle="tab" name="codetab-xml-error-2">XML</a></li>
             </ul>
+
             <div class="tab-content">
-              <div id="code-json-error-2" class=
-              "tab-pane active">
+              <div id="code-json-error-2" class="tab-pane active">
                 <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/json
+      HTTP Status Code 400
+pe: application/json
 
-{
-"errors": [
-{
-"code": "phonenumber_invalid",
-"description": "Phone number is invalid"
-}
-]
-}</pre>
+
+[
+
+honenumber_invalid",
+on": "Phone number is invalid"
+
+
+
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
-              <div id="code-xml-error-2" class=
-              "tab-pane">
-                <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/xml
 
-</pre>
-                <pre class="prettyprint" style=
-                "border: none; padding: 0; margin: 0;">
-&lt;response xmlns="http://api.esendex.com/ns/"&gt;
-&lt;errors&gt;
-&lt;error&gt;
-&lt;code&gt;phonenumber_invalid&lt;/code&gt;
-&lt;description&gt;Phone number is invalid&lt;/description&gt;
-&lt;/error&gt;
-&lt;/errors&gt;
-&lt;/response&gt;</pre>
+              <div id="code-xml-error-2" class="tab-pane">
+                <pre class="prettyprint">
+      HTTP Status Code 400
+pe: application/xml
+
+
+        
+;
+          
+gt;
+            
+e&gt;
+              
+pre>
+                <pre class="prettyprint" style="border: none; padding: 0; margin: 0;">
+
+
+
+
+se xmlns="http://api.esendex.com/ns/"&gt;
+&gt;
+gt;
+t;phonenumber_invalid&lt;/code&gt;
+ption&gt;Phone number is invalid&lt;/description&gt;
+&gt;
+s&gt;
+nse&gt;
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
             </div>
           </div>
         </div>
       </dd>
     </dl>
-    <p>If a request does not have a phone number, the
-    following response will be received:</p>
+
+    <p>If a request does not have a phone number, the following response will be received:</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <div id="dev-content">
           <div class="codeblock">
-            <ul id="codeblock-error-3" class=
-            "nav nav-tabs">
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-json-error-3" id=
-              "codetab-json-error-3" data-toggle="tab"
-              name="codetab-json-error-3">JSON</a></li>
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-xml-error-3" id=
-              "codetab-xml-error-3" data-toggle="tab"
-              name="codetab-xml-error-3">XML</a></li>
+            <ul id="codeblock-error-3" class="nav nav-tabs">
+              <li style="background: none;"><a href="sendsurvey.html#code-json-error-3" id="codetab-json-error-3" data-toggle="tab" name="codetab-json-error-3">JSON</a></li>
+
+              <li style="background: none;"><a href="sendsurvey.html#code-xml-error-3" id="codetab-xml-error-3" data-toggle="tab" name="codetab-xml-error-3">XML</a></li>
             </ul>
+
             <div class="tab-content">
-              <div id="code-json-error-3" class=
-              "tab-pane active">
+              <div id="code-json-error-3" class="tab-pane active">
                 <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/json
+      HTTP Status Code 400
+pe: application/json
 
-{
-"errors": [
-{
-"code": "phonenumber_missing",
-"description": "Phone number is missing"
-}
-]
-}</pre>
+
+[
+
+honenumber_missing",
+on": "Phone number is missing"
+
+
+
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
-              <div id="code-xml-error-3" class=
-              "tab-pane">
-                <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/xml
 
-</pre>
-                <pre class="prettyprint" style=
-                "border: none; padding: 0; margin: 0;">
-&lt;response xmlns="http://api.esendex.com/ns/"&gt;
-&lt;errors&gt;
-&lt;error&gt;
-&lt;code&gt;phonenumber_missing&lt;/code&gt;
-&lt;description&gt;Phone number is missing&lt;/description&gt;
-&lt;/error&gt;
-&lt;/errors&gt;
-&lt;/response&gt;</pre>
+              <div id="code-xml-error-3" class="tab-pane">
+                <pre class="prettyprint">
+      HTTP Status Code 400
+pe: application/xml
+
+
+        
+;
+          
+gt;
+            
+e&gt;
+              
+pre>
+                <pre class="prettyprint" style="border: none; padding: 0; margin: 0;">
+
+
+
+
+se xmlns="http://api.esendex.com/ns/"&gt;
+&gt;
+gt;
+t;phonenumber_missing&lt;/code&gt;
+ption&gt;Phone number is missing&lt;/description&gt;
+&gt;
+s&gt;
+nse&gt;
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
             </div>
           </div>
         </div>
       </dd>
     </dl>
-    <p>If the survey provided in the request is inactive,
-    the following response will be received:</p>
+
+    <p>If the survey provided in the request is inactive, the following response will be received:</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <div id="dev-content">
           <div class="codeblock">
-            <ul id="codeblock-error-4" class=
-            "nav nav-tabs">
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-json-error-4" id=
-              "codetab-json-error-4" data-toggle="tab"
-              name="codetab-json-error-4">JSON</a></li>
-              <li style="background: none;"><a href=
-              "sendsurvey.html#code-xml-error-4" id=
-              "codetab-xml-error-4" data-toggle="tab"
-              name="codetab-xml-error-4">XML</a></li>
+            <ul id="codeblock-error-4" class="nav nav-tabs">
+              <li style="background: none;"><a href="sendsurvey.html#code-json-error-4" id="codetab-json-error-4" data-toggle="tab" name="codetab-json-error-4">JSON</a></li>
+
+              <li style="background: none;"><a href="sendsurvey.html#code-xml-error-4" id="codetab-xml-error-4" data-toggle="tab" name="codetab-xml-error-4">XML</a></li>
             </ul>
+
             <div class="tab-content">
-              <div id="code-json-error-4" class=
-              "tab-pane active">
+              <div id="code-json-error-4" class="tab-pane active">
                 <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/json
+      HTTP Status Code 400
+pe: application/json
 
-{
-"errors": [
-{
-"code": "survey_inactive",
-"description": "Survey is no longer active"
-}
-]
-}</pre>
+
+[
+
+urvey_inactive",
+on": "Survey is no longer active"
+
+
+
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
-              <div id="code-xml-error-4" class=
-              "tab-pane">
-                <pre class="prettyprint">
-                HTTP Status Code 400
-Content-Type: application/xml
 
-</pre>
-                <pre class="prettyprint" style=
-                "border: none; padding: 0; margin: 0;">
-&lt;response xmlns="http://api.esendex.com/ns/"&gt;
-&lt;errors&gt;
-&lt;error&gt;
-&lt;code&gt;survey_inactive&lt;/code&gt;
-&lt;description&gt;Survey is no longer active&lt;/description&gt;
-&lt;/error&gt;
-&lt;/errors&gt;
-&lt;/response&gt;</pre>
+              <div id="code-xml-error-4" class="tab-pane">
+                <pre class="prettyprint">
+      HTTP Status Code 400
+pe: application/xml
+
+
+        
+;
+          
+gt;
+            
+e&gt;
+              
+pre>
+                <pre class="prettyprint" style="border: none; padding: 0; margin: 0;">
+
+
+
+
+se xmlns="http://api.esendex.com/ns/"&gt;
+&gt;
+gt;
+t;survey_inactive&lt;/code&gt;
+ption&gt;Survey is no longer active&lt;/description&gt;
+&gt;
+s&gt;
+nse&gt;
+
+      
+;
+        
+gt;
+          
+e&gt;
+            
+pre>
               </div>
             </div>
           </div>
         </div>
       </dd>
     </dl>
+
     <p>No permissions to access Survey</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <pre class="prettyprint">
-        HTTP Status Code 403</pre>
+TP Status Code 403
+
+
+;
+
+gt;
+  
+e&gt;
+    
+pre>
       </dd>
     </dl>
+
     <p>Survey does not exist</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <pre class="prettyprint">
-        HTTP Status Code 404</pre>
+TP Status Code 404
+
+
+;
+
+gt;
+  
+e&gt;
+    
+pre>
       </dd>
     </dl>
+
     <p>Request contains more than one recipient</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <pre class="prettyprint">
-        HTTP Status Code 413</pre>
+TP Status Code 413
+
+
+;
+
+gt;
+  
+e&gt;
+    
+pre>
       </dd>
     </dl>
+
     <p>No content type specified</p>
+
     <dl class="dl-horizontal">
       <dt>Response</dt>
+
       <dd>
         <pre class="prettyprint">
-        HTTP Status Code 415</pre>
+TP Status Code 415
+
+
+;
+
+gt;
+  
+e&gt;
+    
+pre>
       </dd>
     </dl>
   </div>
 </div>
-

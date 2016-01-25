@@ -5,241 +5,258 @@ description: >-
   Find out the capabilities of our REST API, SOAP API, FormPost API and which
   one can answer your needs.
 layout: default
+menu_highlight: APIs
 ---
 
 <div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
 <div id='three-cols-page'>
   <div>
     <div id='dev-content'>
       <h1 class="title">Which API should I use?</h1>
+
       <div class="node">
         <div class="content">
           <p>Generally we would recommend you use the <a href="/APIs/REST-API" title="REST API">REST API</a>, however, in some circumstances you may wish to use the <a href="/APIs/FormPost-API" title="FormPost API">FormPost</a> or <a href="/APIs/SOAP-API" title="SOAP API">SOAP APIs</a>.</p>
+
           <h3>REST API <small>(recommended)</small></h3>
-          <p><small>Our <a href="/APIs/REST-API" title="REST API">REST API</a> is lightweight, easy to learn and built on established internet standards making it accessible from virtually any development language that can send and receive xml. In fact, this is the API our own web applications are built upon.</small></p>
+
+          <p>Our <a href="/APIs/REST-API" title="REST API">REST API</a> is lightweight, easy to learn and built on established internet standards making it accessible from virtually any development language that can send and receive xml. In fact, this is the API our own web applications are built upon.</p>
+
           <ul>
-            <li><small><a href="/Quickstarts">REST API quickstart guides</a></small></li>
-            <li><small><a href="/APIs/REST-API">REST API reference</a></small></li>
+            <li><a href="/Quickstarts">REST API quickstart guides</a></li>
+
+            <li><a href="/APIs/REST-API">REST API reference</a></li>
           </ul>
-          <h3><small>SOAP API</small></h3>
-          <p><small>Our <a href="/APIs/SOAP-API" title="SOAP API">SOAP API</a> supports our core messaging functionality and is ideal for quickly sending messages from any SOAP compatible client.</small></p>
+
+          <h3>SOAP API</h3>
+
+          <p>Our <a href="/APIs/SOAP-API" title="SOAP API">SOAP API</a> supports our core messaging functionality and is ideal for quickly sending messages from any SOAP compatible client.</p>
+
           <ul>
-            <li><small><a href="/APIs/SOAP-API">SOAP API reference</a></small></li>
+            <li><a href="/APIs/SOAP-API">SOAP API reference</a></li>
           </ul>
-          <h3><small>FormPost API</small></h3>
-          <p><small>Our <a href="/APIs/FormPost-API" title="FormPost API">FormPost</a> supports our core messaging functionality and allows you to send a message from pretty much anything that can access a url; be that a bespoke software application or third party product.</small></p>
+
+          <h3>FormPost API</h3>
+
+          <p>Our <a href="/APIs/FormPost-API" title="FormPost API">FormPost</a> supports our core messaging functionality and allows you to send a message from pretty much anything that can access a url; be that a bespoke software application or third party product.</p>
+
           <ul>
-            <li><small><a href="/APIs/FormPost-API">FormPost API reference</a></small></li>
+            <li><a href="/APIs/FormPost-API">FormPost API reference</a></li>
           </ul><!--
-<h2>API feature comparison</h2>
-<table class="table table-striped">
-<thead>
-<tr valign="top">
-<th>&nbsp;</th><th>REST API</th><th>SOAP API</th><th>FormPost API</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="4"><strong>Sending</strong></td>
-</tr>
-<tr>
-<td>Text message</td>
-<td><i class="icon-ok icon-green"></i></td>
-<td><i class="icon-ok icon-green"></i></td>
-<td><i class="icon-ok icon-green"></i></td>
-</tr>
-<tr>
-<td>Text message batch</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></td>
-</tr>
-<tr>
-<td>Voice message</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get message status</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Schedule message with delay</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Schedule message at certain time</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-</tr>
-<tr>
-<td colspan="4"><strong>Receiving</strong></td>
-</tr>
-<tr>
-<td>Account event handler</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get messages</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Delete messages</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-</tr>
-<tr>
-<td colspan="4"><strong>Account</strong></td>
-</tr>
-<tr>
-<td>Get message limit</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get sent messages</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get account features</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get account state</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-</table>
-<div class="accordion-group">
-<div class="accordion-heading">
-<h4>Contacts <a class="btn btn-mini" data-toggle="collapse" data-parent="comparisonAccordion" href="#collapseContacts"><i class="icon-chevron-down"></i></a></h4>
-</div>
-<div id="collapseContacts" class="accordion-body collapse">
-<table class="table table-striped">
-<thead>
-<tr valign="top">
-<th>&nbsp;</th><th>REST API</th><th>SOAP API</th><th>FormPost API</th>
-</tr>
-</thead>
-<tr>
-<td>Add group</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get group</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get group by name</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get group members</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Update group</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Delete groups</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Add contact</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Add contacts</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get contact</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get contact by Quick Name</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Get contacts</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Update contact</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-<tr>
-<td>Delete contacts</td>
-<td><span class="label label-success"><i class="icon-ok icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-<td><span class="label label-important"><i class="icon-remove icon-white"></i></span></td>
-</tr>
-</tbody>
-</table>-->
+ature comparison</h2>
+ss="table table-striped">
+
+="top">
+</th><th>REST API</th><th>SOAP API</th><th>FormPost API</th>
+
+
+
+
+n="4"><strong>Sending</strong></td>
+
+
+essage</td>
+ss="icon-ok icon-green"></i></td>
+ss="icon-ok icon-green"></i></td>
+ss="icon-ok icon-green"></i></td>
+
+
+essage batch</td>
+class="label label-success"><i class="icon-ok icon-white"></i></td>
+class="label label-success"><i class="icon-ok icon-white"></i></td>
+class="label label-important"><i class="icon-remove icon-white"></i></td>
+
+
+message</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ssage status</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+
+
+le message with delay</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+le message at certain time</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+
+
+n="4"><strong>Receiving</strong></td>
+
+
+t event handler</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+
+
+ssages</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+
+
+ messages</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+
+
+n="4"><strong>Account</strong></td>
+
+
+ssage limit</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+nt messages</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+count features</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+count state</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+="accordion-group">
+="accordion-heading">
+ts <a class="btn btn-mini" data-toggle="collapse" data-parent="comparisonAccordion" href="#collapseContacts"><i class="icon-chevron-down"></i></a></h4>
+
+ollapseContacts" class="accordion-body collapse">
+ss="table table-striped">
+
+="top">
+</th><th>REST API</th><th>SOAP API</th><th>FormPost API</th>
+
+
+
+oup</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+oup</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+oup by name</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+oup members</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ group</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ groups</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ntact</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ntacts</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ntact</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ntact by Quick Name</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ntacts</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ contact</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+ contacts</td>
+class="label label-success"><i class="icon-ok icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+class="label label-important"><i class="icon-remove icon-white"></i></span></td>
+
+
+>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div id='right-col'>
   <div class="block block-block" id="block-block-37">
     <div class="content">
-      <small><a href='../create-an-account.html' id='CreateAccountButton' name="CreateAccountButton" title='Create an account'>Create an account</a></small>
+      <a href='../create-an-account.html' id='CreateAccountButton' name="CreateAccountButton" title='Create an account'>Create an account</a>
     </div>
   </div>
+
   <div class="block block-block" id="block-block-66">
     <div class="content">
       <div>
-        <p><small><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></small></p>
+        <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
       </div>
     </div>
   </div>
+
   <div class="block block-block" id="block-block-79">
     <div class="content">
-      <p><small><img alt="" src="../upload/testimonials/testimonials_09.jpg"></small></p>
+      <p><img alt="" src="../upload/testimonials/testimonials_09.jpg"></p>
     </div>
   </div>
 </div>
+
 <div class='clear'></div>

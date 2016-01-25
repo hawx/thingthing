@@ -1,22 +1,26 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
-  <head>
-    {% include head.html %}
-  </head>
+<head>
+  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
 
-  <body onload="trackOutboundLinks()">
-    <script type="text/javascript" src="/sites/all/themes/EsendexDevelopers/js/cookies.js"></script>
-    <div id='cookies_popup'>
-      <img id='close' src='/sites/all/themes/EsendexDevelopers/images/cookie_close.jpg' name="close" />
-      <div id='cookie_wrap'>We use cookies to provide a better user experience and to improve the quality of our site. For more information please <a href='reference/Cookies.html'>click here</a>.</div>
+  <title></title>
+</head>
+
+<body>
+  {% include head.html %} <script type="text/javascript" src="/sites/all/themes/EsendexDevelopers/js/cookies.js">
+</script>
+
+  <div id='cookies_popup'>
+    <img id='close' src='/sites/all/themes/EsendexDevelopers/images/cookie_close.jpg' name="close">
+
+    <div id='cookie_wrap'>
+      We use cookies to provide a better user experience and to improve the quality of our site. For more information please <a href='reference/Cookies.html'>click here</a>.
     </div>
+  </div>
 
-    <div id="wrapper">
-      {% include menu.html %}
-
-      {{ content }}
-    </div> 
-
-    {% include footer.html %}
-  </body>
+  <div id="wrapper">
+    {% include menu.html %} {{ content }}
+  </div>{% include footer.html %}
+</body>
 </html>

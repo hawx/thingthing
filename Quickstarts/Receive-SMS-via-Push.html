@@ -1,53 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
-dir="ltr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html lang="en" dir="ltr">
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Windows version 5.1.25" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <title>Receiving SMS Push Notifications | Esendex
-  Developers</title>
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <meta name="description" content=
-  "Get started receiving push notifications to your web server when inbound messages are received in your Esendex inbox." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="Receive-SMS-via-Push.html" />
-  <link rel="shortcut icon" href=
-  "/sites/all/themes/EsendexDevelopers/favicon.ico" type=
-  "image/x-icon" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/sites/all/modules/codefilter/codefilter.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/aggregator/aggregator.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/node/node.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/system/defaults.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/system/system.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/system/system-menus.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/modules/user/user.css?n" />
-  <link type="text/css" rel="stylesheet" media="all" href=
-  "/sites/all/modules/cck/theme/content-module.css?n" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/style.css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/dev-style.css" />
-  <link href="/sites/all/themes/EsendexDevelopers/css/tabify.css"
-  rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css" />
-  <link rel="stylesheet" type="text/css" href=
-  "/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css" />
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1" /><!--[if IE 7]>
+  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+  <title>Receiving SMS Push Notifications | Esendex Developers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta name="description" content="Get started receiving push notifications to your web server when inbound messages are received in your Esendex inbox.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="Receive-SMS-via-Push.html">
+  <link rel="shortcut icon" href="/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon">
+  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/codefilter/codefilter.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?n">
+  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?n">
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/dev-style.css">
+  <link href="/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css">
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!--[if IE 7]>
                 <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
         <![endif]-->
   <!--[if lte IE 6]>
@@ -60,7 +38,7 @@ dir="ltr">
   <!-- Google Analytics Starts -->
 
   <script type="text/javascript">
-  //<![CDATA[
+//<![CDATA[
 
 
   var _gaq = _gaq || [];
@@ -85,7 +63,7 @@ dir="ltr">
   //]]>
   </script>
   <script type="text/javascript">
-  //<![CDATA[
+//<![CDATA[
   function trackOutboundLinks()
   {
         var a = document.getElementsByTagName('a');
@@ -122,130 +100,118 @@ dir="ltr">
   //]]>
   </script><!-- Google Analytics Ends -->
 
-  <script type="text/javascript" src=
-  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
-  </script>
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type=
-  "text/javascript" charset="utf-8">
-  </script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
+</script>
+  <script src="/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8">
+</script>
 </head>
+
 <body onload="trackOutboundLinks()">
   <div id='wrapper'>
     <div id='bootstrapnav' class="container">
       <div class="row">
-        <a href="/" title='Home'><img id='nav-logo' src=
-        '/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg'
-        width='122px' height='39px' name="nav-logo" /></a>
+        <a href="/" title='Home'><img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' name="nav-logo"></a>
+
         <div id='dev-title'>
           Developers
-        </div><a href='https://www.esendex.com/home' id='nav-login'
-        name="nav-login">Login</a>
+        </div><a href='https://www.esendex.com/home' id='nav-login' name="nav-login">Login</a>
+
         <div id='mobile-menu-opener'></div>
-        <div class="block block-menu" id=
-        "block-menu-primary-links">
+
+        <div class="block block-menu" id="block-menu-primary-links">
           <div class="content">
             <ul class="menu">
               <li class="leaf first"><a href="/">Home</a></li>
+
               <li class="expanded active-trail">
                 <a href="Send-SMS.html">Quickstarts</a>
+
                 <ul class="menu">
-                  <li class="leaf first"><a href="Send-SMS.html"
-                  title="Send a SMS">Send SMS</a></li>
-                  <li class="leaf active-trail"><a href=
-                  "Receive-Messages.html" title=
-                  "Receive Messages">Receive SMS</a></li>
-                  <li class="leaf"><a href="Track-SMS.html" title=
-                  "Track SMS">Track SMS</a></li>
-                  <li class="leaf last"><a href="Send-Survey.html"
-                  title="Send Survey with our API">Send
-                  Survey</a></li>
+                  <li class="leaf first"><a href="Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+
+                  <li class="leaf active-trail"><a href="Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+
+                  <li class="leaf"><a href="Track-SMS.html" title="Track SMS">Track SMS</a></li>
+
+                  <li class="leaf last"><a href="Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
                 </ul>
               </li>
+
               <li class="expanded">
                 <a href="/APIs/EsendexAPI">APIs</a>
+
                 <ul class="menu">
-                  <li class="leaf first"><a href=
-                  "/APIs/EsendexAPI">REST API</a></li>
-                  <li class="leaf"><a href="/APIs/SOAP-API" title=
-                  "SOAP XML SMS API">SOAP API</a></li>
-                  <li class="leaf"><a href="/APIs/FormPost-API"
-                  title="HTTP SMS API">FormPost API</a></li>
-                  <li class="leaf"><a href="/APIs/API-Comparison"
-                  title="API Comparison">Which API should I
-                  use?</a></li>
-                  <li class="leaf last"><a href=
-                  "/Documentation/Push-Notifications">Push
-                  Notifications</a></li>
+                  <li class="leaf first"><a href="/APIs/EsendexAPI">REST API</a></li>
+
+                  <li class="leaf"><a href="/APIs/SOAP-API" title="SOAP XML SMS API">SOAP API</a></li>
+
+                  <li class="leaf"><a href="/APIs/FormPost-API" title="HTTP SMS API">FormPost API</a></li>
+
+                  <li class="leaf"><a href="/APIs/API-Comparison" title="API Comparison">Which API should I use?</a></li>
+
+                  <li class="leaf last"><a href="/Documentation/Push-Notifications">Push Notifications</a></li>
                 </ul>
               </li>
+
               <li class="expanded">
                 <a href="/SDKs.html" title="SDKs">SDKs</a>
+
                 <ul class="menu">
-                  <li class="leaf first"><a href="/SDKs/DotNet-SDK"
-                  title=".Net Rest SDK">.NET SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Java-SDK">Java
-                  SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/PHP-SDK" title=
-                  "PHP Rest SDK">PHP SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Ruby-SDK">Ruby
-                  SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Go-SDK">Go
-                  SDK</a></li>
-                  <li class="leaf"><a href="/SDKs/Node-SDK">Node.js
-                  SDK</a></li>
-                  <li class="divider leaf"><a href=
-                  "/">divider</a></li>
-                  <li class="leaf"><a href="/SDKs/C-SMS-SDK">C++
-                  SDK</a></li>
-                  <li class="leaf"><a href=
-                  "/SDKs/ActiveX-SMS-SDK">Classic ASP SDK</a></li>
-                  <li class="leaf"><a href=
-                  "/SDKs/Delphi-SMS-SDK">Delphi SDK</a></li>
-                  <li class="leaf"><a href=
-                  "/SDKs/Perl-SMS-SDK">Perl SDK</a></li>
-                  <li class="leaf last"><a href=
-                  "/SDKs/Visual-Basic-SOAP-SDK">Visual Basic 6
-                  SDK</a></li>
+                  <li class="leaf first"><a href="/SDKs/DotNet-SDK" title=".Net Rest SDK">.NET SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/Java-SDK">Java SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/PHP-SDK" title="PHP Rest SDK">PHP SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/Ruby-SDK">Ruby SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/Go-SDK">Go SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/Node-SDK">Node.js SDK</a></li>
+
+                  <li class="divider leaf"><a href="/">divider</a></li>
+
+                  <li class="leaf"><a href="/SDKs/C-SMS-SDK">C++ SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/ActiveX-SMS-SDK">Classic ASP SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/Delphi-SMS-SDK">Delphi SDK</a></li>
+
+                  <li class="leaf"><a href="/SDKs/Perl-SMS-SDK">Perl SDK</a></li>
+
+                  <li class="leaf last"><a href="/SDKs/Visual-Basic-SOAP-SDK">Visual Basic 6 SDK</a></li>
                 </ul>
               </li>
-              <li class="dynamic-active leaf last"><a href=
-              "/blog/index.html">Blog</a></li>
+
+              <li class="dynamic-active leaf last"><a href="/blog/index.html">Blog</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div id='headerspacer'></div>
-    <!-- delete this and the sky will fall -->
+
+    <div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
     <div id='three-cols-page'>
       <div>
         <div id='dev-content'>
           <h1 class="title">Receive SMS Push Notifications</h1>
+
           <div class="node">
             <div class="content">
-              <p>This guide shows how to configure and implement
-              receiving <a href=
-              "/Documentation/Push-Notifications">Push
-              Notifications</a> to your web server when Inbound
-              Messages are received on your Esendex Virtual Mobile
-              Number.</p>
+              <p>This guide shows how to configure and implement receiving <a href="/Documentation/Push-Notifications">Push Notifications</a> to your web server when Inbound Messages are received on your Esendex Virtual Mobile Number.</p>
+
               <h3>Receive SMS code via Push</h3>
+
               <div class="codeblock">
-                <ul id="codeblock-receivesmspush" class=
-                "nav nav-tabs">
-                  <li><a id="codetab-csharp-receivesmspush" href=
-                  "Receive-SMS-via-Push.html#code-csharp-receivesmspush"
-                  data-toggle="tab" name=
-                  "codetab-csharp-receivesmspush">C#</a></li>
-                  <li><a id="codetab-php-receivesmspush" href=
-                  "Receive-SMS-via-Push.html#code-php-receivesmspush"
-                  data-toggle="tab" name=
-                  "codetab-php-receivesmspush">PHP</a></li>
+                <ul id="codeblock-receivesmspush" class="nav nav-tabs">
+                  <li><a id="codetab-csharp-receivesmspush" href="Receive-SMS-via-Push.html#code-csharp-receivesmspush" data-toggle="tab" name="codetab-csharp-receivesmspush">C#</a></li>
+
+                  <li><a id="codetab-php-receivesmspush" href="Receive-SMS-via-Push.html#code-php-receivesmspush" data-toggle="tab" name="codetab-php-receivesmspush">PHP</a></li>
                 </ul>
+
                 <div class="tab-content">
-                  <div id="code-csharp-receivesmspush" class=
-                  "tab-pane active">
+                  <div id="code-csharp-receivesmspush" class="tab-pane active">
                     <pre class="prettyprint lang-csh">
 // You will need Visual Studio 2010 or later with C#
 // Microsoft ASP.NET MVC 4 (http://www.asp.net/web-api)
@@ -271,10 +237,11 @@ namespace PushNotificationsWebAPI.Controllers {
   public string To { get; set; }
   public DateTime Now { get; set; }
  }
-}</pre>
+}
+</pre>
                   </div>
-                  <div id="code-php-receivesmspush" class=
-                  "tab-pane">
+
+                  <div id="code-php-receivesmspush" class="tab-pane">
                     <pre class="prettyprint lang-php">
 $postdata = file_get_contents("php://input"); 
 $inboundMessage = simplexml_load_string($postdata); 
@@ -286,180 +253,140 @@ fwrite($fp, "Message received: ".date("Y-m-d H:i:s")."\n".
     "From: ".$inboundMessage-&gt;From."\n". 
     "To: ".$inboundMessage-&gt;To."\n\n")
     or die("Couldn't write to file!"); 
-fclose($fp);</pre>
+fclose($fp);
+</pre>
                   </div>
                 </div>
               </div>
+
               <h3>You will need:</h3>
+
               <ul>
-                <li>Your Esendex Account Reference (EX0xxxxxx),
-                username, password and Virtual Mobile Number
+                <li>Your Esendex Account Reference (EX0xxxxxx), username, password and Virtual Mobile Number
+
                   <ul>
-                    <li><strong>Don't have an Account yet?</strong>
-                    You'll need to <a href=
-                    "/create-an-account">create an Account</a></li>
-                    <li><strong>Haven't got a Virtual Mobile
-                    Number?</strong> If you already have an Account
-                    but don’t have a Virtual Mobile Number then
-                    please call our Sales team on 0345 356
-                    5758</li>
+                    <li><strong>Don't have an Account yet?</strong> You'll need to <a href="/create-an-account">create an Account</a></li>
+
+                    <li><strong>Haven't got a Virtual Mobile Number?</strong> If you already have an Account but don&acirc;&euro;&trade;t have a Virtual Mobile Number then please call our Sales team on 0345 356 5758</li>
                   </ul>
                 </li>
-                <li>A web server that is publicly accessible on the
-                Internet</li>
-                <li>A mobile phone to send SMS into your
-                Account</li>
+
+                <li>A web server that is publicly accessible on the Internet</li>
+
+                <li>A mobile phone to send SMS into your Account</li>
               </ul>
-              <h3>Step 1: Host the example code on your web
-              server</h3>
-              <p>Our Push Notifications are delivered across the
-              Internet as HTTP POST requests so you'll need to host
-              the example code on a publicly accessible web server.
-              This could be your own server or one provided by a
-              hosting company. Make a note of the URL that your
-              example code is hosted at as you'll need this for the
-              next step.</p>
-              <h3>Step 2: Tell us where to push the
-              Notification</h3>
-              <p>Once you've made this code example accessible on
-              your pubically accessible server you'll need to tell
-              us where to send Notifications to by configuring your
-              Push Notification Handler's URL in our Developer
-              Tools:</p>
+
+              <h3>Step 1: Host the example code on your web server</h3>
+
+              <p>Our Push Notifications are delivered across the Internet as HTTP POST requests so you'll need to host the example code on a publicly accessible web server. This could be your own server or one provided by a hosting company. Make a note of the URL that your example code is hosted at as you'll need this for the next step.</p>
+
+              <h3>Step 2: Tell us where to push the Notification</h3>
+
+              <p>Once you've made this code example accessible on your pubically accessible server you'll need to tell us where to send Notifications to by configuring your Push Notification Handler's URL in our Developer Tools:</p>
+
               <ul>
-                <li>Log-in to <a title="Developer Tools" href=
-                "https://www.esendex.com/developertools" target=
-                "_blank">Developer Tools</a></li>
-                <li>If you have more than one Account with us,
-                select the Account you wish to configure the
-                Notification for</li>
-                <li>Click the 'Configure' button for the SMS
-                Received Notification</li>
+                <li>Log-in to <a title="Developer Tools" href="https://www.esendex.com/developertools" target="_blank">Developer Tools</a></li>
+
+                <li>If you have more than one Account with us, select the Account you wish to configure the Notification for</li>
+
+                <li>Click the 'Configure' button for the SMS Received Notification</li>
+
                 <li>Enter your URL and click 'Save'</li>
               </ul>
+
               <h3>Step 3: Test your Push Notifications Handler</h3>
-              <p>Now send a test SMS from a mobile phone to your
-              Esendex Account's Virtual Mobile Number. You'll be
-              able to check the Message arrives in your Inbox in
-              <a href="https://www.esendex.com/Echo">Echo</a> and
-              that a Notification is pushed to your server.</p>
-              <h3>What you might want to do with the
-              Notification</h3>
+
+              <p>Now send a test SMS from a mobile phone to your Esendex Account's Virtual Mobile Number. You'll be able to check the Message arrives in your Inbox in <a href="https://www.esendex.com/Echo">Echo</a> and that a Notification is pushed to your server.</p>
+
+              <h3>What you might want to do with the Notification</h3>
+
               <ul>
                 <li>Store the Inbound Message in your database</li>
-                <li>Pass the Message on to your other business
-                systems</li>
+
+                <li>Pass the Message on to your other business systems</li>
               </ul>
+
               <h3>What you might want to do next</h3>
+
               <ul>
-                <li>Find out more about <a href=
-                "/Documentation/Push-Notifications" title=
-                "Push Notifications">Push Notifications</a>
-                including Notifications for Message Delivered and
-                Message Failed.</li>
-                <li>Acknowledge the Message by <a href=
-                "Send-SMS.html">sending a response</a> to the
-                sender</li>
+                <li>Find out more about <a href="/Documentation/Push-Notifications" title="Push Notifications">Push Notifications</a> including Notifications for Message Delivered and Message Failed.</li>
+
+                <li>Acknowledge the Message by <a href="Send-SMS.html">sending a response</a> to the sender</li>
+
                 <li>Delete the Message from your Inbox</li>
               </ul>
             </div>
           </div>
         </div>
+
         <div id='right-col'>
           <div class="block block-block" id="block-block-37">
             <div class="content">
-              <a href='../create-an-account.html' id=
-              'CreateAccountButton' title='Create an account' name=
-              "CreateAccountButton">Create an account</a>
+              <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
             </div>
           </div>
+
           <div class="block block-block" id="block-block-66">
             <div class="content">
               <div>
-                <p><a class="needahand" href=
-                "http://www.esendex.co.uk/Action/Contact-Us">Need a
-                hand?</a></p>
+                <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
               </div>
             </div>
           </div>
+
           <div class="block block-block" id="block-block-83">
             <div class="content">
-              <p><img src=
-              "../upload/testimonials/testimonials_13.jpg" alt=""
-              width="323" height="134" /></p>
+              <p><img src="../upload/testimonials/testimonials_13.jpg" alt="" width="323" height="134"></p>
             </div>
           </div>
         </div>
+
         <div class='clear'></div>
       </div>
     </div>
   </div><!-- close wrapper -->
+
   <div id='footerbg'>
     <div id='footer'>
       <div id='visit'>
-        <a href='http://www.esendex.com/'>Visit our commercial
-        site</a>
+        <a href='http://www.esendex.com/'>Visit our commercial site</a>
       </div>
+
       <ul id='footerlinks'>
-        <li class='first'><a href=
-        'http://www.esendex.co.uk/reference/terms-and-conditions'>Terms
-        and conditions</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/terms-of-use'>Terms of
-        use</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/security'>Security</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
-        <li><a href=
-        'http://www.esendex.co.uk/reference/data-protection'>Data
-        protection</a></li>
-        <li class='last'><a href=
-        'http://www.esendex.co.uk/sla'>Service level
-        agreement</a></li>
+        <li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
+
+        <li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
+
+        <li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
+
+        <li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
+
+        <li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
+
+        <li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
       </ul>
+
       <div id='copyright'>
-        Esendex Limited 2016<br />
-        Registered company number: 04217280<br />
+        Esendex Limited 2016<br>
+        Registered company number: 04217280<br>
         UK
       </div>
     </div>
-  </div>
-  <script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js"
-  type="text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js"
-  type="text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/placeholders.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/codesamples.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script src=
-  "/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type=
-  "text/javascript" charset="utf-8">
-  </script> 
-  <script type="text/javascript">
-  document.documentElement.className += " js"
+  </div><script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8">
+</script><script src="/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8">
+</script><script src="/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8">
+</script><script src="/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8">
+</script><script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8">
+</script><script src="/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8">
+</script><script src="/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8">
+</script><script type="text/javascript">
+document.documentElement.className += " js"
   /* <![CDATA[ */
         $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
   /* ]]> */
-  </script> <!--mobile nav-->
+  </script><!--mobile nav-->
   <script type="text/javascript">
-  //<![CDATA[
+//<![CDATA[
         (function() {
                 var menu = document.getElementById("block-menu-primary-links");
                 var isOpen = menu.style.display=="block";
@@ -475,10 +402,10 @@ fclose($fp);</pre>
                 });
         })();
   //]]>
-  </script> <!-- remarketing -->
+  </script><!-- remarketing -->
   <!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
   <script type="text/javascript">
-  /* <![CDATA[ */
+/* <![CDATA[ */
   var google_conversion_id = 1066303896;
   var google_conversion_language = "en";
   var google_conversion_format = "3";
@@ -486,12 +413,8 @@ fclose($fp);</pre>
   var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
   var google_conversion_value = 0;
   /* ]]> */
-  </script> 
-  <script type="text/javascript" src=
-  "http://www.googleadservices.com/pagead/conversion.js">
-  </script> <noscript>
-  <div style="display:inline;" id="remarketing"><img height="1"
-  width="1" style="border-style:none;" alt="" src=
-  "http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0" /></div></noscript>
+  </script><script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script><noscript>
+  <div style="display:inline;" id="remarketing"><img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"></div></noscript>
 </body>
 </html>

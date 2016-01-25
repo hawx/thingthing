@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'open3'
+
+ARGV.each do |path|
+  puts path
+
+  `flip -ub #{path}`
+
+  text = File.read(path)
+
+  parts = text.split("\n---\n")
+  if parts.length != 2
+    stdin, stdout, wait_thr = Open3.popen2('tidy -i -w 3000 -ashtml -f /dev/null')
+
+    stdin.puts(text)
+    stdin.close
+
+    tidied = stdout.read
+    stdout.close
+
+    File.write(path, tidied)
+    next
+  end
+
+  stdin, stdout, wait_thr = Open3.popen2('tidy -i -w 3000 -ashtml -f /dev/null')
+
+  stdin.puts(parts[1])
+  stdin.close
+
+  tidied = stdout.read
+  stdout.close
+
+  tidied = tidied.split("\n<body>")[1].split("\n</body>")[0].split("\n").map {|l| l[2..-1] }.join("\n")
+
+  out = parts[0] + "\n---\n" + tidied
+  File.write(path, out)
+end

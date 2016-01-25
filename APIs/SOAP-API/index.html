@@ -2,300 +2,288 @@
 title: SOAP API | Esendex Developers
 canonical: /APIs/SOAP-API
 description: >-
-  Esendex provides a SOAP API to enable developers to integrate SMS functionality 
+  Esendex provides a SOAP API to enable developers to integrate SMS functionality
   into their applications. All services are accessible using the HTTP or HTTPS protocols.
 layout: default
+menu_highlight: APIs
 ---
 
-<div id='headerspacer'></div>
-<!-- delete this and the sky will fall -->
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
 <div id='three-cols-page'>
   <div>
     <div id='dev-content'>
       <h1 class="title">SOAP API</h1>
+
       <div class="node">
         <div class="content">
-          <p>Esendex provides a SOAP API to enable developers
-          to integrate <abbr title=
-          "Short Message Service">SMS</abbr> functionality into
-          their applications. All services are accessible using
-          the HTTP or HTTPS protocols.</p>
+          <p>Esendex provides a SOAP API to enable developers to integrate <abbr title="Short Message Service">SMS</abbr> functionality into their applications. All services are accessible using the HTTP or HTTPS protocols.</p>
+
           <p>There are two versions of the SOAP API:</p>
+
           <ul>
-            <li>The primary interface makes use of <strong>SOAP
-            Headers</strong> to carry authentication
-            information (Account, username and password).</li>
-            <li>Alternatively, the&nbsp;<strong>SOAP API - No
-            Headers</strong> service&nbsp;incorporates the
-            authentication&nbsp;information in the arguments to
-            each method call.</li>
+            <li>The primary interface makes use of <strong>SOAP Headers</strong> to carry authentication information (Account, username and password).</li>
+
+            <li>Alternatively, the&nbsp;<strong>SOAP API - No Headers</strong> service&nbsp;incorporates the authentication&nbsp;information in the arguments to each method call.</li>
           </ul>
+
           <h2>SOAP API</h2>
-          <p>The SOAP API provides functionality
-          through&nbsp;the following services:</p>
+
+          <p>The SOAP API provides functionality through&nbsp;the following services:</p>
+
           <h3>Sending</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+
+          <table style="width: 100%;" border="0" cellspacing="1" cellpadding="0">
             <tbody>
               <tr class="odd">
                 <th class="col0">Service</th>
+
                 <th>Description</th>
+
                 <th>&nbsp;</th>
               </tr>
+
               <tr class="even">
                 <td class="col0">SendService</td>
-                <td>Methods to send SMS Messages individually
-                and in Batches</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SendService.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SendService.asmx?wsdl">WSDL</a></td>
+
+                <td>Methods to send SMS Messages individually and in Batches</td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SendService.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SendService.asmx?wsdl">WSDL</a></td>
               </tr>
+
               <tr class="odd">
                 <td class="col0">ScheduledSendService</td>
-                <td>Submits a Message to Esendex that is
-                scheduled to be sent at a later date/time</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ScheduledSendService.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ScheduledSendService.asmx?wsdl">WSDL</a></td>
+
+                <td>Submits a Message to Esendex that is scheduled to be sent at a later date/time</td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ScheduledSendService.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ScheduledSendService.asmx?wsdl">WSDL</a></td>
               </tr>
             </tbody>
           </table>
+
           <p><strong>Notes</strong></p>
-          <p>The service aliasing feature within the
-          SendMessageFull and SendMessageMultipleRecipientsFull
-          methods of SendService is not available with
-          Evaluation or Premium Accounts. When using these
-          methods, you must set the Originator parameter to
-          your Account Reference or you will receive an error
-          when attempting to send a Message.&nbsp;&nbsp;</p>
+
+          <p>The service aliasing feature within the SendMessageFull and SendMessageMultipleRecipientsFull methods of SendService is not available with Evaluation or Premium Accounts. When using these methods, you must set the Originator parameter to your Account Reference or you will receive an error when attempting to send a Message.&nbsp;&nbsp;</p>
+
           <h3>Receiving</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+
+          <table style="width: 100%;" border="0" cellspacing="1" cellpadding="0">
             <tbody>
               <tr class="odd">
                 <th class="col0">Service</th>
+
                 <th>Description</th>
+
                 <th>&nbsp;</th>
               </tr>
+
               <tr class="even">
                 <td class="col0">InboxService</td>
-                <td>Manage Incoming Messages queued in the
-                Account Inbox</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/InboxService.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/InboxService.asmx?wsdl">WSDL</a></td>
+
+                <td>Manage Incoming Messages queued in the Account Inbox</td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/InboxService.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/InboxService.asmx?wsdl">WSDL</a></td>
               </tr>
             </tbody>
           </table>
+
           <p><strong>Notes</strong></p>
-          <p>Please see <a href=
-          "/Documentation/Push-Notifications">Push
-          Notifications</a> for receiving
-          messages<strong><br /></strong></p>
+
+          <p>Please see <a href="/Documentation/Push-Notifications">Push Notifications</a> for receiving messages<strong><br></strong></p>
+
           <h3>Other</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+
+          <table style="width: 100%;" border="0" cellspacing="1" cellpadding="0">
             <tbody>
               <tr class="odd">
                 <th class="col0">Service</th>
+
                 <th>Description</th>
+
                 <th>&nbsp;</th>
               </tr>
+
               <tr class="even">
                 <td class="col0">AccountService</td>
+
                 <td>Account management functionality</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/AccountService.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/AccountService.asmx?wsdl">WSDL</a></td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/AccountService.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/AccountService.asmx?wsdl">WSDL</a></td>
               </tr>
+
               <tr class="odd">
                 <td class="col0">SubscriptionService</td>
+
                 <td>Subscription management functionality</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SubscriptionService.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SubscriptionService.asmx?wsdl">WSDL</a></td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SubscriptionService.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SubscriptionService.asmx?wsdl">WSDL</a></td>
               </tr>
+
               <tr class="even">
                 <td class="col0">
                   <p>ContactService</p>
                 </td>
+
                 <td>Contact management</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ContactService.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ContactService.asmx?wsdl">WSDL</a></td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ContactService.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ContactService.asmx?wsdl">WSDL</a></td>
               </tr>
             </tbody>
           </table>
+
           <h3>Errors</h3>
-          <p>If an error occurs when you are submitting a
-          request to a web service you will receive a SOAP
-          error that describes what the problem was. This
-          information is in the Detail section of the XML, and
-          consists of two nodes ErrorCode and ErrorMessage.
-          There is a full list of <a href=
-          "/SDKs/ActiveX-SMS-SDK/Error-Codes.html">Error
-          Codes</a>&nbsp;to help you diagnose any problems.</p>
+
+          <p>If an error occurs when you are submitting a request to a web service you will receive a SOAP error that describes what the problem was. This information is in the Detail section of the XML, and consists of two nodes ErrorCode and ErrorMessage. There is a full list of <a href="/SDKs/ActiveX-SMS-SDK/Error-Codes.html">Error Codes</a>&nbsp;to help you diagnose any problems.</p>
+
           <h2>SOAP API - No Headers</h2>
-          <p>In some development/runtime environments support
-          for SOAP headers is either complex to implement (e.g.
-          MS SOAP Toolkit) or not provided for (e.g.
-          ColdFusion). Some environments also do not have
-          support for enumerated types.</p>
-          <p>Due to&nbsp;these limitations, we provide this
-          alternative service implementation that does not
-          require SOAP Headers or use enumerated types.</p>
-          <p>The SOAP API - No Headers API provides
-          functionality through the following services:</p>
+
+          <p>In some development/runtime environments support for SOAP headers is either complex to implement (e.g. MS SOAP Toolkit) or not provided for (e.g. ColdFusion). Some environments also do not have support for enumerated types.</p>
+
+          <p>Due to&nbsp;these limitations, we provide this alternative service implementation that does not require SOAP Headers or use enumerated types.</p>
+
+          <p>The SOAP API - No Headers API provides functionality through the following services:</p>
+
           <h3>Sending</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+
+          <table style="width: 100%;" border="0" cellspacing="1" cellpadding="0">
             <tbody>
               <tr class="odd" valign="top">
                 <th>Service</th>
+
                 <th>Overview</th>
+
                 <th>Links</th>
               </tr>
+
               <tr class="even" valign="top">
                 <td class="col0">SendServiceNoHeader</td>
-                <td>Methods to send SMS Messages individually
-                and in Batches</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SendServiceNoHeader.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SendServiceNoHeader.asmx?wsdl">WSDL</a></td>
+
+                <td>Methods to send SMS Messages individually and in Batches</td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SendServiceNoHeader.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SendServiceNoHeader.asmx?wsdl">WSDL</a></td>
               </tr>
+
               <tr class="odd" valign="top">
-                <td class="col0">
-                ScheduledSendServiceNoHeader</td>
-                <td>Submits a Message to Esendex that is
-                scheduled to be sent at a later date/time</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ScheduledSendServiceNoHeader.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ScheduledSendServiceNoHeader.asmx?wsdl">WSDL</a></td>
+                <td class="col0">ScheduledSendServiceNoHeader</td>
+
+                <td>Submits a Message to Esendex that is scheduled to be sent at a later date/time</td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ScheduledSendServiceNoHeader.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ScheduledSendServiceNoHeader.asmx?wsdl">WSDL</a></td>
               </tr>
             </tbody>
           </table>
+
           <p><strong>Notes</strong></p>
-          <p>The service aliasing feature within the
-          SendMessageFull and SendMessageMultipleRecipientsFull
-          methods of SendService is not available with
-          Evaluation or Premium Accounts. When using these
-          methods, you must set the Originator parameter to
-          your Account Reference or you will receive an error
-          when attempting to send a Message.</p>
+
+          <p>The service aliasing feature within the SendMessageFull and SendMessageMultipleRecipientsFull methods of SendService is not available with Evaluation or Premium Accounts. When using these methods, you must set the Originator parameter to your Account Reference or you will receive an error when attempting to send a Message.</p>
+
           <h3>Receiving</h3>
+
           <table style="width: 100%;" border="0">
             <tbody>
               <tr class="odd" valign="top">
                 <th>Service</th>
+
                 <th>Overview</th>
+
                 <th>Links</th>
               </tr>
+
               <tr class="even" valign="top">
                 <td class="col0">InboxServiceNoHeader</td>
-                <td>Manage incoming Messages queued in the
-                Account Inbox</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/InboxServiceNoHeader.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/InboxServiceNoHeader.asmx?wsdl">WSDL</a></td>
+
+                <td>Manage incoming Messages queued in the Account Inbox</td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/InboxServiceNoHeader.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/InboxServiceNoHeader.asmx?wsdl">WSDL</a></td>
               </tr>
             </tbody>
           </table>
+
           <p><strong>Notes</strong></p>
-          <p>Please see <a href=
-          "/Documentation/Push-Notifications">Push
-          Notifications</a> for receiving
-          Messages<strong><br /></strong></p>
+
+          <p>Please see <a href="/Documentation/Push-Notifications">Push Notifications</a> for receiving Messages<strong><br></strong></p>
+
           <h3>Other</h3>
-          <table style="width: 100%;" border="0" cellspacing=
-          "1" cellpadding="0">
+
+          <table style="width: 100%;" border="0" cellspacing="1" cellpadding="0">
             <tbody>
               <tr class="odd" valign="top">
                 <th width="20%">Service</th>
+
                 <th width="60%">Overview</th>
+
                 <th width="20%">Links&nbsp;</th>
               </tr>
+
               <tr class="even">
                 <td class="col0">AccountServiceNoHeader</td>
+
                 <td>Account management functionality</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/AccountServiceNoHeader.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/AccountServiceNoHeader.asmx?wsdl">WSDL</a></td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/AccountServiceNoHeader.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/AccountServiceNoHeader.asmx?wsdl">WSDL</a></td>
               </tr>
+
               <tr class="odd">
                 <td class="col0">
                   <p>SubscriptionServiceNoHeader</p>
                 </td>
+
                 <td>Subscription management functionality</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SubscriptionServiceNoHeader.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/SubscriptionServiceNoHeader.asmx?wsdl">WSDL</a></td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SubscriptionServiceNoHeader.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/SubscriptionServiceNoHeader.asmx?wsdl">WSDL</a></td>
               </tr>
+
               <tr class="even">
                 <td class="col0">
                   <p>ContactServiceNoHeader</p>
                 </td>
+
                 <td>Contact management</td>
-                <td><a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ContactServiceNoHeader.asmx">
-                URI</a>,<a target="_blank" href=
-                "https://www.esendex.com/secure/messenger/soap/ContactServiceNoHeader.asmx?wsdl">WSDL</a></td>
+
+                <td><a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ContactServiceNoHeader.asmx">URI</a>,<a target="_blank" href="https://www.esendex.com/secure/messenger/soap/ContactServiceNoHeader.asmx?wsdl">WSDL</a></td>
               </tr>
             </tbody>
           </table>
+
           <h2>API Access</h2>
-          <p>In order to allow customers to manage what their
-          users can do on their account, access to the API is
-          restricted to users with <strong>Admin</strong> and
-          <strong>Standard</strong> roles on an account (in
-          most cases this shouldn't be an issue as
-          <strong>Admin</strong> is the default role of new
-          users).</p>
-          <p>To manage the roles of users on an account, once
-          you've signed up:</p>
+
+          <p>In order to allow customers to manage what their users can do on their account, access to the API is restricted to users with <strong>Admin</strong> and <strong>Standard</strong> roles on an account (in most cases this shouldn't be an issue as <strong>Admin</strong> is the default role of new users).</p>
+
+          <p>To manage the roles of users on an account, once you've signed up:</p>
+
           <ul>
-            <li>Log in to <a title="Echo" href=
-            "https://www.esendex.com/echo">Echo</a></li>
+            <li>Log in to <a title="Echo" href="https://www.esendex.com/echo">Echo</a></li>
+
             <li>Go to Settings -&gt; User Management</li>
           </ul>
+
           <p>&nbsp;</p>
+
           <h2>Advanced Topics</h2>
+
           <ul>
-            <li><a href="/APIs/SOAP-API/Sending-SMS-to-a-Specific-Port">Sending
-            SMS to a specific port</a></li>
+            <li><a href="/APIs/SOAP-API/Sending-SMS-to-a-Specific-Port">Sending SMS to a specific port</a></li>
           </ul>
         </div>
       </div>
     </div>
+
     <div id='right-col'>
       <div class="block block-block" id="block-block-37">
         <div class="content">
-          <a href='../create-an-account.html' id=
-          'CreateAccountButton' title='Create an account' name=
-          "CreateAccountButton">Create an account</a>
+          <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
         </div>
       </div>
+
       <div class="block block-block" id="block-block-66">
         <div class="content">
           <div>
-            <p><a class="needahand" href=
-            "http://www.esendex.co.uk/Action/Contact-Us">Need a
-            hand?</a></p>
+            <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
           </div>
         </div>
       </div>
     </div>
+
     <div class='clear'></div>
   </div>
 </div>
-
