@@ -1,441 +1,185 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-
-<html lang="en" dir="ltr">
-<head>
-  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-
-  <title>Esendex PHP SMS SDK | Esendex Developers</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <meta name="description" content="Our PHP SDK is an easy way to integrate SMS and Voice messaging into your web application.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="PHP-SDK.html">
-  <link rel="shortcut icon" href="/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon">
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/codefilter/codefilter.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?n">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/dev-style.css">
-  <link href="/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!--[if IE 7]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if lte IE 6]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if IE 9]>
-                <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
-        <![endif]-->
-  <!-- javascript moved to the footer -->
-  <!-- Google Analytics Starts -->
-
-  <script type="text/javascript">
-//<![CDATA[
-
-
-  var _gaq = _gaq || [];
-
-  _gaq.push(['_setAccount', 'UA-30969528-1']);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-
-    var ga = document.createElement('script');
-
-    ga.type = 'text/javascript'; ga.async = true;
-
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-
-  })();
-
-
-  //]]>
-  </script>
-  <script type="text/javascript">
-//<![CDATA[
-  function trackOutboundLinks()
-  {
-        var a = document.getElementsByTagName('a');
+---
+title: Esendex PHP SMS SDK | Esendex Developers
+canonical: /SDKs/Perl-FormPost-SDK
+description: >-
+  Our PHP SDK is an easy way to integrate SMS and Voice messaging into your web
+  application.
+layout: default
+menu_highlight: SDKs
+---
 
-        for(i = 0; i < a.length; i++){
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
 
-                if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
-                        
-                        if(!a[i].onclick){ //check onclick event doesn't already exist
-                                a[i].onclick = function(){
-                                        _gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
-                                }
-                        }
-                }
-        }
-  }
+<div id='three-cols-page'>
+  <div>
+	<div id='dev-content'>
+	  <h1 class="title">Esendex PHP SMS SDK</h1>
 
-  function trackLink(link, category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-     
-    setTimeout(function () {
-        document.location.href = link.href;
-    }, 100);
-  }
+	  <div class="node">
+		<div class="content">
+		  <h2 class="intro-text"><a href="http://downloads.esendex.com.s3-website-eu-west-1.amazonaws.com/esendex-php-sdk/latest.sdk" title="Download the Esendex PHP SDK" onclick="trackLink(this, 'SDK Actions', 'SDK download', 'PHP SDK download'); return false;"><span class="glyphicon glyphicon-circle-arrow-down">&nbsp;</span>Download</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/esendex/esendex-php-sdk" title="Esendex PHP SDK Source Code" target="_blank" onclick="trackLink(this, 'SDK Actions', 'SDK view source', 'PHP SDK view source'); return false;"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Source</a></h2>
 
-  function trackClick(category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-  }
+		  <p>Our PHP SDK is an easy to use client for our&nbsp;<a href="/APIs/EsendexAPI">REST API</a>&nbsp;that you can use to integrate SMS and Voice messaging into your PHP application. It contains a set of services which you can use to send SMS and Voice messages, receive SMS, track the status of your sent messages and more.</p>
 
-  //]]>
-  </script><!-- Google Analytics Ends -->
+		  <p>The Esendex PHP SDK and examples of usage are available on <a title="Esendex PHP SDK" href="https://github.com/esendex/esendex-php-sdk" target="_blank">its Github repository</a>.</p>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
-</script>
-  <script src="/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8">
-</script>
-</head>
+		  <h2>Requirements</h2>
 
-<body onload="trackOutboundLinks()">
-  <div id='wrapper'>
-    <div id='bootstrapnav' class="container">
-      <div class="row">
-        <a href="/" title='Home'><img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' name="nav-logo"></a>
+		  <ul>
+			<li><a title="php.net" href="http://php.net/" target="_blank">PHP</a> &gt;= 5.3.0</li>
 
-        <div id='dev-title'>
-          Developers
-        </div><a href='https://www.esendex.com/home' id='nav-login' name="nav-login">Login</a>
+			<li>ext-curl enabled</li>
 
-        <div id='mobile-menu-opener'></div>
+			<li>An internet connection</li>
 
-        <div class="block block-menu" id="block-menu-primary-links">
-          <div class="content">
-            <ul class="menu">
-              <li class="leaf first"><a href="/">Home</a></li>
+			<li>An Esendex Account (<a href="/create-an-account" target="_self">create your account</a>)</li>
+		  </ul>
 
-              <li class="expanded">
-                <a href="/Quickstarts/Send-SMS.html">Quickstarts</a>
+		  <h2>Installation</h2>
 
-                <ul class="menu">
-                  <li class="leaf first"><a href="/Quickstarts/Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+		  <p>The Esendex PHP SDK is available via <a href="http://downloads.esendex.com.s3-website-eu-west-1.amazonaws.com/esendex-php-sdk/latest.sdk" title="Esendex PHP SDK">direct download</a>, <a href="https://github.com/esendex/esendex-php-sdk" title="Esendex PHP SDK Source Code">source</a> and PHP package managers <a href="http://getcomposer.org/" title="Composer">Composer</a>&nbsp;and&nbsp;<a href="http://pear.php.net/" title="PEAR">PEAR</a></p>
 
-                  <li class="leaf"><a href="/Quickstarts/Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+		  <h3>Direct Download and Source Code</h3>
 
-                  <li class="leaf"><a href="/Quickstarts/Track-SMS.html" title="Track SMS">Track SMS</a></li>
+		  <p>You can <a title="Download the Esendex PHP SDK" href="http://downloads.esendex.com.s3-website-eu-west-1.amazonaws.com/esendex-php-sdk/latest.sdk">download the current version</a> of the Esendex PHP SDK or <a href="https://github.com/esendex/esendex-php-sdk" title="Esendex PHP SDK Source Code">clone the Github repository</a>.</p>
 
-                  <li class="leaf last"><a href="/Quickstarts/Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
-                </ul>
-              </li>
+		  <p>We provide a PSR-0 autoloader that you can use for your convenience:</p>
 
-              <li class="expanded">
-                <a href="/APIs/EsendexAPI">APIs</a>
-
-                <ul class="menu">
-                  <li class="leaf first"><a href="/APIs/EsendexAPI">REST API</a></li>
-
-                  <li class="leaf"><a href="/APIs/SOAP-API" title="SOAP XML SMS API">SOAP API</a></li>
-
-                  <li class="leaf"><a href="/APIs/FormPost-API" title="HTTP SMS API">FormPost API</a></li>
-
-                  <li class="leaf"><a href="/APIs/API-Comparison" title="API Comparison">Which API should I use?</a></li>
-
-                  <li class="leaf last"><a href="/Documentation/Push-Notifications">Push Notifications</a></li>
-                </ul>
-              </li>
-
-              <li class="expanded active-trail">
-                <a href="/SDKs.html" title="SDKs">SDKs</a>
-
-                <ul class="menu">
-                  <li class="leaf first"><a href="DotNet-SDK.html" title=".Net Rest SDK">.NET SDK</a></li>
-
-                  <li class="leaf"><a href="Java-SDK.html">Java SDK</a></li>
-
-                  <li class="active leaf active-trail"><a href="PHP-SDK.html" title="PHP Rest SDK">PHP SDK</a></li>
-
-                  <li class="leaf"><a href="Ruby-SDK.html">Ruby SDK</a></li>
-
-                  <li class="leaf"><a href="Go-SDK.html">Go SDK</a></li>
-
-                  <li class="leaf"><a href="Node-SDK.html">Node.js SDK</a></li>
-
-                  <li class="divider leaf"><a href="/">divider</a></li>
-
-                  <li class="leaf"><a href="C-SMS-SDK.html">C++ SDK</a></li>
-
-                  <li class="leaf"><a href="ActiveX-SMS-SDK.1.html">Classic ASP SDK</a></li>
-
-                  <li class="leaf"><a href="Delphi-SMS-SDK.html">Delphi SDK</a></li>
-
-                  <li class="leaf"><a href="Perl-SMS-SDK.html">Perl SDK</a></li>
-
-                  <li class="leaf last"><a href="Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
-                </ul>
-              </li>
-
-              <li class="dynamic-active leaf last"><a href="/blog/index.html">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id='headerspacer'></div><!-- delete this and the sky will fall -->
-
-    <div id='three-cols-page'>
-      <div>
-        <div id='dev-content'>
-          <h1 class="title">Esendex PHP SMS SDK</h1>
-
-          <div class="node">
-            <div class="content">
-              <h2 class="intro-text"><a href="http://downloads.esendex.com.s3-website-eu-west-1.amazonaws.com/esendex-php-sdk/latest.sdk" title="Download the Esendex PHP SDK" onclick="trackLink(this, 'SDK Actions', 'SDK download', 'PHP SDK download'); return false;"><span class="glyphicon glyphicon-circle-arrow-down">&nbsp;</span>Download</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/esendex/esendex-php-sdk" title="Esendex PHP SDK Source Code" target="_blank" onclick="trackLink(this, 'SDK Actions', 'SDK view source', 'PHP SDK view source'); return false;"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Source</a></h2>
-
-              <p>Our PHP SDK is an easy to use client for our&nbsp;<a href="/APIs/EsendexAPI">REST API</a>&nbsp;that you can use to integrate SMS and Voice messaging into your PHP application. It contains a set of services which you can use to send SMS and Voice messages, receive SMS, track the status of your sent messages and more.</p>
-
-              <p>The Esendex PHP SDK and examples of usage are available on <a title="Esendex PHP SDK" href="https://github.com/esendex/esendex-php-sdk" target="_blank">its Github repository</a>.</p>
-
-              <h2>Requirements</h2>
-
-              <ul>
-                <li><a title="php.net" href="http://php.net/" target="_blank">PHP</a> &gt;= 5.3.0</li>
-
-                <li>ext-curl enabled</li>
-
-                <li>An internet connection</li>
-
-                <li>An Esendex Account (<a href="/create-an-account" target="_self">create your account</a>)</li>
-              </ul>
-
-              <h2>Installation</h2>
-
-              <p>The Esendex PHP SDK is available via <a href="http://downloads.esendex.com.s3-website-eu-west-1.amazonaws.com/esendex-php-sdk/latest.sdk" title="Esendex PHP SDK">direct download</a>, <a href="https://github.com/esendex/esendex-php-sdk" title="Esendex PHP SDK Source Code">source</a> and PHP package managers <a href="http://getcomposer.org/" title="Composer">Composer</a>&nbsp;and&nbsp;<a href="http://pear.php.net/" title="PEAR">PEAR</a></p>
-
-              <h3>Direct Download and Source Code</h3>
-
-              <p>You can <a title="Download the Esendex PHP SDK" href="http://downloads.esendex.com.s3-website-eu-west-1.amazonaws.com/esendex-php-sdk/latest.sdk">download the current version</a> of the Esendex PHP SDK or <a href="https://github.com/esendex/esendex-php-sdk" title="Esendex PHP SDK Source Code">clone the Github repository</a>.</p>
-
-              <p>We provide a PSR-0 autoloader that you can use for your convenience:</p>
-
-              <p><script src="https://gist.github.com/EsendexDev/5196861.js" type="text/javascript">
+		  <p><script src="https://gist.github.com/EsendexDev/5196861.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:0
-              // ]]>
-              ]]>
-              </script></p>
+		  // &lt;![CDATA[
+		  mce:0
+		  // ]]>
+		  ]]>
+		  </script></p>
 
-              <p>More information on Autoloading classes in PHP is available <a title="Autoloading Classes in PHP on PHP.net" href="http://php.net/manual/en/language.oop5.autoload.php">here</a></p>
+		  <p>More information on Autoloading classes in PHP is available <a title="Autoloading Classes in PHP on PHP.net" href="http://php.net/manual/en/language.oop5.autoload.php">here</a></p>
 
-              <h3>Composer</h3>
+		  <h3>Composer</h3>
 
-              <p>If you are using <a title="Composer" href="http://getcomposer.org/" target="_blank">Composer</a> in your PHP project for dependency management, you can add the following snippet to your composer.json</p>
+		  <p>If you are using <a title="Composer" href="http://getcomposer.org/" target="_blank">Composer</a> in your PHP project for dependency management, you can add the following snippet to your composer.json</p>
 
-              <p><script src="https://gist.github.com/EsendexDev/5196127.js" type="text/javascript">
+		  <p><script src="https://gist.github.com/EsendexDev/5196127.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:1
-              // ]]>
-              ]]>
-              </script></p>
+		  // &lt;![CDATA[
+		  mce:1
+		  // ]]>
+		  ]]>
+		  </script></p>
 
-              <p>The Esendex PHP SDK is published to <a title="Packagist" href="http://packagist.org/packages/esendex/sdk" target="_blank">Packagist</a> so adding <code>esendex/sdk</code> to your <code>composer.json</code> file will add the SDK as a dependency.</p>
+		  <p>The Esendex PHP SDK is published to <a title="Packagist" href="http://packagist.org/packages/esendex/sdk" target="_blank">Packagist</a> so adding <code>esendex/sdk</code> to your <code>composer.json</code> file will add the SDK as a dependency.</p>
 
-              <p>To use the Esendex PHP SDK you need to ensure that the <a title="Composer Autoloading" href="http://getcomposer.org/doc/00-intro.md#autoloading" target="_blank">Composer autoload</a> is added to your code.</p>
+		  <p>To use the Esendex PHP SDK you need to ensure that the <a title="Composer Autoloading" href="http://getcomposer.org/doc/00-intro.md#autoloading" target="_blank">Composer autoload</a> is added to your code.</p>
 
-              <p><script src="https://gist.github.com/EsendexDev/5196594.js" type="text/javascript">
+		  <p><script src="https://gist.github.com/EsendexDev/5196594.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:2
-              // ]]>
-              ]]>
-              </script></p>
+		  // &lt;![CDATA[
+		  mce:2
+		  // ]]>
+		  ]]>
+		  </script></p>
 
-              <p>More information on Autoloading classes in PHP is available <a title="Autoloading Classes in PHP on PHP.net" href="http://php.net/manual/en/language.oop5.autoload.php">here</a></p>
+		  <p>More information on Autoloading classes in PHP is available <a title="Autoloading Classes in PHP on PHP.net" href="http://php.net/manual/en/language.oop5.autoload.php">here</a></p>
 
-              <h3>PEAR</h3>
+		  <h3>PEAR</h3>
 
-              <p>You can use <a title="PEAR" href="http://pear.php.net/" target="_blank">PEAR</a> to install the Esendex PHP SDK using PEAR v1.9.3 or newer with the following commands:</p>
+		  <p>You can use <a title="PEAR" href="http://pear.php.net/" target="_blank">PEAR</a> to install the Esendex PHP SDK using PEAR v1.9.3 or newer with the following commands:</p>
 
-              <p><script src="https://gist.github.com/EsendexDev/5196810.js" type="text/javascript">
+		  <p><script src="https://gist.github.com/EsendexDev/5196810.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:3
-              // ]]>
-              ]]>
-              </script></p>
+		  // &lt;![CDATA[
+		  mce:3
+		  // ]]>
+		  ]]>
+		  </script></p>
 
-              <p>We provide a PSR-0 autoloader that you can use for your convenience:</p>
+		  <p>We provide a PSR-0 autoloader that you can use for your convenience:</p>
 
-              <p><script src="https://gist.github.com/EsendexDev/5196823.js" type="text/javascript">
+		  <p><script src="https://gist.github.com/EsendexDev/5196823.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:4
-              // ]]>
-              ]]>
-              </script></p>
+		  // &lt;![CDATA[
+		  mce:4
+		  // ]]>
+		  ]]>
+		  </script></p>
 
-              <p>More information on Autoloading classes in PHP is available <a title="Autoloading Classes in PHP on PHP.net" href="http://php.net/manual/en/language.oop5.autoload.php">here</a></p>
+		  <p>More information on Autoloading classes in PHP is available <a title="Autoloading Classes in PHP on PHP.net" href="http://php.net/manual/en/language.oop5.autoload.php">here</a></p>
 
-              <h2>Getting Started</h2>
+		  <h2>Getting Started</h2>
 
-              <h3>Sending messages</h3><script src="https://gist.github.com/EsendexDev/7334461.js" type="text/javascript">
+		  <h3>Sending messages</h3><script src="https://gist.github.com/EsendexDev/7334461.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:5
-              // ]]>
-              ]]>
-              </script>
+		  // &lt;![CDATA[
+		  mce:5
+		  // ]]>
+		  ]]>
+		  </script>
 
-              <h3>Getting inbox messages</h3><script src="https://gist.github.com/EsendexDev/7334603.js" type="text/javascript">
+		  <h3>Getting inbox messages</h3><script src="https://gist.github.com/EsendexDev/7334603.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:6
-              // ]]>
-              ]]>
-              </script>
+		  // &lt;![CDATA[
+		  mce:6
+		  // ]]>
+		  ]]>
+		  </script>
 
-              <h3>Track message status</h3><script src="https://gist.github.com/EsendexDev/7334967.js" type="text/javascript">
+		  <h3>Track message status</h3><script src="https://gist.github.com/EsendexDev/7334967.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:7
-              // ]]>
-              ]]>
-              </script>
+		  // &lt;![CDATA[
+		  mce:7
+		  // ]]>
+		  ]]>
+		  </script>
 
-              <h3>Getting full message bodies</h3><script src="https://gist.github.com/EsendexDev/7335015.js" type="text/javascript">
+		  <h3>Getting full message bodies</h3><script src="https://gist.github.com/EsendexDev/7335015.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:8
-              // ]]>
-              ]]>
-              </script>
+		  // &lt;![CDATA[
+		  mce:8
+		  // ]]>
+		  ]]>
+		  </script>
 
-              <h2>Testing</h2>
+		  <h2>Testing</h2>
 
-              <h3>Unit Tests</h3>
+		  <h3>Unit Tests</h3>
 
-              <p>A suite of tests can be found in the 'test' directory. To run them use the <a href="http://www.phing.info" target="_blank">phing</a> build utility. e.g.</p><script src="https://gist.github.com/EsendexDev/7335094.js" type="text/javascript">
+		  <p>A suite of tests can be found in the 'test' directory. To run them use the <a href="http://www.phing.info" target="_blank">phing</a> build utility. e.g.</p><script src="https://gist.github.com/EsendexDev/7335094.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:9
-              // ]]>
-              ]]>
-              </script>
+		  // &lt;![CDATA[
+		  mce:9
+		  // ]]>
+		  ]]>
+		  </script>
 
-              <h3>Credentials Test</h3>
+		  <h3>Credentials Test</h3>
 
-              <p>You can check your account credentials using a phing task we have provided.</p><script src="https://gist.github.com/EsendexDev/7335132.js" type="text/javascript">
+		  <p>You can check your account credentials using a phing task we have provided.</p><script src="https://gist.github.com/EsendexDev/7335132.js" type="text/javascript">
 <![CDATA[
-              // &lt;![CDATA[
-              mce:10
-              // ]]>
-              ]]>
-              </script>
-            </div>
-          </div>
-        </div>
+		  // &lt;![CDATA[
+		  mce:10
+		  // ]]>
+		  ]]>
+		  </script>
+		</div>
+	  </div>
+	</div>
 
-        <div id='right-col'>
-          <div class="block block-block" id="block-block-37">
-            <div class="content">
-              <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
-            </div>
-          </div>
+	<div id='right-col'>
+	  <div class="block block-block" id="block-block-37">
+		<div class="content">
+		  <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+		</div>
+	  </div>
 
-          <div class="block block-block" id="block-block-66">
-            <div class="content">
-              <div>
-                <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+	  <div class="block block-block" id="block-block-66">
+		<div class="content">
+		  <div>
+			<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
-        <div class='clear'></div>
-      </div>
-    </div>
-  </div><!-- close wrapper -->
-
-  <div id='footerbg'>
-    <div id='footer'>
-      <div id='visit'>
-        <a href='http://www.esendex.com/'>Visit our commercial site</a>
-      </div>
-
-      <ul id='footerlinks'>
-        <li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
-
-        <li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
-      </ul>
-
-      <div id='copyright'>
-        Esendex Limited 2016<br>
-        Registered company number: 04217280<br>
-        UK
-      </div>
-    </div>
-  </div><script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8">
-</script><script type="text/javascript">
-document.documentElement.className += " js"
-  /* <![CDATA[ */
-        $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
-  /* ]]> */
-  </script><!--mobile nav-->
-  <script type="text/javascript">
-//<![CDATA[
-        (function() {
-                var menu = document.getElementById("block-menu-primary-links");
-                var isOpen = menu.style.display=="block";
-
-                document.getElementById("mobile-menu-opener").addEventListener("click",function() {
-                        if(isOpen) {
-                                menu.style.display = "";
-                                isOpen = false;
-                        } else {
-                                menu.style.display = "block";
-                                isOpen = true;
-                        }
-                });
-        })();
-  //]]>
-  </script><!-- remarketing -->
-  <!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
-  <script type="text/javascript">
-/* <![CDATA[ */
-  var google_conversion_id = 1066303896;
-  var google_conversion_language = "en";
-  var google_conversion_format = "3";
-  var google_conversion_color = "666666";
-  var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
-  var google_conversion_value = 0;
-  /* ]]> */
-  </script><script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
-</script><noscript>
-  <div style="display:inline;" id="remarketing"><img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"></div></noscript>
-</body>
-</html>
+	<div class='clear'></div>
+  </div>
+</div>

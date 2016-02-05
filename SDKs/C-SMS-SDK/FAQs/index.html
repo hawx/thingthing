@@ -1,592 +1,336 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-
-<html lang="en" dir="ltr">
-<head>
-  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-
-  <title>FAQs C++ SOAP SDK | Esendex Developers</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <meta name="description" content="The Esendex SMS service - C++ SMS SDK - send SMS from you applications, manage your account online. Send and receive C++ SMS with services from Esendex.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="FAQs.html">
-  <link rel="shortcut icon" href="/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon">
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/codefilter/codefilter.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?n">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/dev-style.css">
-  <link href="/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!--[if IE 7]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if lte IE 6]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if IE 9]>
-                <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
-        <![endif]-->
-  <!-- javascript moved to the footer -->
-  <!-- Google Analytics Starts -->
-
-  <script type="text/javascript">
-//<![CDATA[
-
-
-  var _gaq = _gaq || [];
-
-  _gaq.push(['_setAccount', 'UA-30969528-1']);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-
-    var ga = document.createElement('script');
-
-    ga.type = 'text/javascript'; ga.async = true;
-
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-
-  })();
-
-
-  //]]>
-  </script>
-  <script type="text/javascript">
-//<![CDATA[
-  function trackOutboundLinks()
-  {
-        var a = document.getElementsByTagName('a');
+---
+title: FAQs C++ SOAP SDK | Esendex Developers
+canonical: /SDKs/C-SMS-SDK/FAQs
+description: >-
+  The Esendex SMS service - C++ SMS SDK - send SMS from you applications, 
+  manage your account online. Send and receive C++ SMS with services from Esendex.
+layout: default
+menu_highlight: SDKs
+---
 
-        for(i = 0; i < a.length; i++){
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
 
-                if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
-                        
-                        if(!a[i].onclick){ //check onclick event doesn't already exist
-                                a[i].onclick = function(){
-                                        _gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
-                                }
-                        }
-                }
-        }
-  }
+<div id='three-cols-page'>
+  <div>
+	<div id='dev-content'>
+	  <h1 class="title">FAQs</h1>
 
-  function trackLink(link, category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-     
-    setTimeout(function () {
-        document.location.href = link.href;
-    }, 100);
-  }
+	  <div class="node">
+		<div class="content">
+		  <h3>AccountService interface</h3>
 
-  function trackClick(category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-  }
+		  <p>Enables you to find out information about your Account.</p>
 
-  //]]>
-  </script><!-- Google Analytics Ends -->
+		  <p>Implemented by AccountService class</p>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
-</script>
-  <script src="/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8">
-</script>
-</head>
+		  <p><code>EsendexLib::AccountService spAccountService; spAccountService.CreateInstance(uuidof(EsendexLib::AccountService));</code></p>
 
-<body onload="trackOutboundLinks()">
-  <div id='wrapper'>
-    <div id='bootstrapnav' class="container">
-      <div class="row">
-        <a href="/" title='Home'><img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' name="nav-logo"></a>
+		  <h3>Initialise method</h3>
 
-        <div id='dev-title'>
-          Developers
-        </div><a href='https://www.esendex.com/home' id='nav-login' name="nav-login">Login</a>
+		  <p>Initialise the class with your Esendex credentials. You must call this method before you call any other on the interface.</p>
 
-        <div id='mobile-menu-opener'></div>
+		  <p><code>Initialise(_bstr_t Username, _bstr_t Password, _bstr_t Account, _variant_t IsServerSide);</code></p>
 
-        <div class="block block-menu" id="block-menu-primary-links">
-          <div class="content">
-            <ul class="menu">
-              <li class="leaf first"><a href="/">Home</a></li>
+		  <p>Parameters</p>
 
-              <li class="expanded">
-                <a href="/Quickstarts/Send-SMS.html">Quickstarts</a>
+		  <ul>
+			<li><strong>Username</strong> Your Esendex username.</li>
 
-                <ul class="menu">
-                  <li class="leaf first"><a href="/Quickstarts/Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+			<li><strong>Password</strong> Your Esendex password.</li>
 
-                  <li class="leaf"><a href="/Quickstarts/Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+			<li><strong>Account</strong> Your Esendex Account Reference.</li>
 
-                  <li class="leaf"><a href="/Quickstarts/Track-SMS.html" title="Track SMS">Track SMS</a></li>
+			<li><strong>IsServerSide (optional)</strong> True if the component is running within an ASP page; false or otherwise. The default is false.</li>
+		  </ul>
 
-                  <li class="leaf last"><a href="/Quickstarts/Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
-                </ul>
-              </li>
+		  <h3>GetMessageLimit function</h3>
 
-              <li class="expanded">
-                <a href="/APIs/EsendexAPI">APIs</a>
+		  <p>Returns the remaining Message Limit on your Account.</p>
 
-                <ul class="menu">
-                  <li class="leaf first"><a href="/APIs/EsendexAPI">REST API</a></li>
+		  <p><code>long GetMessageLimit();</code></p>
 
-                  <li class="leaf"><a href="/APIs/SOAP-API" title="SOAP XML SMS API">SOAP API</a></li>
+		  <p>Return Value: The number of Messages remaining on your Account.</p>
 
-                  <li class="leaf"><a href="/APIs/FormPost-API" title="HTTP SMS API">FormPost API</a></li>
+		  <h3>GetAccountFeatures function</h3>
 
-                  <li class="leaf"><a href="/APIs/API-Comparison" title="API Comparison">Which API should I use?</a></li>
+		  <p>Returns the features that are enabled on your Account.</p>
 
-                  <li class="leaf last"><a href="/Documentation/Push-Notifications.html">Push Notifications</a></li>
-                </ul>
-              </li>
+		  <p><code>long GetAccountFeatures();</code></p>
 
-              <li class="expanded active-trail">
-                <a href="/SDKs" title="SDKs">SDKs</a>
+		  <p>Return Value: The features enabled on your Account. This can be a combination of: ACCOUNT_FEATURE_NONE, ACCOUNT_FEATURE_SERVICE_ALIASING and ACCOUNT_FEATURE_INBOX</p>
 
-                <ul class="menu">
-                  <li class="leaf first"><a href="/SDKs/DotNet-SDK" title=".Net Rest SDK">.NET SDK</a></li>
+		  <h3>GetAccountState function</h3>
 
-                  <li class="leaf"><a href="/SDKs/Java-SDK">Java SDK</a></li>
+		  <p>Returns a state object that contains information about your Account.</p>
 
-                  <li class="leaf"><a href="/SDKs/PHP-SDK" title="PHP Rest SDK">PHP SDK</a></li>
+		  <p><code>IAccountStatePtr GetAccountState();</code></p>
 
-                  <li class="leaf"><a href="/SDKs/Ruby-SDK">Ruby SDK</a></li>
+		  <p>Return Value: An object that contains information about your Account, including the Id assigned by Esendex, the Account Reference, Address, Alias, Message Limit and features.</p>
 
-                  <li class="leaf"><a href="/SDKs/Go-SDK">Go SDK</a></li>
+		  <h3>ContactService interface</h3>
 
-                  <li class="leaf"><a href="/SDKs/Node-SDK">Node.js SDK</a></li>
+		  <p>Enables you to retrieve, add, edit and delete Contacts and Contact Groups.</p>
 
-                  <li class="divider leaf"><a href="/">divider</a></li>
+		  <p>Implemented by ContactService class</p>
 
-                  <li class="leaf"><a href="/SDKs/C-SMS-SDK">C++ SDK</a></li>
+		  <p><code>EsendexLib::ContactService spContactService;<br>
+		  spContactService.CreateInstance(uuidof(EsendexLib::ContactService));</code></p>
 
-                  <li class="leaf"><a href="/SDKs/ActiveX-SMS-SDK">Classic ASP SDK</a></li>
+		  <h3>Initialise method</h3>
 
-                  <li class="leaf"><a href="/SDKs/Delphi-SMS-SDK">Delphi SDK</a></li>
+		  <p>Initialise the class with your Esendex credentials. You must call this method before you call any other on the interface.</p>
 
-                  <li class="leaf"><a href="/SDKs/Perl-SMS-SDK">Perl SDK</a></li>
+		  <p><code>Initialise(_bstr_t Username, _bstr_t Password, _bstr_t Account, _variant_t IsServerSide);</code></p>
 
-                  <li class="leaf last"><a href="/SDKs/Visual-Basic-SOAP-SDK">Visual Basic 6 SDK</a></li>
-                </ul>
-              </li>
+		  <p>Parameters</p>
 
-              <li class="dynamic-active leaf last"><a href="/blog">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+		  <ul>
+			<li><strong>Username</strong> Your Esendex username.</li>
 
-    <div id='headerspacer'></div><!-- delete this and the sky will fall -->
+			<li><strong>Password</strong> Your Esendex password.</li>
 
-    <div id='three-cols-page'>
-      <div>
-        <div id='dev-content'>
-          <h1 class="title">FAQs</h1>
+			<li><strong>Account</strong> Your Esendex Account Reference.</li>
 
-          <div class="node">
-            <div class="content">
-              <h3>AccountService interface</h3>
+			<li><strong>IsServerSide (optional)</strong> True if the component is running within an ASP page; false or otherwise. The default is false.</li>
+		  </ul>
 
-              <p>Enables you to find out information about your Account.</p>
+		  <h3>GetContacts function</h3>
 
-              <p>Implemented by AccountService class</p>
+		  <p>Returns a list of Contacts associated with your Account.</p>
 
-              <p><code>EsendexLib::AccountService spAccountService; spAccountService.CreateInstance(uuidof(EsendexLib::AccountService));</code></p>
+		  <p><code>IObjectCollectionPtr GetContacts();</code></p>
 
-              <h3>Initialise method</h3>
+		  <p>Return Value: A collection containing the Contacts associated with your Account.</p>
 
-              <p>Initialise the class with your Esendex credentials. You must call this method before you call any other on the interface.</p>
+		  <h3>GetGroups function</h3>
 
-              <p><code>Initialise(_bstr_t Username, _bstr_t Password, _bstr_t Account, _variant_t IsServerSide);</code></p>
+		  <p>Returns a list of Contact Groups associated with your Account.</p>
 
-              <p>Parameters</p>
+		  <p><code>IObjectCollectionPtr GetGroups ();</code></p>
 
-              <ul>
-                <li><strong>Username</strong> Your Esendex username.</li>
+		  <p>Return Value: A collection containing the Contact Groups associated with your Account.</p>
 
-                <li><strong>Password</strong> Your Esendex password.</li>
+		  <h3>AddContact function</h3>
 
-                <li><strong>Account</strong> Your Esendex Account Reference.</li>
+		  <p>Adds a Contact to your Account.</p>
 
-                <li><strong>IsServerSide (optional)</strong> True if the component is running within an ASP page; false or otherwise. The default is false.</li>
-              </ul>
+		  <p><code>_bstr_t AddContact(IContactPtr Contact);</code></p>
 
-              <h3>GetMessageLimit function</h3>
+		  <p>Parameters</p>
 
-              <p>Returns the remaining Message Limit on your Account.</p>
+		  <ul>
+			<li><strong>Contact</strong> The Contact you want to add.</li>
+		  </ul>
 
-              <p><code>long GetMessageLimit();</code></p>
+		  <p>Return Value: The Id assigned to the Contact by Esendex.</p>
 
-              <p>Return Value: The number of Messages remaining on your Account.</p>
+		  <h3>AddContacts function</h3>
 
-              <h3>GetAccountFeatures function</h3>
+		  <p>Adds multiple Contacts to your Account.</p>
 
-              <p>Returns the features that are enabled on your Account.</p>
+		  <p><code>IStringCollection2Ptr AddContact(IObjectCollectionPtr Contacts);</code></p>
 
-              <p><code>long GetAccountFeatures();</code></p>
+		  <p>Parameters</p>
 
-              <p>Return Value: The features enabled on your Account. This can be a combination of: ACCOUNT_FEATURE_NONE, ACCOUNT_FEATURE_SERVICE_ALIASING and ACCOUNT_FEATURE_INBOX</p>
+		  <ul>
+			<li><strong>Contacts</strong> A collection containing the Contacts you want to add.</li>
+		  </ul>
 
-              <h3>GetAccountState function</h3>
+		  <p>Return Value: A collection containing the Ids assigned to the Contacts by Esendex.</p>
 
-              <p>Returns a state object that contains information about your Account.</p>
+		  <h3>AddGroup function</h3>
 
-              <p><code>IAccountStatePtr GetAccountState();</code></p>
+		  <p>Adds a Contact Group to your Account.</p>
 
-              <p>Return Value: An object that contains information about your Account, including the Id assigned by Esendex, the Account Reference, Address, Alias, Message Limit and features.</p>
+		  <p><code>_bstr_t AddGroup(IGroupPtr Group, _bstr_t MemberIDs);</code></p>
 
-              <h3>ContactService interface</h3>
+		  <p>Parameters</p>
 
-              <p>Enables you to retrieve, add, edit and delete Contacts and Contact Groups.</p>
+		  <ul>
+			<li><strong>Group</strong> The Contact Group you want to add.</li>
 
-              <p>Implemented by ContactService class</p>
+			<li><strong>MemberIDs</strong> A comma-separated list containing the Ids of the Contacts that should become members of the Contact Group.</li>
+		  </ul>
 
-              <p><code>EsendexLib::ContactService spContactService;<br>
-              spContactService.CreateInstance(uuidof(EsendexLib::ContactService));</code></p>
+		  <p>Return Value: The Id assigned to the Contact Group by Esendex.</p>
 
-              <h3>Initialise method</h3>
+		  <h3>DeleteContact method</h3>
 
-              <p>Initialise the class with your Esendex credentials. You must call this method before you call any other on the interface.</p>
+		  <p>Deletes a Contact from your Account.</p>
 
-              <p><code>Initialise(_bstr_t Username, _bstr_t Password, _bstr_t Account, _variant_t IsServerSide);</code></p>
+		  <p><code>void DeleteContact(_bstr_t ContactID);</code></p>
 
-              <p>Parameters</p>
+		  <p>Parameters</p>
 
-              <ul>
-                <li><strong>Username</strong> Your Esendex username.</li>
+		  <ul>
+			<li><strong>ContactID</strong> The Id of the Contact you want to delete.</li>
+		  </ul>
 
-                <li><strong>Password</strong> Your Esendex password.</li>
+		  <h3>DeleteContacts method</h3>
 
-                <li><strong>Account</strong> Your Esendex Account Reference.</li>
+		  <p>Deletes multiple Contacts from your Account.</p>
 
-                <li><strong>IsServerSide (optional)</strong> True if the component is running within an ASP page; false or otherwise. The default is false.</li>
-              </ul>
+		  <p><code>void DeleteContacts(_bstr_t ContactIDs);</code></p>
 
-              <h3>GetContacts function</h3>
+		  <p>Parameters</p>
 
-              <p>Returns a list of Contacts associated with your Account.</p>
+		  <ul>
+			<li><strong>ContactIDs</strong> A comma-separated list containing the Ids of the Contacts you want to delete.</li>
+		  </ul>
 
-              <p><code>IObjectCollectionPtr GetContacts();</code></p>
+		  <h3>DeleteGroup method</h3>
 
-              <p>Return Value: A collection containing the Contacts associated with your Account.</p>
+		  <p>Deletes a Contact Group from your Account.</p>
 
-              <h3>GetGroups function</h3>
+		  <p><code>void DeleteContact(_bstr_t GroupID, _variant_t IncludeMembers);</code> Parameters</p>
 
-              <p>Returns a list of Contact Groups associated with your Account.</p>
+		  <ul>
+			<li><strong>GrouptID</strong> The Id of the Contact Group you want to delete.</li>
 
-              <p><code>IObjectCollectionPtr GetGroups ();</code></p>
+			<li><strong>IncludeMembers (optional)</strong> True if you want to delete the Contact members as well as the Contact Group.</li>
+		  </ul>
 
-              <p>Return Value: A collection containing the Contact Groups associated with your Account.</p>
+		  <h3>UpdateContact method</h3>
 
-              <h3>AddContact function</h3>
+		  <p>Updates one of your Account&acirc;&euro;&trade;s Contacts.</p>
 
-              <p>Adds a Contact to your Account.</p>
+		  <p><code>void UpdateContact(IContactPtr Contact);</code></p>
 
-              <p><code>_bstr_t AddContact(IContactPtr Contact);</code></p>
+		  <p>Parameters</p>
 
-              <p>Parameters</p>
+		  <ul>
+			<li><strong>Contact</strong> The Contact you want to update.</li>
+		  </ul>
 
-              <ul>
-                <li><strong>Contact</strong> The Contact you want to add.</li>
-              </ul>
+		  <h3>UpdateGroup method</h3>
 
-              <p>Return Value: The Id assigned to the Contact by Esendex.</p>
+		  <p>Updates one of your Account&acirc;&euro;&trade;s Contact Groups.</p>
 
-              <h3>AddContacts function</h3>
+		  <p><code>void UpdateGroup(IGroupPtr Group, _bstr_t MemberIDs);</code></p>
 
-              <p>Adds multiple Contacts to your Account.</p>
+		  <p>Parameters</p>
 
-              <p><code>IStringCollection2Ptr AddContact(IObjectCollectionPtr Contacts);</code></p>
+		  <ul>
+			<li><strong>Group</strong> The Contact Group you want to update.</li>
 
-              <p>Parameters</p>
+			<li><strong>MemberIDs</strong> A comma-separated list containing the Ids of the Contacts that should become members of the Contact Group.</li>
+		  </ul>
 
-              <ul>
-                <li><strong>Contacts</strong> A collection containing the Contacts you want to add.</li>
-              </ul>
+		  <h3>GetContact function</h3>
 
-              <p>Return Value: A collection containing the Ids assigned to the Contacts by Esendex.</p>
+		  <p>Retrieves a Contact from your Account.</p>
 
-              <h3>AddGroup function</h3>
+		  <p><code>IContactPtr GetContact(_bstr_t ContactID);</code></p>
 
-              <p>Adds a Contact Group to your Account.</p>
+		  <p>Parameters</p>
 
-              <p><code>_bstr_t AddGroup(IGroupPtr Group, _bstr_t MemberIDs);</code></p>
+		  <ul>
+			<li><strong>ContactID</strong> The Id of Contact you want to retrieve.</li>
+		  </ul>
 
-              <p>Parameters</p>
+		  <p>Return Value: The Contact.</p>
 
-              <ul>
-                <li><strong>Group</strong> The Contact Group you want to add.</li>
+		  <h3>GetGroup function</h3>
 
-                <li><strong>MemberIDs</strong> A comma-separated list containing the Ids of the Contacts that should become members of the Contact Group.</li>
-              </ul>
+		  <p>Retrieves a Contact Group from your Account.</p>
 
-              <p>Return Value: The Id assigned to the Contact Group by Esendex.</p>
+		  <p><code>IGroupPtr GetGroup (_bstr_t GroupID);</code></p>
 
-              <h3>DeleteContact method</h3>
+		  <p>Parameters</p>
 
-              <p>Deletes a Contact from your Account.</p>
+		  <ul>
+			<li><strong>GroupID</strong> The Id of the Contact Group you want to retrieve.</li>
+		  </ul>
 
-              <p><code>void DeleteContact(_bstr_t ContactID);</code></p>
+		  <p>Return Value: The Contact Group.</p>
 
-              <p>Parameters</p>
+		  <h3>GetGroupMembers function</h3>
 
-              <ul>
-                <li><strong>ContactID</strong> The Id of the Contact you want to delete.</li>
-              </ul>
+		  <p>Retrieves the Contact members within a Contact Group.</p>
 
-              <h3>DeleteContacts method</h3>
+		  <p><code>IObjectCollectionPtr GetGroup (_bstr_t GroupID);</code></p>
 
-              <p>Deletes multiple Contacts from your Account.</p>
+		  <p>Parameters</p>
 
-              <p><code>void DeleteContacts(_bstr_t ContactIDs);</code></p>
+		  <ul>
+			<li><strong>GroupID</strong> The Id of the Contact Group whose members you want to retrieve.</li>
+		  </ul>
 
-              <p>Parameters</p>
+		  <p>Return Value: A collection containing the Contact Group&acirc;&euro;&trade;s members.</p>
 
-              <ul>
-                <li><strong>ContactIDs</strong> A comma-separated list containing the Ids of the Contacts you want to delete.</li>
-              </ul>
+		  <h3>GetContactByQuickName function</h3>
 
-              <h3>DeleteGroup method</h3>
+		  <p>Retrieves a Contact using it&acirc;&euro;&trade;s QuickName.</p>
 
-              <p>Deletes a Contact Group from your Account.</p>
+		  <p><code>IContactPtr GetContact(_bstr_t QuickName);</code></p>
 
-              <p><code>void DeleteContact(_bstr_t GroupID, _variant_t IncludeMembers);</code> Parameters</p>
+		  <p>Parameters</p>
 
-              <ul>
-                <li><strong>GrouptID</strong> The Id of the Contact Group you want to delete.</li>
+		  <ul>
+			<li><strong>QuickName</strong> The QuickName of the Contact you want to retrieve.</li>
+		  </ul>
 
-                <li><strong>IncludeMembers (optional)</strong> True if you want to delete the Contact members as well as the Contact Group.</li>
-              </ul>
+		  <p>Return Value: The Contact.</p>
 
-              <h3>UpdateContact method</h3>
+		  <h3>GetGroupByName function</h3>
 
-              <p>Updates one of your Account&acirc;&euro;&trade;s Contacts.</p>
+		  <p>Retrieves a Contact Group from your Account.</p>
 
-              <p><code>void UpdateContact(IContactPtr Contact);</code></p>
+		  <p><code>IGroupPtr GetGroup (_bstr_t GroupName);</code></p>
 
-              <p>Parameters</p>
+		  <p>Parameters</p>
 
-              <ul>
-                <li><strong>Contact</strong> The Contact you want to update.</li>
-              </ul>
+		  <ul>
+			<li><strong>GroupName</strong> The name of the Contact Group you want to retrieve.</li>
+		  </ul>
 
-              <h3>UpdateGroup method</h3>
+		  <p>Return Value: The Contact Group.</p>
 
-              <p>Updates one of your Account&acirc;&euro;&trade;s Contact Groups.</p>
+		  <h3>Messenger Sample</h3>
 
-              <p><code>void UpdateGroup(IGroupPtr Group, _bstr_t MemberIDs);</code></p>
+		  <p>The Messenger folder contains an MFC dialog application (EsendexMessenger.sln) that displays the contents of your Esendex Inbox. You can delete Messages from your Inbox and send an SMS Message.</p>
 
-              <p>Parameters</p>
+		  <p>Application flow is as follows:</p>
 
-              <ul>
-                <li><strong>Group</strong> The Contact Group you want to update.</li>
+		  <ul>
+			<li><strong>stdafx.h</strong> contains a line to import the Esendex type library.</li>
 
-                <li><strong>MemberIDs</strong> A comma-separated list containing the Ids of the Contacts that should become members of the Contact Group.</li>
-              </ul>
+			<li><strong>CEsendexMessengerApp::InitInstance()</strong> is called by MFC to initialise the application.</li>
 
-              <h3>GetContact function</h3>
+			<li>AfxOleInit() to the application&acirc;&euro;&trade;s InitInstance() method. This initialises the COM subsystem.</li>
 
-              <p>Retrieves a Contact from your Account.</p>
+			<li>A CLoginDialog is instantiated and displayed to enable the user to enter Account information. The details are stored in CInboxApp ready for calls to the Esendex service.</li>
 
-              <p><code>IContactPtr GetContact(_bstr_t ContactID);</code></p>
+			<li>A CLoginDialog is instantiated and displayed to show the contents of the user&acirc;&euro;&trade;s Inbox.</li>
 
-              <p>Parameters</p>
+			<li>MFC calls <strong>CInboxDlg::OnInitDialog</strong> to show the dialog box.</li>
 
-              <ul>
-                <li><strong>ContactID</strong> The Id of Contact you want to retrieve.</li>
-              </ul>
+			<li><strong>InitialiseInboxService()</strong> is called to create the Esendex Inbox component.</li>
 
-              <p>Return Value: The Contact.</p>
+			<li><strong>PopulateList()</strong> is called to add the contents of the user&acirc;&euro;&trade;s Inbox to the list view control. At this point, the Account information entered by the user is used in the GetMessages method call. If the Account information is incorrect, and error message is displayed. The user should then use the Account button to re-enter their information.</li>
 
-              <h3>GetGroup function</h3>
+			<li>The <strong>OnAccount(), OnSend(), OnSendFull(), OnDelete(), and OnRefresh()</strong> methods are called by MFC in response to the user clicking relevant buttons on the dialog box.</li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
 
-              <p>Retrieves a Contact Group from your Account.</p>
+	<div id='right-col'>
+	  <div class="block block-block" id="block-block-37">
+		<div class="content">
+		  <a href='../../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+		</div>
+	  </div>
 
-              <p><code>IGroupPtr GetGroup (_bstr_t GroupID);</code></p>
+	  <div class="block block-block" id="block-block-66">
+		<div class="content">
+		  <div>
+			<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
-              <p>Parameters</p>
-
-              <ul>
-                <li><strong>GroupID</strong> The Id of the Contact Group you want to retrieve.</li>
-              </ul>
-
-              <p>Return Value: The Contact Group.</p>
-
-              <h3>GetGroupMembers function</h3>
-
-              <p>Retrieves the Contact members within a Contact Group.</p>
-
-              <p><code>IObjectCollectionPtr GetGroup (_bstr_t GroupID);</code></p>
-
-              <p>Parameters</p>
-
-              <ul>
-                <li><strong>GroupID</strong> The Id of the Contact Group whose members you want to retrieve.</li>
-              </ul>
-
-              <p>Return Value: A collection containing the Contact Group&acirc;&euro;&trade;s members.</p>
-
-              <h3>GetContactByQuickName function</h3>
-
-              <p>Retrieves a Contact using it&acirc;&euro;&trade;s QuickName.</p>
-
-              <p><code>IContactPtr GetContact(_bstr_t QuickName);</code></p>
-
-              <p>Parameters</p>
-
-              <ul>
-                <li><strong>QuickName</strong> The QuickName of the Contact you want to retrieve.</li>
-              </ul>
-
-              <p>Return Value: The Contact.</p>
-
-              <h3>GetGroupByName function</h3>
-
-              <p>Retrieves a Contact Group from your Account.</p>
-
-              <p><code>IGroupPtr GetGroup (_bstr_t GroupName);</code></p>
-
-              <p>Parameters</p>
-
-              <ul>
-                <li><strong>GroupName</strong> The name of the Contact Group you want to retrieve.</li>
-              </ul>
-
-              <p>Return Value: The Contact Group.</p>
-
-              <h3>Messenger Sample</h3>
-
-              <p>The Messenger folder contains an MFC dialog application (EsendexMessenger.sln) that displays the contents of your Esendex Inbox. You can delete Messages from your Inbox and send an SMS Message.</p>
-
-              <p>Application flow is as follows:</p>
-
-              <ul>
-                <li><strong>stdafx.h</strong> contains a line to import the Esendex type library.</li>
-
-                <li><strong>CEsendexMessengerApp::InitInstance()</strong> is called by MFC to initialise the application.</li>
-
-                <li>AfxOleInit() to the application&acirc;&euro;&trade;s InitInstance() method. This initialises the COM subsystem.</li>
-
-                <li>A CLoginDialog is instantiated and displayed to enable the user to enter Account information. The details are stored in CInboxApp ready for calls to the Esendex service.</li>
-
-                <li>A CLoginDialog is instantiated and displayed to show the contents of the user&acirc;&euro;&trade;s Inbox.</li>
-
-                <li>MFC calls <strong>CInboxDlg::OnInitDialog</strong> to show the dialog box.</li>
-
-                <li><strong>InitialiseInboxService()</strong> is called to create the Esendex Inbox component.</li>
-
-                <li><strong>PopulateList()</strong> is called to add the contents of the user&acirc;&euro;&trade;s Inbox to the list view control. At this point, the Account information entered by the user is used in the GetMessages method call. If the Account information is incorrect, and error message is displayed. The user should then use the Account button to re-enter their information.</li>
-
-                <li>The <strong>OnAccount(), OnSend(), OnSendFull(), OnDelete(), and OnRefresh()</strong> methods are called by MFC in response to the user clicking relevant buttons on the dialog box.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id='right-col'>
-          <div class="block block-block" id="block-block-37">
-            <div class="content">
-              <a href='../../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
-            </div>
-          </div>
-
-          <div class="block block-block" id="block-block-66">
-            <div class="content">
-              <div>
-                <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class='clear'></div>
-      </div>
-    </div>
-  </div><!-- close wrapper -->
-
-  <div id='footerbg'>
-    <div id='footer'>
-      <div id='visit'>
-        <a href='http://www.esendex.com/'>Visit our commercial site</a>
-      </div>
-
-      <ul id='footerlinks'>
-        <li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
-
-        <li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
-      </ul>
-
-      <div id='copyright'>
-        Esendex Limited 2016<br>
-        Registered company number: 04217280<br>
-        UK
-      </div>
-    </div>
-  </div><script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8">
-</script><script type="text/javascript">
-document.documentElement.className += " js"
-  /* <![CDATA[ */
-        $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
-  /* ]]> */
-  </script><!--mobile nav-->
-  <script type="text/javascript">
-//<![CDATA[
-        (function() {
-                var menu = document.getElementById("block-menu-primary-links");
-                var isOpen = menu.style.display=="block";
-
-                document.getElementById("mobile-menu-opener").addEventListener("click",function() {
-                        if(isOpen) {
-                                menu.style.display = "";
-                                isOpen = false;
-                        } else {
-                                menu.style.display = "block";
-                                isOpen = true;
-                        }
-                });
-        })();
-  //]]>
-  </script><!-- remarketing -->
-  <!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
-  <script type="text/javascript">
-/* <![CDATA[ */
-  var google_conversion_id = 1066303896;
-  var google_conversion_language = "en";
-  var google_conversion_format = "3";
-  var google_conversion_color = "666666";
-  var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
-  var google_conversion_value = 0;
-  /* ]]> */
-  </script><script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
-</script><noscript>
-  <div style="display:inline;" id="remarketing"><img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"></div></noscript>
-</body>
-</html>
+	<div class='clear'></div>
+  </div>
+</div>

@@ -1,393 +1,137 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-
-<html lang="en" dir="ltr">
-<head>
-  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-
-  <title>Esendex Delphi SMS SDK | Esendex Developers</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <meta name="description" content="The Delphi SOAP SDK allows you to send and receive SMS via your applications. Download this Delphi SOAP SDK from the downloads page.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="Delphi-SMS-SDK.html">
-  <link rel="shortcut icon" href="/sites/all/themes/EsendexDevelopers/favicon.ico" type="image/x-icon">
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/codefilter/codefilter.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/aggregator/aggregator.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/node/node.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/defaults.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/system/system-menus.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/modules/user/user.css?n">
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/cck/theme/content-module.css?n">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/dev-style.css">
-  <link href="/sites/all/themes/EsendexDevelopers/css/tabify.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/bootstrap-glyphicons.css">
-  <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/google-code-prettify/prettify.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!--[if IE 7]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE7.css?v=1.0" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if lte IE 6]>
-                <link rel="stylesheet" href="/sites/all/themes/EsendexDevelopers/css/IE6.css?v=1" type="text/css" media="screen" />
-        <![endif]-->
-  <!--[if IE 9]>
-                <link rel="stylesheet" type="text/css" href="/sites/all/themes/EsendexDevelopers/css/IE9.css?v=0.1" />
-        <![endif]-->
-  <!-- javascript moved to the footer -->
-  <!-- Google Analytics Starts -->
-
-  <script type="text/javascript">
-//<![CDATA[
-
-
-  var _gaq = _gaq || [];
-
-  _gaq.push(['_setAccount', 'UA-30969528-1']);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-
-    var ga = document.createElement('script');
-
-    ga.type = 'text/javascript'; ga.async = true;
-
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-
-  })();
-
-
-  //]]>
-  </script>
-  <script type="text/javascript">
-//<![CDATA[
-  function trackOutboundLinks()
-  {
-        var a = document.getElementsByTagName('a');
+---
+title: Esendex Delphi SMS SDK | Esendex Developers
+canonical: /SDKs/Delphi-SMS-SDK
+description: >-
+  The Delphi SOAP SDK allows you to send and receive SMS via your applications. 
+  Download this Delphi SOAP SDK from the downloads page.
+layout: default
+menu_highlight: SDKs
+---
 
-        for(i = 0; i < a.length; i++){
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
 
-                if (a[i].href.indexOf(location.host) == -1 && a[i].href.match(/^http:\/\//i)){
-                        
-                        if(!a[i].onclick){ //check onclick event doesn't already exist
-                                a[i].onclick = function(){
-                                        _gaq.push(['_trackEvent', 'outgoing_links', this.href.replace(/^http:\/\//i, '')]);
-                                }
-                        }
-                }
-        }
-  }
+<div id='three-cols-page'>
+  <div>
+	<div id='dev-content'>
+	  <h1 class="title">Esendex Delphi SMS SDK</h1>
 
-  function trackLink(link, category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-     
-    setTimeout(function () {
-        document.location.href = link.href;
-    }, 100);
-  }
+	  <div class="node">
+		<div class="content">
+		  <p>The Esendex Delphi SMS SDK contains a COM component that you can use within your Borland Delphi applications. The component contains an object model that enables you to send text Messages, query the status of a Message, retrieve Messages from your Inbox, get information about your Account, and manage your Esendex Contacts.</p>
 
-  function trackClick(category, action, label) {
-    try { 
-        _gaq.push(['_trackEvent', category , action, label]); 
-    } catch(err) {}
-  }
+		  <h2>Esendex Delphi SMS SDK Download</h2>
 
-  //]]>
-  </script><!-- Google Analytics Ends -->
+		  <p>The SDK can be downloaded from our&nbsp;<a href="/Downloads/Delphi-SMS-SDK-Download.html">Downloads</a> section.</p>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js">
-</script>
-  <script src="/sites/all/themes/EsendexDevelopers/js/bootstrap-nav.js" type="text/javascript" charset="utf-8">
-</script>
-</head>
+		  <h5>Note: This component is not compatible with 64bit versions of Windows</h5>
 
-<body onload="trackOutboundLinks()">
-  <div id='wrapper'>
-    <div id='bootstrapnav' class="container">
-      <div class="row">
-        <a href="/" title='Home'><img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' name="nav-logo"></a>
+		  <p>&nbsp;</p>
 
-        <div id='dev-title'>
-          Developers
-        </div><a href='https://www.esendex.com/home' id='nav-login' name="nav-login">Login</a>
+		  <h2>Installing the component on your system</h2>
 
-        <div id='mobile-menu-opener'></div>
+		  <p>As with all COM components, you must register the ActiveX component with the system.</p>
 
-        <div class="block block-menu" id="block-menu-primary-links">
-          <div class="content">
-            <ul class="menu">
-              <li class="leaf first"><a href="/">Home</a></li>
+		  <ol>
+			<li>Download the Delphi SDK from our&nbsp;<a href="/Downloads/Delphi-SMS-SDK-Download.html">Downloads</a> section&nbsp;and unzip it to a location of your choice.</li>
 
-              <li class="expanded">
-                <a href="/Quickstarts/Send-SMS.html">Quickstarts</a>
+			<li>From the <strong>Start</strong> menu, click <strong>Run</strong>.</li>
 
-                <ul class="menu">
-                  <li class="leaf first"><a href="/Quickstarts/Send-SMS.html" title="Send a SMS">Send SMS</a></li>
+			<li>In the <strong>Open</strong> box, type the following:<br>
 
-                  <li class="leaf"><a href="/Quickstarts/Receive-Messages.html" title="Receive Messages">Receive SMS</a></li>
+			  <p class="code">REGSVR32 &lt;UnzipLocation&gt;EsendexSdk2.DLL</p>
 
-                  <li class="leaf"><a href="/Quickstarts/Track-SMS.html" title="Track SMS">Track SMS</a></li>
+			  <p>Where &lt;UnzipLocation&gt; is the path where you unzipped the Esendex SDK.</p>
+			</li>
+		  </ol>
 
-                  <li class="leaf last"><a href="/Quickstarts/Send-Survey.html" title="Send Survey with our API">Send Survey</a></li>
-                </ul>
-              </li>
+		  <p>You will see a message that the component has been successfully registered.</p>
 
-              <li class="expanded">
-                <a href="/APIs/EsendexAPI">APIs</a>
+		  <h2>Using the component in your code</h2>
 
-                <ul class="menu">
-                  <li class="leaf first"><a href="/APIs/EsendexAPI">REST API</a></li>
+		  <p>Before you can use the component you will need to add the component to your project. Please select your version of Delphi for instructions on adding the component to your project.</p>
 
-                  <li class="leaf"><a href="/APIs/SOAP-API" title="SOAP XML SMS API">SOAP API</a></li>
+		  <ul>
+			<li><a title="Delphi 2005" href="/SDKs/Delphi-SMS-SDK/#delphi2005">Delphi 2005</a></li>
 
-                  <li class="leaf"><a href="/APIs/FormPost-API" title="HTTP SMS API">FormPost API</a></li>
+			<li><a title="Pre-Delphi 2005" href="/SDKs/Delphi-SMS-SDK/#preDelphi2005">Pre-Delphi 2005</a></li>
+		  </ul>
 
-                  <li class="leaf"><a href="/APIs/API-Comparison" title="API Comparison">Which API should I use?</a></li>
-
-                  <li class="leaf last"><a href="/Documentation/Push-Notifications">Push Notifications</a></li>
-                </ul>
-              </li>
-
-              <li class="expanded active-trail">
-                <a href="/SDKs.html" title="SDKs">SDKs</a>
-
-                <ul class="menu">
-                  <li class="leaf first"><a href="DotNet-SDK.html" title=".Net Rest SDK">.NET SDK</a></li>
-
-                  <li class="leaf"><a href="Java-SDK.html">Java SDK</a></li>
-
-                  <li class="leaf"><a href="PHP-SDK.html" title="PHP Rest SDK">PHP SDK</a></li>
-
-                  <li class="leaf"><a href="Ruby-SDK.html">Ruby SDK</a></li>
-
-                  <li class="leaf"><a href="Go-SDK.html">Go SDK</a></li>
-
-                  <li class="leaf"><a href="Node-SDK.html">Node.js SDK</a></li>
-
-                  <li class="divider leaf"><a href="/">divider</a></li>
-
-                  <li class="leaf"><a href="C-SMS-SDK.html">C++ SDK</a></li>
-
-                  <li class="leaf"><a href="ActiveX-SMS-SDK.1.html">Classic ASP SDK</a></li>
-
-                  <li class="active leaf active-trail"><a href="Delphi-SMS-SDK.html">Delphi SDK</a></li>
-
-                  <li class="leaf"><a href="Perl-SMS-SDK.html">Perl SDK</a></li>
-
-                  <li class="leaf last"><a href="Visual-Basic-SOAP-SDK.html">Visual Basic 6 SDK</a></li>
-                </ul>
-              </li>
-
-              <li class="dynamic-active leaf last"><a href="/blog/index.html">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id='headerspacer'></div><!-- delete this and the sky will fall -->
-
-    <div id='three-cols-page'>
-      <div>
-        <div id='dev-content'>
-          <h1 class="title">Esendex Delphi SMS SDK</h1>
-
-          <div class="node">
-            <div class="content">
-              <p>The Esendex Delphi SMS SDK contains a COM component that you can use within your Borland Delphi applications. The component contains an object model that enables you to send text Messages, query the status of a Message, retrieve Messages from your Inbox, get information about your Account, and manage your Esendex Contacts.</p>
-
-              <h2>Esendex Delphi SMS SDK Download</h2>
-
-              <p>The SDK can be downloaded from our&nbsp;<a href="../Downloads/Delphi-SMS-SDK-Download.html">Downloads</a> section.</p>
-
-              <h5>Note: This component is not compatible with 64bit versions of Windows</h5>
-
-              <p>&nbsp;</p>
-
-              <h2>Installing the component on your system</h2>
-
-              <p>As with all COM components, you must register the ActiveX component with the system.</p>
-
-              <ol>
-                <li>Download the Delphi SDK from our&nbsp;<a href="../Downloads/Delphi-SMS-SDK-Download.html">Downloads</a> section&nbsp;and unzip it to a location of your choice.</li>
-
-                <li>From the <strong>Start</strong> menu, click <strong>Run</strong>.</li>
-
-                <li>In the <strong>Open</strong> box, type the following:<br>
-
-                  <p class="code">REGSVR32 &lt;UnzipLocation&gt;EsendexSdk2.DLL</p>
-
-                  <p>Where &lt;UnzipLocation&gt; is the path where you unzipped the Esendex SDK.</p>
-                </li>
-              </ol>
-
-              <p>You will see a message that the component has been successfully registered.</p>
-
-              <h2>Using the component in your code</h2>
-
-              <p>Before you can use the component you will need to add the component to your project. Please select your version of Delphi for instructions on adding the component to your project.</p>
-
-              <ul>
-                <li><a title="Delphi 2005" href="Delphi-SMS-SDK.html#delphi2005">Delphi 2005</a></li>
-
-                <li><a title="Pre-Delphi 2005" href="Delphi-SMS-SDK.html#preDelphi2005">Pre-Delphi 2005</a></li>
-              </ul>
-
-              <p>You can then send a Message as follows:</p>
-              <pre class="prettyprint">
+		  <p>You can then send a Message as follows:</p>
+		  <pre class="prettyprint">
 uses
-  SysUtils, ActiveX, EsendexLib_TLB;
+SysUtils, ActiveX, EsendexLib_TLB;
 var
-  SendService: ISendService2;
+SendService: ISendService2;
 begin
-  CoInitialize(nil);
-  SendService:= CoSendService2.Create;
-  SendService.Initialise('EsendexUserName', 'EsendexPassword', 'EsendexAccount', '0');
-  SendService.SendMessage('441234567890', 'Hello', MESSAGE_TYPE_TEXT);
-  CoUninitialize;
+CoInitialize(nil);
+SendService:= CoSendService2.Create;
+SendService.Initialise('EsendexUserName', 'EsendexPassword', 'EsendexAccount', '0');
+SendService.SendMessage('441234567890', 'Hello', MESSAGE_TYPE_TEXT);
+CoUninitialize;
 end.
 </pre>
 
-              <h3>Object model</h3>
+		  <h3>Object model</h3>
 
-              <p>Documentation shipped with the downloadable SDK contains a full description of the component object model</p>
+		  <p>Documentation shipped with the downloadable SDK contains a full description of the component object model</p>
 
-              <p>The Delphi SDK can be downloaded from our <a href="../Downloads/Delphi-SMS-SDK-Download.html">Downloads</a> section.</p>
+		  <p>The Delphi SDK can be downloaded from our <a href="/Downloads/Delphi-SMS-SDK-Download">Downloads</a> section.</p>
 
-              <p><a name="delphi2005" id="delphi2005"></a></p>
+		  <p><a name="delphi2005" id="delphi2005"></a></p>
 
-              <h3><a name="delphi2005" id="delphi2005">Delphi 2005</a></h3>
+		  <h3><a name="delphi2005" id="delphi2005">Delphi 2005</a></h3>
 
-              <p>To use the component in Delphi 2005, do the following:</p>
+		  <p>To use the component in Delphi 2005, do the following:</p>
 
-              <div style="MARGIN-LEFT: 15px">
-                <ol>
-                  <li>From the <strong>Component</strong> menu, choose <strong>Import Component</strong></li>
+		  <div style="MARGIN-LEFT: 15px">
+			<ol>
+			  <li>From the <strong>Component</strong> menu, choose <strong>Import Component</strong></li>
 
-                  <li>Choose <strong>Import Type Library</strong>, click <strong>Next</strong></li>
+			  <li>Choose <strong>Import Type Library</strong>, click <strong>Next</strong></li>
 
-                  <li>Select <strong>Esendex SDK 2.0 Type Library</strong>, click <strong>Next</strong></li>
+			  <li>Select <strong>Esendex SDK 2.0 Type Library</strong>, click <strong>Next</strong></li>
 
-                  <li>In the <strong>Unit dir Name</strong> text box, enter a path to save the generated unit in, click <strong>Next</strong></li>
+			  <li>In the <strong>Unit dir Name</strong> text box, enter a path to save the generated unit in, click <strong>Next</strong></li>
 
-                  <li>Select <strong>Add Unit to Project</strong>, and click <strong>Finish</strong>.</li>
-                </ol>
-              </div>
+			  <li>Select <strong>Add Unit to Project</strong>, and click <strong>Finish</strong>.</li>
+			</ol>
+		  </div>
 
-              <p><a name="preDelphi2005" id="preDelphi2005"></a></p>
+		  <p><a name="preDelphi2005" id="preDelphi2005"></a></p>
 
-              <h3><a name="preDelphi2005" id="preDelphi2005">Delphi Pre-2005</a></h3>
+		  <h3><a name="preDelphi2005" id="preDelphi2005">Delphi Pre-2005</a></h3>
 
-              <p>To use the component in Delphi versions before Delphi 2005, do the following:</p>
+		  <p>To use the component in Delphi versions before Delphi 2005, do the following:</p>
 
-              <div style="MARGIN-LEFT: 15px">
-                <ol>
-                  <li>From the Project menu, choose <strong>Import Type Library</strong>.</li>
+		  <div style="MARGIN-LEFT: 15px">
+			<ol>
+			  <li>From the Project menu, choose <strong>Import Type Library</strong>.</li>
 
-                  <li>In the list of type libraries, select <strong>Esendex SDK 2.0 Type Library</strong>.</li>
+			  <li>In the list of type libraries, select <strong>Esendex SDK 2.0 Type Library</strong>.</li>
 
-                  <li>Click <strong>Create Unit</strong>.</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
+			  <li>Click <strong>Create Unit</strong>.</li>
+			</ol>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
-        <div id='right-col'>
-          <div class="block block-block" id="block-block-37">
-            <div class="content">
-              <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
-            </div>
-          </div>
+	<div id='right-col'>
+	  <div class="block block-block" id="block-block-37">
+		<div class="content">
+		  <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+		</div>
+	  </div>
 
-          <div class="block block-block" id="block-block-66">
-            <div class="content">
-              <div>
-                <p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+	  <div class="block block-block" id="block-block-66">
+		<div class="content">
+		  <div>
+			<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
-        <div class='clear'></div>
-      </div>
-    </div>
-  </div><!-- close wrapper -->
-
-  <div id='footerbg'>
-    <div id='footer'>
-      <div id='visit'>
-        <a href='http://www.esendex.com/'>Visit our commercial site</a>
-      </div>
-
-      <ul id='footerlinks'>
-        <li class='first'><a href='http://www.esendex.co.uk/reference/terms-and-conditions'>Terms and conditions</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/terms-of-use'>Terms of use</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/security'>Security</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/privacy'>Privacy</a></li>
-
-        <li><a href='http://www.esendex.co.uk/reference/data-protection'>Data protection</a></li>
-
-        <li class='last'><a href='http://www.esendex.co.uk/sla'>Service level agreement</a></li>
-      </ul>
-
-      <div id='copyright'>
-        Esendex Limited 2016<br>
-        Registered company number: 04217280<br>
-        UK
-      </div>
-    </div>
-  </div><script src="/sites/all/themes/EsendexDevelopers/js/bootstrap.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/google-code-prettify/prettify.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/placeholders.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/jquery.cookie.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/codesamples.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/intlTelInput.js" type="text/javascript" charset="utf-8">
-</script><script src="/sites/all/themes/EsendexDevelopers/js/customIntlTel.js" type="text/javascript" charset="utf-8">
-</script><script type="text/javascript">
-document.documentElement.className += " js"
-  /* <![CDATA[ */
-        $(document).ready(function () {$('.carousel').carousel(); prettyPrint();  Placeholders.init(); });
-  /* ]]> */
-  </script><!--mobile nav-->
-  <script type="text/javascript">
-//<![CDATA[
-        (function() {
-                var menu = document.getElementById("block-menu-primary-links");
-                var isOpen = menu.style.display=="block";
-
-                document.getElementById("mobile-menu-opener").addEventListener("click",function() {
-                        if(isOpen) {
-                                menu.style.display = "";
-                                isOpen = false;
-                        } else {
-                                menu.style.display = "block";
-                                isOpen = true;
-                        }
-                });
-        })();
-  //]]>
-  </script><!-- remarketing -->
-  <!-- Google Code for Viewed All Pages in the last 30 days Remarketing List -->
-  <script type="text/javascript">
-/* <![CDATA[ */
-  var google_conversion_id = 1066303896;
-  var google_conversion_language = "en";
-  var google_conversion_format = "3";
-  var google_conversion_color = "666666";
-  var google_conversion_label = "82Y1CKTKzAEQmIO6_AM";
-  var google_conversion_value = 0;
-  /* ]]> */
-  </script><script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
-</script><noscript>
-  <div style="display:inline;" id="remarketing"><img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066303896/?label=82Y1CKTKzAEQmIO6_AM&amp;guid=ON&amp;script=0"></div></noscript>
-</body>
-</html>
+	<div class='clear'></div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+---
+title: Esendex ASP SMS SDK | Esendex Developers
+canonical: /SDKs/ASP-SOAP-SDK
+description: >-
+  The Esendex ASP SMS SDK allows you to send and receive SMS messages, and to 
+  manage your account and contacts. Access the Esendex services via your own applications!
+layout: default
+menu_highlight: SDKs
+---
+
+<div id='headerspacer'></div><!-- delete this and the sky will fall -->
+
+<div id='three-cols-page'>
+  <div>
+	<div id='dev-content'>
+	  <h1 class="title">Esendex ASP SMS SDK</h1>
+
+	  <div class="node">
+		<div class="content">
+		  <p><strong>NOTE: If you're using ASP.Net, we strong recommend using the <a title="Esendex .Net SMS SDK" href="/SDKs/DotNet-SDK">Esendex .Net SMS SDK</a> instead.</strong></p>
+
+		  <p>The ASP SOAP SDK uses the Esendex ActiveX Component to allow customers to access the Esendex services via their own applications.</p>
+
+		  <p>Functionality provided by the SDK includes sending SMS, receiving SMS, receiving events, Account management and Contact management.</p>
+
+		  <h5>Note: This component is not compatible with 64bit versions of Windows</h5>
+
+		  <p>&nbsp;</p>
+
+		  <h3>ASP SOAP SDK Download</h3>
+
+		  <p>The latest version of the SDK can be downloaded from <a href="/Downloads/ASP-SMS-SDK-Download.html">here</a>.</p>
+
+		  <h2>Setup</h2>
+
+		  <p>Once you've downloaded the ASP SOAP SDK, setup a virtual directory to run the sample files from and register the EsendexSDK2.dll COM+ component.</p>
+
+		  <h3>Set up a virtual directory</h3>
+
+		  <p>Open IIS Manager and create a virtual directory for the ASP sample files that are included in the SDK. Unzip the SDK to a directory, <strong>c:\Esendex\</strong> for example, and copy the contents of the samples folder to your new virtual directory.</p>
+
+		  <h3>Register the EsendexSDK2.dll COM+ component</h3>
+
+		  <p>Before you can use the sample pages that you've just installed in your virtual directory you must register the Esendex SDK dll. To do this open a command prompt and type <code>REGSVR32 c:\esendex\EsendexSDK2.dll</code> or use the path where you unzipped the sdk to.</p>
+
+		  <p>Once you've got this far you should be able to browse to your virtual directory from a web browser and start using the sample pages. Go to the SendSMS.asp example page and enter your username, password and Account Reference (usually starting EX00....).</p>
+
+		  <p>Next, enter the mobile number and the body of the text message then click Send. You should get the Message delivered to the mobile phone and you should also see a Message Id displayed at the top of the page. If all this happens then you've setup the ASP SOAP SDK ready for use.</p>
+
+		  <h3>Take it further</h3>
+
+		  <p>Discover all the features we made available for you:</p>
+
+		  <ul>
+			<li><a target="_self" href="/ASP-SMS-SDK/Send-SMS" title="Send SMS ">Send SMS</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/Send-Long-Text-Message" title="Send Long SMS">Send Long SMS</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/Send-Multiple-Messages" title="Send Multiple Messages">Send Multiple Messages</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/Receive-Text-Message" title="Receive SMS">Receive SMS</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/Account-Event-Handler" title="Account Event Handler">Account Event Handler</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/Get-Message-Status" title="Get Message Status">Get Message Status</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/The-Pull-Method" title="The Pull Method">The Pull Method</a></li>
+
+			<li><a target="_self" href="/ASP-SMS-SDK/Premium-Functionality" title="Premium Functionality">Premium Functionality</a></li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+
+	<div id='right-col'>
+	  <div class="block block-block" id="block-block-37">
+		<div class="content">
+		  <a href='../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+		</div>
+	  </div>
+
+	  <div class="block block-block" id="block-block-66">
+		<div class="content">
+		  <div>
+			<p><a class="needahand" href="http://www.esendex.co.uk/Action/Contact-Us">Need a hand?</a></p>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<div class='clear'></div>
+  </div>
+</div>

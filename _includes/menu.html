@@ -1,93 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<div id='bootstrapnav' class="container">
+  <div class="row">
+    <a href='/' title='Home'>
+	  <img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' name="nav-logo">
+	  <div id='dev-title'>Developers</div>
+	</a>
 
-<html>
-<head>
-  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+	<a href='https://www.esendex.com/home' id='nav-login' name="nav-login">Login</a>
 
-  <title></title>
-</head>
+    <div id='mobile-menu-opener'></div>
 
-<body>
-  <div id='bootstrapnav' class="container">
-    <div class="row">
-      <a href='/' title='Home'><img id='nav-logo' src='/sites/all/themes/EsendexDevelopers/images/esendex-logo.jpg' width='122px' height='39px' name="nav-logo"></a>
+    <div class="block block-menu" id="block-menu-primary-links">
+      <div class="content">
+        <ul class="nav nav-pills">
+          <li class="leaf first dropdown {% if page.menu_highlight == 'Home' %} active active-trail {% endif %}"><a href="/">Home</a></li>
 
-      <div id='dev-title'>
-        Developers
-      </div><a href='https://www.esendex.com/home' id='nav-login' name="nav-login">Login</a>
+          <li class="open dropdown {% if page.menu_highlight == 'Quickstarts' %} active active-trail {% endif %}">
+            <a href="/Quickstarts/Send-SMS">Quickstarts</a>
 
-      <div id='mobile-menu-opener'></div>
+            <ul class="menu dropdown-menu">
+              <li class="leaf first"><a href="/Quickstarts/Send-SMS" title="Send a SMS">Send SMS</a></li>
 
-      <div class="block block-menu" id="block-menu-primary-links">
-        <div class="content">
-          <ul class="menu">
-            <li class="leaf first {% if page.menu_highlight == 'Home' %} active active-trail {% endif %}"><a href="/">Home</a></li>
+              <li class="leaf"><a href="/Quickstarts/Receive-Messages" title="Receive Messages">Receive SMS</a></li>
 
-            <li class="expanded {% if page.menu_highlight == 'Quickstarts' %} active active-trail {% endif %}">
-              <a href="/Quickstarts/Send-SMS">Quickstarts</a>
+              <li class="leaf"><a href="/Quickstarts/Track-SMS" title="Track SMS">Track SMS</a></li>
 
-              <ul class="menu">
-                <li class="leaf first"><a href="/Quickstarts/Send-SMS" title="Send a SMS">Send SMS</a></li>
+              <li class="leaf last"><a href="/Quickstarts/Send-Survey" title="Send Survey with our API">Send Survey</a></li>
+            </ul>
+          </li>
 
-                <li class="leaf"><a href="/Quickstarts/Receive-Messages" title="Receive Messages">Receive SMS</a></li>
+          <li class="open dropdown {% if page.menu_highlight == 'APIs' %} active active-trail {% endif %}">
+            <a href="/APIs/EsendexAPI/index.html">APIs</a>
 
-                <li class="leaf"><a href="/Quickstarts/Track-SMS" title="Track SMS">Track SMS</a></li>
+            <ul class="menu dropdown-menu">
+              <li class="leaf first"><a href="/APIs/REST-API">REST API</a></li>
 
-                <li class="leaf last"><a href="/Quickstarts/Send-Survey" title="Send Survey with our API">Send Survey</a></li>
-              </ul>
-            </li>
+              <li class="leaf"><a href="/APIs/SOAP-API" title="SOAP XML SMS API">SOAP API</a></li>
 
-            <li class="expanded {% if page.menu_highlight == 'APIs' %} active active-trail {% endif %}">
-              <a href="/APIs/EsendexAPI/index.html">APIs</a>
+              <li class="leaf"><a href="/APIs/FormPost-API" title="HTTP SMS API">FormPost API</a></li>
 
-              <ul class="menu">
-                <li class="leaf first"><a href="/APIs/REST-API">REST API</a></li>
+              <li class="leaf"><a href="/APIs/API-Comparison" title="API Comparison">Which API should I use?</a></li>
 
-                <li class="leaf"><a href="/APIs/SOAP-API" title="SOAP XML SMS API">SOAP API</a></li>
+              <li class="leaf last"><a href="/Documentation/Push-Notifications">Push Notifications</a></li>
+            </ul>
+          </li>
 
-                <li class="leaf"><a href="/APIs/FormPost-API" title="HTTP SMS API">FormPost API</a></li>
+          <li class="open dropdown {% if page.menu_highlight == 'SDKs' %} active active-trail {% endif %}">
+            <a href="/SDKs" title="SDKs">SDKs</a>
 
-                <li class="leaf"><a href="/APIs/API-Comparison" title="API Comparison">Which API should I use?</a></li>
+            <ul class="menu dropdown-menu">
+              <li class="leaf first"><a href="/SDKs/DotNet-SDK" title=".Net Rest SDK">.NET SDK</a></li>
 
-                <li class="leaf last"><a href="/Documentation/Push-Notifications">Push Notifications</a></li>
-              </ul>
-            </li>
+              <li class="leaf"><a href="/SDKs/Java-SDK">Java SDK</a></li>
 
-            <li class="expanded {% if page.menu_highlight == 'SDKs' %} active active-trail {% endif %}">
-              <a href="/SDKs" title="SDKs">SDKs</a>
+              <li class="leaf"><a href="/SDKs/PHP-SDK" title="PHP Rest SDK">PHP SDK</a></li>
 
-              <ul class="menu">
-                <li class="leaf first"><a href="/SDKs/DotNet-SDK" title=".Net Rest SDK">.NET SDK</a></li>
+              <li class="leaf"><a href="/SDKs/Ruby-SDK">Ruby SDK</a></li>
 
-                <li class="leaf"><a href="/SDKs/Java-SDK">Java SDK</a></li>
+              <li class="leaf"><a href="/SDKs/Go-SDK">Go SDK</a></li>
 
-                <li class="leaf"><a href="/SDKs/PHP-SDK" title="PHP Rest SDK">PHP SDK</a></li>
+              <li class="leaf"><a href="/SDKs/Node-SDK">Node.js SDK</a></li>
 
-                <li class="leaf"><a href="/SDKs/Ruby-SDK">Ruby SDK</a></li>
+              <li class="divider leaf"><a href="/">divider</a></li>
 
-                <li class="leaf"><a href="/SDKs/Go-SDK">Go SDK</a></li>
+              <li class="leaf"><a href="/SDKs/C-SMS-SDK">C++ SDK</a></li>
 
-                <li class="leaf"><a href="/SDKs/Node-SDK">Node.js SDK</a></li>
+              <li class="leaf"><a href="/SDKs/ActiveX-SMS-SDK">Classic ASP SDK</a></li>
 
-                <li class="divider leaf"><a href="/">divider</a></li>
+              <li class="leaf"><a href="/SDKs/Delphi-SMS-SDK">Delphi SDK</a></li>
 
-                <li class="leaf"><a href="/SDKs/C-SMS-SDK">C++ SDK</a></li>
+              <li class="leaf"><a href="/SDKs/Perl-SMS-SDK">Perl SDK</a></li>
 
-                <li class="leaf"><a href="/SDKs/ActiveX-SMS-SDK">Classic ASP SDK</a></li>
+              <li class="leaf last"><a href="/SDKs/Visual-Basic-SOAP-SDK">Visual Basic 6 SDK</a></li>
+            </ul>
+          </li>
 
-                <li class="leaf"><a href="/SDKs/Delphi-SMS-SDK">Delphi SDK</a></li>
-
-                <li class="leaf"><a href="/SDKs/Perl-SMS-SDK">Perl SDK</a></li>
-
-                <li class="leaf last"><a href="/SDKs/Visual-Basic-SOAP-SDK">Visual Basic 6 SDK</a></li>
-              </ul>
-            </li>
-
-            <li class="dynamic-active leaf last {% if page.menu_highlight == 'Blog' %} active active-trail {% endif %}"><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
+          <li class="dynamic-active leaf last {% if page.menu_highlight == 'Blog' %} active active-trail {% endif %}"><a href="/blog">Blog</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</body>
-</html>
+</div>
