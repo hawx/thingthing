@@ -18,7 +18,7 @@ menu_highlight: SDKs
 
 	  <div class="node">
 		<div class="content">
-		  <p>Once you've sent your Message and retrieved the Message Id, see&nbsp;<a href="Send-SMS.html">Send Text Message</a>&nbsp;for details on how to do this, you may want to know what state your Message is currently in. To find this out we again use the Send Service object. The following script sends a Message and then checks the status of it, the example page is included in the SDK called GetMessageStatus.asp.</p>
+		  <p>Once you've sent your Message and retrieved the Message Id, see&nbsp;<a href="/SDKs/ASP-SMS-SDK/Send-SMS">Send Text Message</a>&nbsp;for details on how to do this, you may want to know what state your Message is currently in. To find this out we again use the Send Service object. The following script sends a Message and then checks the status of it, the example page is included in the SDK called GetMessageStatus.asp.</p>
 		  <pre class="prettyprint lang-vb">
 function processForm()<br>'Turn off error handling and implement it manually<br>on error resume next<br><br>'Create the service object<br>dim sendService<br>set sendService = Server.CreateObject("Esendex.SendService.2")<br><br>'Error Handling<br>if err.number &lt;&gt; 0 then<br>processForm = "Unable to create Esendex.SendService.2 object. Ensure COM object is registered. Error description: " + err.Description<br>exit function<br>end if<br><br>'Setup the send service object<br>sendService.Initialise Request.Form("Username"), Request.Form("Password"), Request.Form("Account")<br><br>'Send a message and retrieve the message ID<br>dim messageID<br>dim messageStatus<br>dim errorCode<br><br>'messageID = sendService.SendMessage(Request.Form("recipient"), Request.Form("body"), 1)<br>messageID = "86892ba2-66ef-4909-a3be-935b4982e09e"<br>if err.number &lt;&gt; 0 then<br>'Get the error code!!<br>errorCode = err.number And &amp;HFFFF&amp;<br><br>'Create the message to display<br>processForm = "Unable to send message: " + err.Description + ". Error Code: " + CStr(errorCode)<br>exit function<br>else<br>'Check the status of the message<br>messageStatus = sendService.GetMessageStatus(messageID)<br><br>if err.number &lt;&gt; 0 then<br>'Get the error code!!<br>errorCode = err.number And &amp;HFFFF&amp;<br><br>'Create the message to display<br>processForm = "Unable to get the message status: " + err.Description + ". Error Code: " + CStr(errorCode)<br>exit function<br>else<br>processForm = "Message Status: " + CStr(messageStatus)<br>end if<br>end if<br>end function<br>
 </pre>
@@ -44,7 +44,7 @@ messageStatus = sendService.GetMessageStatus(messageID)
 	<div id='right-col'>
 	  <div class="block block-block" id="block-block-37">
 		<div class="content">
-		  <a href='../../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+		  <a href='/create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
 		</div>
 	  </div>
 

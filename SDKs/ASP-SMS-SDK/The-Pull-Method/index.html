@@ -27,7 +27,7 @@ function processForm()<br>on error resume next<br><br>'Setup the service object<
 'Setup the send service object<br>inboxService.Initialise Request.Form("Username"), Request.Form("Password"), Request.Form("Account")<br>
 </pre>
 
-		  <p>Now you can use the methods available on the Inbox Service class to receive Messages. When you receive a Message you get back a Message object as detailed here <a title="Recieve Text Message" href="Receive-Text-Message.html">Recieve SMS</a>. Simply declare a Message array object and assign it to the return value of the <strong>GetMessages</strong> method.</p>
+		  <p>Now you can use the methods available on the Inbox Service class to receive Messages. When you receive a Message you get back a Message object as detailed here <a title="Recieve Text Message" href="/SDKs/ASP-SMS-SDK/Receive-Text-Message">Recieve SMS</a>. Simply declare a Message array object and assign it to the return value of the <strong>GetMessages</strong> method.</p>
 		  <pre class="prettyprint lang-vb">
 dim messageArray<br>set messageArray = inboxService.GetMessages( )<br>
 </pre>
@@ -50,7 +50,7 @@ processForm = Cstr(messageArray.Count) + " messages were returned." + vbcrlf<br>
 	<div id='right-col'>
 	  <div class="block block-block" id="block-block-37">
 		<div class="content">
-		  <a href='../../create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
+		  <a href='/create-an-account.html' id='CreateAccountButton' title='Create an account' name="CreateAccountButton">Create an account</a>
 		</div>
 	  </div>
 

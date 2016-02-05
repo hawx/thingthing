@@ -13,7 +13,7 @@ menu_highlight: APIs
 
     <h2><a name="message-batches" id="message-batches"></a>Retrieve Message Batches</h2>
 
-    <p>This operation will return a <a href="paging.html">paged response</a> of all Messages Batches for all Accounts that the user has permissions to view.</p>
+    <p>This operation will return a <a href="/APIs/REST-API/paging">paged response</a> of all Messages Batches for all Accounts that the user has permissions to view.</p>
 
     <dl class="dl-horizontal">
       <dt>URL</dt>
@@ -82,7 +82,7 @@ pre>
 
     <h2><a name="message-batches-one-account" id="message-batches-one-account"></a>Retrieve Message Batches for one account</h2>
 
-    <p>This operation will return a <a href="paging.html">paged response</a> of all Messages Batches for one Account that the user has permission to view.</p>
+    <p>This operation will return a <a href="/APIs/REST-API/paging">paged response</a> of all Messages Batches for one Account that the user has permission to view.</p>
 
     <dl class="dl-horizontal">
       <dt>URL</dt>
@@ -249,7 +249,7 @@ pre>
 
     <h2><a name="message-batch-name" id="message-batch-name"></a>Naming a Message Batch</h2>
 
-    <p>You can name a Message Batch with an identifier of your choosing by sending a PUT request to an individual Message Batch with a string of up to 255 characters. This operation supports <a href="messagebatches.html#message-batches-concurrency-checking-etag">ETag concurrency checking</a>. If an update is successful, the Response Header will contain the new concurrency Id as the ETag value.</p>
+    <p>You can name a Message Batch with an identifier of your choosing by sending a PUT request to an individual Message Batch with a string of up to 255 characters. This operation supports <a href="/APIs/REST-API/messagebatches#message-batches-concurrency-checking-etag">ETag concurrency checking</a>. If an update is successful, the Response Header will contain the new concurrency Id as the ETag value.</p>
 
     <dl class="dl-horizontal">
       <dt>URL</dt>
@@ -442,7 +442,7 @@ pre>
         <tr class="odd">
           <td><code>&lt;link&nbsp;rel="cancel"&gt;</code></td>
 
-          <td>If present, this indicates that this is a scheduled Message Batch and it can be cancelled. See <a href="messagebatches.html#scheduled-batch-cancel">cancelling scheduled Batch</a> for more information.</td>
+          <td>If present, this indicates that this is a scheduled Message Batch and it can be cancelled. See <a href="/APIs/REST-API/messagebatches#scheduled-batch-cancel">cancelling scheduled Batch</a> for more information.</td>
         </tr>
       </tbody>
     </table>
