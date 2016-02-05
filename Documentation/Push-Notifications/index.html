@@ -20,7 +20,7 @@ menu_highlight: APIs
 
           <h3>Step 1: Host a Push Notifications Handler on your web server</h3>
 
-          <p>Our Push Notifications are delivered across the Internet as HTTP POST requests so you'll need to host your Push Notifications Handler code on a publicly accessible web server. This could be your own server or one provided by a hosting company. Our <a href="/Quickstarts/Receive-SMS-via-Push.html">Quickstart page</a> provides example code for setting up a Push Notification Handler.</p>
+          <p>Our Push Notifications are delivered across the Internet as HTTP POST requests so you'll need to host your Push Notifications Handler code on a publicly accessible web server. This could be your own server or one provided by a hosting company. Our <a href="/Quickstarts/Receive-SMS-via-Push">Quickstart page</a> provides example code for setting up a Push Notification Handler.</p>
 
           <p>In order to receive Notifications you will need to write a Handler to process the XML that is sent by Esendex and respond with an HTTP Status Code of 200. If an HTTP Status Code of 200 is not received (e.g. if your Handler is unavailable for any reason) then a Notification will be retried again for the next 72 hours. All Inbound Messages are delivered to the Account Inbox regardless of whether the Push Notification has been successfully handled by your Push Notifications Handler.</p>
 
